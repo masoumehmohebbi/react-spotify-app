@@ -12,7 +12,11 @@ export const Home = () => {
         <div>
           <Header />
         </div>
-        <div className="bg-slate-50">content...</div>
+        <div className="px-5 py-3 mb-11">
+          <h1 className="text-2xl font-bold text-secondary-0">
+            فهر‌ست‌های پخش اسپاتیفای
+          </h1>
+        </div>
         <div>
           <Footer />
         </div>
