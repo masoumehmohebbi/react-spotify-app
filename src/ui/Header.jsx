@@ -12,8 +12,8 @@ const Header = () => {
         </button>
       </div>
       <div className="flex gap-x-6">
-        <button className="text-secondary-100">ثبت نام</button>
-        <button className="rounded-[500px] border-none bg-white py-2 px-6  font-bold text-primary-900">
+        <button className="hover:scale-110 text-secondary-100">ثبت نام</button>
+        <button className="hover:scale-110 rounded-[500px] border-none bg-white py-2 px-6  font-bold text-primary-900">
           ورود به سیستم
         </button>
       </div>
