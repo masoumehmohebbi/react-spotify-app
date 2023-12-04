@@ -12,7 +12,7 @@ export const Home = () => {
         <div>
           <Header />
         </div>
-        <div>content</div>
+        <div className="bg-slate-50">content...</div>
         <div>
           <Footer />
         </div>
