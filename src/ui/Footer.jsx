@@ -6,7 +6,7 @@ import {
 export const Footer = () => {
   return (
     <footer className="px-9">
-      <div className="grid grid-cols-8 text-primary-100 my-3">
+      <div className="grid grid-cols-8 text-primary-100">
         <div className="col-span-5">
           <div className="grid grid-cols-3">
             <ul className="space-y-2">
@@ -61,7 +61,7 @@ export const Footer = () => {
         </div>
       </div>
       <hr className="border-primary-700 bg-opacity-10 border-spacing-y-11 my-11" />
-      <p className="font-normal text-secondary-100">© 2023 Spotify AB</p>
+      <p className="font-normal text-secondary-100 mb-11">© 2023 Spotify AB</p>
     </footer>
   );
 };
