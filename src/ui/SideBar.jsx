@@ -118,7 +118,7 @@ export const SideBar = () => {
               </Link>
             </li>
             <ul className="flex flex-col gap-8 overflow-y-scroll p-2 h-[130px] text-secondary-50">
-              <li className="bg-primary-700 rounded px-4 py-6 flex flex-col gap-6">
+              <li className="bg-primary-600 rounded px-4 py-6 flex flex-col gap-6">
                 <h3 className="text-md font-bold">
                   فهرست پخش مورد علاقه خود را بسازید
                 </h3>
@@ -127,7 +127,7 @@ export const SideBar = () => {
                   ایجاد فهرست پخش
                 </button>
               </li>
-              <li className="bg-primary-700 rounded px-4 py-6 flex flex-col gap-6">
+              <li className="bg-primary-600 rounded px-4 py-6 flex flex-col gap-6">
                 <h3 className="text-md font-bold">
                   بیایید چند پادکست برای پخش پیدا کنیم
                 </h3>
