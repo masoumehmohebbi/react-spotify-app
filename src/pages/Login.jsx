@@ -91,11 +91,10 @@ export const Login = () => {
                                  outline-none focus:outline-white focus:outline-2 focus:border-none "
                                     type="text" placeholder="Email or Username" name="emailOurUsername" />
                             </div>
-                            <div className="flex flex-col items-end gap-2 w-full">
+                            <div className="flex flex-col items-end gap-4 w-full">
                                 <label className="font-bold" htmlFor="pass">Password</label>
-                                <div className="bg-primary-800 rounded border border-gray-400 px-2  w-full flex items-center justify-between
-                                 outline-none focus:outline-white focus:outline-2 focus:border-none">
-                                    <div className="cursor-pointer text-xl" onClick={isShowPasswordHandler}>
+                                <div className="relative  group bg-primary-800  w-full flex items-center justify-between">
+                                    <div className="cursor-pointer text-xl z-10 mr-2" onClick={isShowPasswordHandler}>
                                         {
                                             isShowPassword ? (< IoMdEye />) : (< IoMdEyeOff />)
                                         }
@@ -103,11 +102,13 @@ export const Login = () => {
                                     <input
                                         value={userPass}
                                         onChange={(e) => setUserPassInStateHandler(e)}
-                                        className="bg-transparent border-none outline-none text-end  px-4 py-2"
+                                        className="bg-transparent rounded border border-gray-400
+                                        focus:outline-white focus:outline-2 focus:border-none 
+                                        text-end absolute w-full  px-4 py-2"
                                         type={`${isShowPassword ? "text" : "password"}`} placeholder="Password" name="pass" />
                                 </div>
                             </div>
-                            <div className="flex justify-end w-full">
+                            <div className="flex justify-end w-full mt-4">
                                 <label for="Toggle1" className="inline-flex items-center gap-2  cursor-pointer ">
                                     <span className="text-sm">Remember me</span>
                                     <span className="relative">
