@@ -6,7 +6,7 @@
   :root {
     --color-primary-900: 0, 0, 0;
     --color-primary-800: 18, 18, 18; /* #121212 */
-    --color-primary-700: 164, 182, 255;
+    --color-primary-700: 42, 42, 42; /* #2A2A2A */
     --color-primary-600: 128, 153, 255;
     --color-primary-500: 146, 167, 255;
     --color-primary-400: 164, 182, 255;
@@ -41,8 +41,6 @@ body {
   background-color: rgb(var(--color-primary-900));
 }
 
-
-
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
@@ -56,8 +54,13 @@ body {
 /* Handle */
 ::-webkit-scrollbar-thumb {
   border-radius: 20px;
-  background: rgb(97,97,97);
-background: linear-gradient(25deg, rgba(97,97,97,1) 0%, rgb(97, 97, 97) 35%, rgba(25,25,25,1) 100%);
+  background: rgb(97, 97, 97);
+  background: linear-gradient(
+    25deg,
+    rgba(97, 97, 97, 1) 0%,
+    rgb(97, 97, 97) 35%,
+    rgba(25, 25, 25, 1) 100%
+  );
 }
 
 /* Handle on hover */
