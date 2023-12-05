@@ -2,7 +2,7 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
 
 const Header = () => {
   return (
-    <div className="bg-primary-900 bg-opacity-50 p-5 flex justify-between text-primary-100">
+    <div className="bg-primary-900 z-10 sticky top-0 right-0 left-0 w-full bg-opacity-50 p-5 flex justify-between text-primary-100">
       <div className="flex gap-x-2">
         <button className="bg-primary-900 bg-opacity-70 h-8 w-8 rounded-full border-none flex justify-center items-center">
           <HiOutlineChevronRight className="text-2xl text-secondary-50" />
