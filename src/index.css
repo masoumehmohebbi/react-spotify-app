@@ -8,7 +8,7 @@
     --color-primary-800: 18, 18, 18; /* #121212 */
     --color-primary-700: 40, 40, 40; /* #282828 */
     --color-primary-600: 42, 42, 42; /* #2A2A2A */
-    --color-primary-500: 146, 167, 255;
+    --color-primary-500: 24, 24, 24; /* #181818 */
     --color-primary-400: 164, 182, 255;
     --color-primary-300: 183, 197, 255;
     --color-primary-200: 201, 211, 255;
@@ -28,7 +28,7 @@
     --color-success: 0, 192, 115;
     --color-warning: 255, 153, 0;
     --color-error: 255, 71, 87;
-    --color-red-500: 239, 68, 68;
+    --color-green-500: 30, 215, 96; /* #1ED760 */
     --color-red-300: 252, 165, 165;
   }
 }

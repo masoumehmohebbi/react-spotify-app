@@ -37,7 +37,9 @@ export default {
           50: withOpacity("--color-secondary-50"),
           0: withOpacity("--color-secondary-0"),
         },
+        success: withOpacity("--color-green-500"),
       },
+
       container: {
         center: true,
         padding: "2rem",
