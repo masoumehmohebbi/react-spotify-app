@@ -1,4 +1,5 @@
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -13,9 +14,9 @@ const Header = () => {
       </div>
       <div className="flex gap-x-6">
         <button className="hover:scale-110 text-secondary-100">ثبت نام</button>
-        <button className="hover:scale-110 rounded-[500px] border-none bg-white py-2 px-6  font-bold text-primary-900">
+        <Link to={"/login"} className="hover:scale-110 rounded-[500px] border-none bg-white py-2 px-6  font-bold text-primary-900">
           ورود به سیستم
-        </button>
+        </Link>
       </div>
     </div>
   );
