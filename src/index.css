@@ -40,3 +40,27 @@ body {
   user-select: none;
   background-color: rgb(var(--color-primary-900));
 }
+
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background: rgb(97,97,97);
+background: linear-gradient(25deg, rgba(97,97,97,1) 0%, rgb(97, 97, 97) 35%, rgba(25,25,25,1) 100%);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #5555557f;
+}
