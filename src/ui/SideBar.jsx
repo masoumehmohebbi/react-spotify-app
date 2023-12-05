@@ -61,12 +61,12 @@ export const SideBar = () => {
 
   return (
     <>
-      <aside className="bg-primary-900 h-screen p-2 pl-0 select-none">
+      <aside className="h-screen p-2 pl-0 select-none sticky right-0 top-0">
         <div className="flex flex-col gap-2">
           <ul className="bg-primary-800 flex flex-col gap-6 p-5  rounded">
             <li className="text-secondary-50">
               <Link className="flex items-center gap-1" to={"/"}>
-                <h1 className="italic font-bold">Spotify</h1>
+                <h1 className="italic font-bold text-secondary-0">Spotify</h1>
                 <FaSpotify className="text-2xl" />
               </Link>
             </li>
@@ -117,7 +117,7 @@ export const SideBar = () => {
                 </div>
               </Link>
             </li>
-            <ul className="flex flex-col gap-8 overflow-y-scroll p-2 h-[130px] text-secondary-50">
+            <ul className="flex flex-col gap-8 overflow-y-scroll p-2 h-[174px] text-secondary-50">
               <li className="bg-primary-600 rounded px-4 py-6 flex flex-col gap-6">
                 <h3 className="text-md font-bold">
                   فهرست پخش مورد علاقه خود را بسازید
