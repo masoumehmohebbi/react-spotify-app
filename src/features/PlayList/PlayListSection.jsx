@@ -1,6 +1,6 @@
-import PlayListData from "./PlayListData";
+import { PlayListData } from "./PlayListData";
 
-const PlayListSection = () => {
+export const PlayListSection = () => {
   return (
     <div className="px-5 py-3 mb-11">
       <div className="flex w-full justify-between">
@@ -17,5 +17,3 @@ const PlayListSection = () => {
     </div>
   );
 };
-
-export default PlayListSection;
