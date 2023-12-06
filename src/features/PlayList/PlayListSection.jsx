@@ -1,4 +1,5 @@
 import PlayListItem from "./PlayListItem";
+
 const PlayListSection = () => {
   <div className="px-5 py-3 mb-11">
     <div className="flex w-full justify-between">
