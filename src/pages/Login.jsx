@@ -8,7 +8,7 @@ export const Login = () => {
   const [isShowPassword, setIsShowPassword] = useState(false);
   const [userEmail, setUserEmail] = useState("");
   const [userPass, setUserPass] = useState("");
-  const [err, setErrr] = useState(false);
+  const [error, setError] = useState(false);
 
   const isShowPasswordHandler = () => {
     setIsShowPassword(!isShowPassword);
@@ -23,10 +23,10 @@ export const Login = () => {
   const validate = (event) => {
     event.preventDefault();
     if (!validEmail.test(userEmail)) {
-      setErrr(true);
+      setError(true);
     }
     if (!validPassword.test(userPass)) {
-      setErrr(true);
+      setError(true);
     }
   };
 
@@ -36,10 +36,10 @@ export const Login = () => {
         <h1 className="text-5xl font-bold tracking-wide">
           ورود به سیستم اسپاتیفای
         </h1>
-        {err && (
+        {error && (
           <div className="bg-red-600 w-full flex items-center justify-end gap-4 px-4 py-2 rounded">
             <p className="text-md">
-              {err && <p>Your email our Password is invalid</p>}
+              {error && <p>Your email our Password is invalid</p>}
             </p>
             <CgDanger className="text-2xl" />
           </div>
