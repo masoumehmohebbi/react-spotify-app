@@ -4,7 +4,7 @@ import { CgDanger } from "react-icons/cg";
 import { useState } from "react";
 import { validEmail, validPassword } from "../features/auth/Regex";
 
-export const Login = () => {
+export default function LogIn() {
   const [isShowPassword, setIsShowPassword] = useState(false);
   const [userEmail, setUserEmail] = useState("");
   const [userPass, setUserPass] = useState("");
@@ -137,4 +137,4 @@ export const Login = () => {
       </div>
     </div>
   );
-};
+}
