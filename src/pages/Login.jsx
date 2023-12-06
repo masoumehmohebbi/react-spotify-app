@@ -111,7 +111,7 @@ export const Login = () => {
                 htmlFor="Toggle1"
                 className="inline-flex items-center gap-2  cursor-pointer "
               >
-                <span className="text-sm">Remember me</span>
+                <span className="text-sm">مرا به خاطر داشته باش</span>
                 <span className="relative">
                   <input id="Toggle1" type="checkbox" className="hidden peer" />
                   <div className="w-8 h-4 rounded-full shadow-inner dark:bg-gray-400 peer-checked:dark:bg-green-400  hover:outline hover:outline-gray-500 hover:outline-offset-2"></div>
@@ -123,20 +123,20 @@ export const Login = () => {
               onClick={validate}
               className="bg-green-500 rounded-full w-full text-center text-black py-2 font-bold mt-4 hover:scale-105 transition"
             >
-              Log In
+              ورود به سیستم
             </button>
             <span className="text-center mt-4 underline hover:text-green-600">
-              ?Forgot your password
+              گذرواژه‌تان را فراموش کرده‌اید؟
             </span>
           </form>
           <div className="w-full h-[1px] bg-primary-800 rounded"></div>
           <button className="text-gray-400">
-            Dont have an account?
+            حساب ندارید؟
             <Link
               to={"/signup"}
               className="underline text-white hover:text-green-600 ml-2"
             >
-              Sign up for Spotify
+              برای اسپاتیفای ثبت‌نام کنید
             </Link>
           </button>
         </div>
