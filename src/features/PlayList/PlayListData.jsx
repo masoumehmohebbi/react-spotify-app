@@ -16,7 +16,7 @@ const playlistData = [
     desc: "chill beats, lofi vibes, new tracks every week...",
   },
 ];
-const PlayListItem = () => {
+const PlayListData = () => {
   return (
     <>
       {playlistData.map((item) => (
@@ -38,4 +38,4 @@ const PlayListItem = () => {
   );
 };
 
-export default PlayListItem;
+export default PlayListData;
