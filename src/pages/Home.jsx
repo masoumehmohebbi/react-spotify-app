@@ -1,7 +1,6 @@
 import { Footer } from "../ui/Footer";
 import Header from "../ui/Header";
 import { SideBar } from "../ui/SideBar";
-import PlayList from "./PlayList";
 
 export const Home = () => {
   return (
@@ -11,7 +10,6 @@ export const Home = () => {
       </div>
       <div className="col-span-6 flex flex-col bg-primary-800 rounded-lg">
         <Header />
-        <PlayList />
         <Footer />
       </div>
     </div>
