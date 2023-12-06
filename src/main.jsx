@@ -6,25 +6,6 @@ import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
-    {/* <Routes>
-      <Route
-        path="/login"
-        element={
-          <Login>
-            <LoginForm />
-          </Login>
-        }
-      ></Route>
-      <Route
-        path="/register"
-        element={
-          <Login>
-            <Register />
-          </Login>
-        }
-      ></Route>
-    </Routes> */}
-
     <React.StrictMode>
       <App />
     </React.StrictMode>
