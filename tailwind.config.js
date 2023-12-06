@@ -9,7 +9,7 @@ function withOpacity(variableName) {
 }
 
 export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx}"],
+  content: ["./index.html", "./src/**/*.{js,jsx}"],
   theme: {
     extend: {
       colors: {
