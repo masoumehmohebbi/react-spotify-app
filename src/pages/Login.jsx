@@ -32,7 +32,7 @@ export const Login = () => {
 
   return (
     <div className="w-full md:max-w-3xl mx-auto flex items-center justify-center mt-8">
-      <div className="bg-primary-900 text-white py-20 px-24 rounded-xl w-full flex items-center justify-center flex-col gap-12">
+      <div className="bg-primary-900 text-secondary-0 py-20 px-24 rounded-xl w-full flex items-center justify-center flex-col gap-12">
         <h1 className="text-5xl font-bold tracking-wide">
           ورود به سیستم اسپاتیفای
         </h1>
