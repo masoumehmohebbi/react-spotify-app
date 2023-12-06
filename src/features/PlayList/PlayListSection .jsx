@@ -1,5 +1,4 @@
 import PlayListItem from "./PlayListItem";
-
 const PlayListSection = () => {
   return (
     <div className="px-5 py-3 mb-11">

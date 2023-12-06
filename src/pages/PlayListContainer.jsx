@@ -1,7 +1,7 @@
-import PlayListItem from "../features/playList/PlayListItem";
+import PlayListSection from "../features/playList/PlayListSection";
 
 function PlayListContainer() {
-  return <PlayListItem />;
+  return <PlayListSection />;
 }
 
 export default PlayListContainer;
