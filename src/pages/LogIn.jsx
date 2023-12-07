@@ -3,8 +3,10 @@ import { IoMdEyeOff, IoMdEye } from "react-icons/io";
 import { CgDanger } from "react-icons/cg";
 import { useState } from "react";
 import { validEmail, validPassword } from "../features/auth/Regex";
+import { useTranslation } from "react-i18next";
 
 export default function LogIn() {
+  const { t } = useTranslation();
   const [isShowPassword, setIsShowPassword] = useState(false);
   const [userEmail, setUserEmail] = useState("");
   const [userPass, setUserPass] = useState("");
@@ -34,28 +36,34 @@ export default function LogIn() {
     <div className="w-full md:max-w-3xl mx-auto flex items-center justify-center mt-8">
       <div className="bg-primary-900 text-secondary-0 py-20 px-24 rounded-xl w-full flex items-center justify-center flex-col gap-12">
         <h1 className="text-5xl font-bold tracking-wide">
-          ورود به سیستم اسپاتیفای
+          {t("login_to_spotify")}
         </h1>
         {error && (
           <div className="bg-red-600 w-full flex items-center justify-end gap-4 px-4 py-2 rounded">
             <p className="text-md">
-              {error && <p>Your email our Password is invalid</p>}
+              {error && <p>{t("invalid_pass_email")}</p>}
             </p>
             <CgDanger className="text-2xl" />
           </div>
         )}
         <div className="flex flex-col gap-4">
           <button className="flex items-center gap-12 rounded-full border px-8 py-2 border-gray-600 hover:border-white">
-            <span className="w-[80%] text-[18px]">ادامه با گوگل</span>
+            <span className="w-[80%] text-[18px]">
+              {t("continue_with_google")}
+            </span>
             <img src="/google.svg" alt="googleLogo" className="w-[27px]" />
           </button>
           <button className="flex items-center gap-12 rounded-full border px-8 py-2 border-gray-600 hover:border-white">
-            <span className="w-[80%] text-[18px]">ادامه با فیسبوک</span>
+            <span className="w-[80%] text-[18px]">
+              {t("continue_with_facebook")}
+            </span>
             <img src="/facebook.svg" alt="facebookLogo" className="w-[27px]" />
           </button>
 
           <div className="flex items-center gap-12 rounded-full border px-8 py-2 border-gray-600 hover:border-white">
-            <span className="w-[80%] text-[18px]">ادامه با اَپل</span>
+            <span className="w-[80%] text-[18px]">
+              {t("continue_with_apple")}
+            </span>
 
             <img src="/apple.svg" alt="appleLogo" className="w-[27px]" />
           </div>
@@ -64,7 +72,7 @@ export default function LogIn() {
         <form className="w-3/4 flex flex-col gap-4">
           <div className="flex flex-col items-end gap-2 w-full">
             <label className="font-bold" htmlFor="emailOurUsername">
-              ایمیل یا نام کاربری
+              {t("email_or_username")}
             </label>
             <input
               id="emailOurUsername"
@@ -73,13 +81,13 @@ export default function LogIn() {
               className="bg-primary-800 rounded border border-gray-400 text-end px-4 py-2 w-full
                                    outline-none focus:outline-white focus:outline-2 focus:border-none "
               type="text"
-              placeholder="ایمیل یا نام کاربری"
+              placeholder={t("email_or_username")}
               name="emailOurUsername"
             />
           </div>
           <div className="flex flex-col items-end gap-4 w-full ">
             <label className="font-bold" htmlFor="password">
-              گذرواژه
+              {t("password")}
             </label>
             <div className="relative  w-full flex items-center justify-between">
               <div
@@ -92,7 +100,7 @@ export default function LogIn() {
                 id="password"
                 type={`${isShowPassword ? "text" : "password"}`}
                 value={userPass}
-                placeholder="گذرواژه"
+                placeholder={t("password")}
                 name="pass"
                 onChange={(e) => setUserPassInStateHandler(e)}
                 className="bg-transparent rounded border bg-primary-800
@@ -106,7 +114,7 @@ export default function LogIn() {
               htmlFor="Toggle1"
               className="inline-flex items-center gap-2  cursor-pointer "
             >
-              <span className="text-sm">مرا به خاطر داشته باش</span>
+              <span className="text-sm">{t("remember_me")}</span>
               <span className="relative">
                 <input id="Toggle1" type="checkbox" className="hidden peer" />
                 <div className="w-8 h-4 rounded-full shadow-inner dark:bg-gray-400 peer-checked:dark:bg-green-400  hover:outline hover:outline-gray-500 hover:outline-offset-2"></div>
@@ -118,20 +126,20 @@ export default function LogIn() {
             onClick={validate}
             className="bg-green-500 rounded-full w-full text-center text-black py-2 font-bold mt-4 hover:scale-105 transition"
           >
-            ورود به سیستم
+            {t("log_in")}
           </button>
           <span className="text-center mt-4 underline hover:text-green-600">
-            گذرواژه‌تان را فراموش کرده‌اید؟
+            {t("forgot_your_password")}
           </span>
         </form>
         <div className="w-full h-[1px] bg-primary-800 rounded"></div>
         <button className="text-gray-400">
-          حساب ندارید؟
+          {t("have_account")}
           <Link
             to={"/signup"}
             className="underline text-white hover:text-green-600 ml-2"
           >
-            برای اسپاتیفای ثبت‌نام کنید
+            {t("sign_up_for_spotify")}
           </Link>
         </button>
       </div>

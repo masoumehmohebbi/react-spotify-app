@@ -1,6 +1,6 @@
 {
-  "log-in": "Log in",
-  "sign-up": "Sign Up",
+  "log_in": "Log in",
+  "sign_up": "Sign Up",
   "choose_lng": "Choose Language",
 
   "home": "Home",
@@ -12,29 +12,29 @@
   "find_padcast": "Let's find some podcasts to follow",
   "keep_updated": "We'll keep you updated on new episodes",
   "browse_podcasts": "Browse podcasts",
-  "legal": "Legal",
-  "privacy_center": "Privacy Center",
-  "privacy_policy": "Privacy Policy",
-  "cookie_settings": "Cookie Settings",
-  "about_ads": "About Ads",
-  "accessibility": "Accessibility",
-  "cookies": "Cookie",
-
-  "company": "Company",
-  "about": "About",
-  "jobs": "Jobs",
-  "for_the_record": "For the Record",
-  "communities": "Communities",
-  "for_artists": "For Artists",
-  "developers": "Developers",
-  "advertising": "Advertising",
-  "investors": "Investors",
-  "vendors": "Vendors",
-  "useful_links": "Useful links",
-  "support": "Support",
-  "free_mobile_app": "Free Mobile App",
-  "consumer_rights": "Consumer rights",
 
   "spotify-playLists": "Spotify PlayLists",
-  "show-all": "Show all"
+  "show-all": "Show all",
+
+  "team": "team",
+  "about": "About",
+  "useful_links": "Useful links",
+
+  "login_to_spotify": "Log in to Spotify",
+  "invalid_pass_email": "Your email or password is invalid",
+  "continue_with_google": "Continue With Google",
+  "continue_with_facebook": "Continue With Facebook",
+  "continue_with_apple": "Continue With Apple",
+  "email_or_username": "Email or username",
+  "password": "Password",
+  "remember_me": "Remember me",
+  "forgot_your_password": "Forgot your password?",
+  "sign_up_for_spotify": "Sign up for Spotify",
+  "have_account": "Don't have an account?",
+
+  "sign_up_to_start_listening": "Sign up to start listening",
+  "email_address": "Email address",
+  "signup_with_google": "Sign up With Google",
+  "already_have_account": "Already have an account?",
+  "or": "or"
 }

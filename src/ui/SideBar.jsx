@@ -25,29 +25,6 @@ export const SideBar = () => {
       iconActive: <RiSearchFill />,
     },
   ];
-  const sidebarFooter = [
-    {
-      title: t("legal"),
-    },
-    {
-      title: t("privacy_center"),
-    },
-    {
-      title: t("privacy_policy"),
-    },
-    {
-      title: t("cookie_settings"),
-    },
-    {
-      title: t("about_ads"),
-    },
-    {
-      title: t("accessibility"),
-    },
-    {
-      title: t("cookie"),
-    },
-  ];
 
   const [activeLink, setActiveLink] = useState(1);
   const [isShowModal, setIsShowModal] = useState(false);
@@ -118,7 +95,7 @@ export const SideBar = () => {
                 </div>
               </Link>
             </li>
-            <ul className="flex flex-col gap-8 overflow-y-scroll p-2 h-[174px] text-secondary-50">
+            <ul className="flex flex-col gap-8 overflow-y-scroll p-2 h-[172px] text-secondary-50">
               <li className="bg-primary-600 rounded px-4 py-6 flex flex-col gap-6">
                 <h3 className="text-md font-bold">{t("first_playlist")}</h3>
                 <p className="text-sm">{t("help_you")}</p>
@@ -133,16 +110,6 @@ export const SideBar = () => {
                   {t("browse_podcasts")}
                 </button>
               </li>
-            </ul>
-            <ul className="text-secondary-100 text-[11px] grid grid-cols-3 gap-4 w-[90%] pt-4 pb-2">
-              {sidebarFooter.map((item) => (
-                <li
-                  key={item.title}
-                  className="transition hover:text-secondary-100"
-                >
-                  <Link to={"/"}>{item.title}</Link>
-                </li>
-              ))}
             </ul>
             <button
               onClick={isShowModalHandler}

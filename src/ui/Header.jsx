@@ -16,13 +16,13 @@ const Header = () => {
       </div>
       <div className="flex gap-x-6">
         <button className="hover:scale-110 text-secondary-100">
-          <Link to={"/signup"}> {t("sign-up")}</Link>
+          <Link to={"/signup"}> {t("sign_up")}</Link>
         </button>
         <Link
           to={"/login"}
           className="hover:scale-110 rounded-[500px] border-none bg-white py-2 px-6  font-bold text-primary-900"
         >
-          {t("log-in")}
+          {t("log_in")}
         </Link>
       </div>
     </div>

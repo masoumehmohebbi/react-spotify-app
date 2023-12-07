@@ -13,8 +13,8 @@ i18next
   .init({
     fallbackLng: "en",
 
-    ns: ["default"],
-    defaultNS: "default",
+    ns: ["spotify-app"],
+    defaultNS: "spotify-app",
 
     supportedLngs: ["en", "fr", "zh", "es", "hi", "fa"],
 
