@@ -39,7 +39,7 @@ export const SideBar = () => {
 
   return (
     <>
-      <aside className="h-screen p-2 pl-0 select-none sticky right-0 top-0">
+      <aside className="hidden md:block h-screen p-2 pl-0 select-none sticky right-0 top-0">
         <div className="flex flex-col gap-2">
           <ul className="bg-primary-800 flex flex-col gap-6 p-5  rounded">
             <li className="text-secondary-50">

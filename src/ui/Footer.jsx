@@ -10,7 +10,7 @@ export const Footer = () => {
     <footer className="px-9">
       <div className="grid grid-cols-8 text-primary-100">
         <div className="col-span-5">
-          <div className="grid grid-cols-3">
+          <div className="grid grid-cols-2">
             <ul className="space-y-2">
               <p className="font-bold text-secondary-0">{t("useful_links")}</p>
               <li>{t("home")}</li>
