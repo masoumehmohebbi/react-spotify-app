@@ -1,27 +1,44 @@
+import { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
-const langs = [
+import { useNavigate } from "react-router-dom";
+const languages = [
   {
     title: "English",
-    lang: "English",
+    code: "en",
   },
   {
-    title: "العربیه",
-    lang: "Arabic",
+    title: "Chinese",
+    code: "zh",
   },
   {
     title: "فارسی",
-    lang: "Persian",
+    code: "fa",
+    dir: "rtl",
   },
   {
-    title: "اردو",
-    lang: "Urdu",
+    title: "French ",
+    code: "fr",
   },
   {
-    title: "عربی مصری",
-    lang: "َArabic (Egypt)",
+    title: "Hindi",
+    code: "hi",
+  },
+  {
+    title: "Spanish",
+    code: "es",
   },
 ];
 export const Modal = ({ isShowModalHandler }) => {
+  const navigate = useNavigate();
+  const [langCode, setLangCode] = useState(localStorage.getItem("i18nextLng"));
+
+  const handleLanguageClick = (code) => {
+    setLangCode(code);
+    navigate(`?lng=${code}`);
+    window.location.reload();
+    console.log(langCode);
+  };
+
   return (
     <div>
       <div className="w-full h-screen absolute top-0 z-40 opacity-70 bg-primary-900"></div>
@@ -40,10 +57,14 @@ export const Modal = ({ isShowModalHandler }) => {
             />
           </div>
           <ul className="grid grid-cols-4 gap-6 py-6 px-8">
-            {langs.map((lan) => (
-              <li key={lan.title} className="flex flex-col gap-2">
+            {languages.map((lan) => (
+              <li
+                key={lan.title}
+                className="flex flex-col gap-1 cursor-pointer hover:bg-primary-600 bg-opacity-1 px-2 py-1 duration-500"
+                onClick={() => handleLanguageClick(lan.code)}
+              >
                 <span className="text-secondary-0">{lan.title}</span>
-                <span className="text-primary-100">{lan.lang}</span>
+                <span className="text-secondary-50 text-sm">{lan.code}</span>
               </li>
             ))}
           </ul>

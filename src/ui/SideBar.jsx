@@ -5,46 +5,47 @@ import { FaSpotify } from "react-icons/fa";
 import { RiSearchFill, RiSearchLine } from "react-icons/ri";
 import { BiLibrary } from "react-icons/bi";
 import { MdOutlineLanguage } from "react-icons/md";
-
 import { Link } from "react-router-dom";
 import { Modal } from "./Modal";
+import { useTranslation } from "react-i18next";
 
 export const SideBar = () => {
+  const { t } = useTranslation();
   const sidebarLinks = [
     {
       id: 1,
-      title: "صفحه اصلی",
+      title: t("home"),
       icon: <AiOutlineHome />,
       iconActive: <AiFillHome />,
     },
     {
       id: 2,
-      title: "جستجو",
+      title: t("search"),
       icon: <RiSearchLine />,
       iconActive: <RiSearchFill />,
     },
   ];
   const sidebarFooter = [
     {
-      title: "حقوقی",
+      title: t("legal"),
     },
     {
-      title: "مرکز‌حریم‌خصوصی",
+      title: t("privacy_center"),
     },
     {
-      title: "خط مشی رازداری",
+      title: t("privacy_policy"),
     },
     {
-      title: "تنظیمات کوکی",
+      title: t("cookie_settings"),
     },
     {
-      title: "درباره آگهی ها",
+      title: t("about_ads"),
     },
     {
-      title: "دسترس پذیری",
+      title: t("accessibility"),
     },
     {
-      title: "کوکی ها",
+      title: t("cookie"),
     },
   ];
 
@@ -98,7 +99,7 @@ export const SideBar = () => {
               >
                 <div className="flex items-center gap-2 transition duration-500 hover:text-secondary-50">
                   <BiLibrary className="text-2xl" />
-                  <span>کتابخانه شما</span>
+                  <span>{t("your-library")}</span>
                 </div>
                 <div className="p-2 rounded-full transition duration-300 hover:bg-primary-800 hover:text-secondary-50">
                   <svg
@@ -119,23 +120,17 @@ export const SideBar = () => {
             </li>
             <ul className="flex flex-col gap-8 overflow-y-scroll p-2 h-[174px] text-secondary-50">
               <li className="bg-primary-600 rounded px-4 py-6 flex flex-col gap-6">
-                <h3 className="text-md font-bold">
-                  فهرست پخش مورد علاقه خود را بسازید
-                </h3>
-                <p className="text-sm">خیلی راحت است. کمکتان میکنیم</p>
+                <h3 className="text-md font-bold">{t("first_playlist")}</h3>
+                <p className="text-sm">{t("help_you")}</p>
                 <button className="bg-secondary-0 rounded-[500px] border-none py-2 px-6 w-max font-bold text-primary-900 hover:scale-105 transition">
-                  ایجاد فهرست پخش
+                  {t("create_playList")}
                 </button>
               </li>
               <li className="bg-primary-600 rounded px-4 py-6 flex flex-col gap-6">
-                <h3 className="text-md font-bold">
-                  بیایید چند پادکست برای پخش پیدا کنیم
-                </h3>
-                <p className="text-sm">
-                  برای پادکست های جدید به شما اطلاع میدهیم
-                </p>
+                <h3 className="text-md font-bold">{t("find_padcast")}</h3>
+                <p className="text-sm">{t("keep_updated")}</p>
                 <button className="rounded-[500px] border-none bg-secondary-0 py-2 px-6 w-max font-bold text-primary-900 hover:scale-105 transition">
-                  گشتن در پادکست ها
+                  {t("browse_podcasts")}
                 </button>
               </li>
             </ul>
@@ -151,10 +146,10 @@ export const SideBar = () => {
             </ul>
             <button
               onClick={isShowModalHandler}
-              className="text-gray-200 border border-secondary-100  w-min py-1 px-2 font-bold rounded-full flex items-center gap-1 hover:scale-105 transition"
+              className="text-gray-200 border border-secondary-100 text-xs w-fit py-1 px-2 font-bold rounded-full flex items-center gap-1 hover:scale-105 transition"
             >
-              <MdOutlineLanguage className="font-bold text-xl" />
-              فارسی
+              <MdOutlineLanguage className="font-bold text-2xl" />
+              {t("choose_lng")}
             </button>
           </ul>
         </div>

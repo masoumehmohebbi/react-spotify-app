@@ -1,32 +1,35 @@
+import { useTranslation } from "react-i18next";
 import {
   BiLogoInstagram,
   BiLogoTwitter,
   BiLogoFacebookCircle,
 } from "react-icons/bi";
 export const Footer = () => {
+  const { t } = useTranslation();
   return (
     <footer className="px-9">
       <div className="grid grid-cols-8 text-primary-100">
         <div className="col-span-5">
           <div className="grid grid-cols-3">
             <ul className="space-y-2">
-              <p className="font-bold text-secondary-0">شرکت</p>
-              <li>درباره</li>
-              <li>فرصت های شغلی</li>
-              <li>For the Record</li>
+              <p className="font-bold text-secondary-0">{t("company")}</p>
+              <li>{t("about")}</li>
+              <li>{t("jobs")}</li>
+              <li>{t("for_the_record")}</li>
             </ul>
             <ul className="space-y-2">
-              <p className="font-bold text-secondary-0">انجمن‌ها</p>
-              <li>برای هنرمندان</li>
-              <li>تولیدکنندگان برنامه</li>
-              <li>تبلیغات</li>
-              <li>سرمایه‌گذاران</li>
-              <li>فروشندگان</li>
+              <p className="font-bold text-secondary-0">{t("communities")}</p>
+              <li>{t("for_artists")}</li>
+              <li>{t("developers")}</li>
+              <li>{t("advertising")}</li>
+              <li>{t("investors")}</li>
+              <li>{t("vendors")}</li>
             </ul>
             <ul className="space-y-2">
-              <p className="font-bold text-secondary-0">پیوندهای مفید</p>
-              <li>پشتیبانی</li>
-              <li>برنامه رایگان تلفن همراه</li>
+              <p className="font-bold text-secondary-0">{t("useful_links")}</p>
+              <li>{t("support")}</li>
+              <li>{t("free_mobile_app")}</li>
+              <li>{t("consumer_rights")}</li>
             </ul>
           </div>
         </div>
