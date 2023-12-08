@@ -5,6 +5,7 @@ import {
   BiLogoFacebookCircle,
 } from "react-icons/bi";
 import ModalButton from "./ModalButton";
+import { Link } from "react-router-dom";
 export const Footer = () => {
   const { t } = useTranslation();
   return (
@@ -24,7 +25,7 @@ export const Footer = () => {
               <p className="font-bold text-secondary-0 text-xl md:text-lg">
                 {t("team")}
               </p>
-              <li>{t("about")}</li>
+              <Link to={"/aboutUs"}>{t("about")}</Link>
             </ul>
           </div>
         </div>
