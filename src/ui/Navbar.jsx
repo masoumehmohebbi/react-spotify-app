@@ -33,8 +33,8 @@ export default function Navbar() {
         </button>
       </div>
       <div
-        className={`r gap-x-6 top-0 bg-primary-900 text-secondary-0 md:bg-transparent h-screen md:h-auto md:col-span-5 flex md:ml-1 flex-col items-start md:items-center px-5 md:px-0 md:flex-row pt-20 md:pt-0 gap-y-6 md:gap-y-0 absolute md:static md:z-auto z-[-1] left-0 w-full md:w-fit transition-all duration-500 ease-in ${
-          open ? "right-0" : "right-[-1000px]"
+        className={`r gap-x-6 fixed top-0 bg-primary-900 text-secondary-0 md:bg-transparent h-screen md:h-auto md:col-span-5 flex md:ml-1 flex-col items-start md:items-center px-5 md:px-0 md:flex-row pt-20 md:pt-0 gap-y-6 md:gap-y-0 md:static md:z-auto z-[-1] left-0 w-full md:w-fit transition-all duration-500 ease-in ${
+          open ? "right-0" : "rtl:right-[-1000px] ltr:left-[-1000px]"
         }`}
       >
         <button className="hover:scale-110 md:text-secondary-100">
