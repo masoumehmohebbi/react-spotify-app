@@ -67,9 +67,3 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #5555557f;
 }
-
-/* @media (max-width: 768px) {
-  .media {
-    direction: rtl;
-  }
-} */
