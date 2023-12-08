@@ -9,7 +9,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="bg-primary-900 z-10 sticky top-0 right-0 left-0 bg-opacity-50 px-5 h-16 items-center w-full flex justify-between text-primary-100">
+    <div className="media bg-primary-900 z-10 sticky top-0 right-0 left-0 bg-opacity-50 px-5 h-16 items-center w-full flex justify-between text-primary-100">
       <button
         onClick={() => setOpen(!open)}
         className="absolute right-4 top-5 md:hidden col-span-1"
@@ -30,7 +30,7 @@ export default function Navbar() {
         </button>
       </div>
       <div
-        className={`gap-x-6 top-0 bg-primary-900 text-secondary-0 md:bg-transparent h-screen md:h-auto md:col-span-5 flex md:ml-1 flex-col items-start md:items-center px-5 md:px-0 md:flex-row pt-20 md:pt-0 gap-y-6 md:gap-y-0 absolute md:static md:z-auto z-[-1] left-0 w-full md:w-fit transition-all duration-500 ease-in ${
+        className={`r gap-x-6 top-0 bg-primary-900 text-secondary-0 md:bg-transparent h-screen md:h-auto md:col-span-5 flex md:ml-1 flex-col items-start md:items-center px-5 md:px-0 md:flex-row pt-20 md:pt-0 gap-y-6 md:gap-y-0 absolute md:static md:z-auto z-[-1] left-0 w-full md:w-fit transition-all duration-500 ease-in ${
           open ? "right-0" : "right-[-1000px]"
         }`}
       >

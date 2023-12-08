@@ -4,10 +4,10 @@ import { AiFillHome, AiOutlineHome } from "react-icons/ai";
 import { FaSpotify } from "react-icons/fa";
 import { RiSearchFill, RiSearchLine } from "react-icons/ri";
 import { BiLibrary } from "react-icons/bi";
-import { MdOutlineLanguage } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { Modal } from "./Modal";
 import { useTranslation } from "react-i18next";
+import ModalButton from "./ModalButton";
 
 export const SideBar = () => {
   const { t } = useTranslation();
@@ -111,13 +111,8 @@ export const SideBar = () => {
                 </button>
               </li>
             </ul>
-            <button
-              onClick={isShowModalHandler}
-              className="text-gray-200 border border-secondary-100 text-xs w-fit py-1 px-2 font-bold rounded-full flex items-center gap-1 hover:scale-105 transition"
-            >
-              <MdOutlineLanguage className="font-bold text-2xl" />
-              {t("choose_lng")}
-            </button>
+
+            <ModalButton isShowModalHandler={isShowModalHandler} />
           </ul>
         </div>
       </aside>

@@ -4,26 +4,31 @@ import {
   BiLogoTwitter,
   BiLogoFacebookCircle,
 } from "react-icons/bi";
+import ModalButton from "./ModalButton";
 export const Footer = () => {
   const { t } = useTranslation();
   return (
     <footer className="px-9">
-      <div className="grid grid-cols-8 text-primary-100">
-        <div className="col-span-5">
-          <div className="grid grid-cols-2">
+      <div className="grid grid-cols-8 text-primary-100 gap-y-9 md:gap-y-0">
+        <div className="col-span-8 md:col-span-5 ">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-y-9 md:gap-y-0">
             <ul className="space-y-2">
-              <p className="font-bold text-secondary-0">{t("useful_links")}</p>
+              <p className="font-bold text-secondary-0 text-xl md:text-lg">
+                {t("useful_links")}
+              </p>
               <li>{t("home")}</li>
               <li>{t("log_in")}</li>
               <li>{t("sign_up")}</li>
             </ul>
             <ul className="space-y-2">
-              <p className="font-bold text-secondary-0">{t("team")}</p>
+              <p className="font-bold text-secondary-0 text-xl md:text-lg">
+                {t("team")}
+              </p>
               <li>{t("about")}</li>
             </ul>
           </div>
         </div>
-        <div className="col-span-3 flex justify-end">
+        <div className="col-span-8 md:col-span-3 flex md:justify-end ">
           <ul className="flex gap-x-5">
             <li>
               <a
@@ -55,6 +60,10 @@ export const Footer = () => {
       </div>
       <hr className="border-primary-700 bg-opacity-10 border-spacing-y-11 my-11" />
       <p className="font-normal text-secondary-100 mb-11">© 2023 Spotify AB</p>
+
+      <div className="block md:hidden">
+        <ModalButton />
+      </div>
     </footer>
   );
 };

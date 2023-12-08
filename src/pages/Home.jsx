@@ -9,7 +9,7 @@ export const Home = () => {
       <div className="col-span-3 lg:col-span-2">
         <SideBar />
       </div>
-      <div className="col-span-8 md:col-span-5 lg:col-span-6 flex flex-col bg-primary-800 rounded-lg">
+      <div className="col-span-8 pb-5 md:col-span-5 lg:col-span-6 flex flex-col bg-primary-800 rounded-lg">
         <Navbar />
         <PlayListContainer />
         <Footer />

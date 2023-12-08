@@ -11,7 +11,7 @@ const languages = [
     code: "zh",
   },
   {
-    title: "فارسی",
+    title: "Persian",
     code: "fa",
     dir: "rtl",
   },
@@ -43,20 +43,20 @@ export const Modal = ({ isShowModalHandler }) => {
     <div>
       <div className="w-full h-screen absolute top-0 z-40 opacity-70 bg-primary-900"></div>
       <div className="flex items-center justify-center w-full h-screen absolute top-0 z-50">
-        <div className="z-50 w-1/2  bg-primary-700 absolute top-0 h-fit mt-24 rounded">
-          <div className="w-full flex items-center justify-between p-4 text-secondary-50 border-b border-b-gray-700">
-            <div>
+        <div className="z-50 w-11/12 lg:w-1/2  bg-primary-700 absolute top-0 h-fit mt-24 rounded">
+          <div className="w-full flex-col flex justify-between p-4 text-secondary-50 border-b border-b-gray-700">
+            <div className="flex justify-between w-full">
               <h4 className="text-xl font-bold">زبانی را انتخاب کنید</h4>
-              <p className="text-secondary-50 mt-4">
-                با این انتخاب زبان نوشتاری open.spotify.com به‌روزرسانی می‌شود.
-              </p>
+              <AiOutlineClose
+                className="cursor-pointer p-2 rounded-full bg-primary-800 text-secondary-0 text-4xl "
+                onClick={isShowModalHandler}
+              />
             </div>
-            <AiOutlineClose
-              className="cursor-pointer p-2 rounded-full bg-primary-800 text-secondary-0 text-4xl "
-              onClick={isShowModalHandler}
-            />
+            <p className="text-secondary-50 mt-4">
+              با این انتخاب زبان نوشتاری open.spotify.com به‌روزرسانی می‌شود.
+            </p>
           </div>
-          <ul className="grid grid-cols-4 gap-6 py-6 px-8">
+          <ul className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 py-6 px-8">
             {languages.map((lan) => (
               <li
                 key={lan.title}
