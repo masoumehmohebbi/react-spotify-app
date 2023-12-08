@@ -41,7 +41,7 @@ export const Modal = () => {
     window.location.reload();
     console.log(langCode);
   };
-  if (!isOpen) return;
+  if (!isOpen) return null;
   return (
     <div>
       <div className="w-full h-screen absolute top-0 z-40 opacity-70 bg-primary-900"></div>
