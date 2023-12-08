@@ -11,7 +11,7 @@ export const AuthFormLayout = () => {
   );
 };
 
-function Header() {
+export function Header() {
   return (
     <div className="w-full bg-primary-900">
       <div className=" w-full flex justify-end text-white px-12 py-8">

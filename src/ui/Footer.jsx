@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 export const Footer = () => {
   const { t } = useTranslation();
   return (
-    <footer className="px-9">
+    <footer className="px-9 pt-5">
       <div className="grid grid-cols-8 text-primary-100 gap-y-9 md:gap-y-0">
         <div className="col-span-8 md:col-span-5 ">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-y-9 md:gap-y-0">

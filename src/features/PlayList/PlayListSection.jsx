@@ -4,7 +4,7 @@ import { PlayListData } from "./PlayListData";
 export const PlayListSection = () => {
   const { t } = useTranslation();
   return (
-    <div className="px-5 py-5 mb-11">
+    <div className="px-5 py-5 mb-6">
       <div className="flex w-full justify-between">
         <h1 className="text-2xl font-bold text-secondary-0">
           {t("spotify-playLists")}

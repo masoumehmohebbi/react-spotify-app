@@ -21,9 +21,9 @@ function App() {
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} />
         </Route>
-        <Route element={<AuthFormLayout />}>
-          <Route path="/about-us/contact" element={<AboutUs />} />
-        </Route>
+        {/* <Route element={<AuthFormLayout />}> */}
+        <Route path="/about-us/contact" element={<AboutUs />} />
+        {/* </Route> */}
       </Routes>
     </Providers>
   );
