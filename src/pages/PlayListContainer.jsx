@@ -1,4 +1,4 @@
-import { PlayListSection } from "./../features/playList/PlayListSection";
+import { PlayListSection } from "./../features/PlayList/PlayListSection";
 
 const PlayListContainer = () => {
   return <PlayListSection />;
