@@ -68,8 +68,8 @@ body {
   background: #5555557f;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .media {
     direction: rtl;
   }
-}
+} */

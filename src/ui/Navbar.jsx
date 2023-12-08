@@ -3,6 +3,7 @@ import { BiMenu, BiX } from "react-icons/bi";
 import { useTranslation } from "react-i18next";
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
 import { Link } from "react-router-dom";
+import { FaSpotify } from "react-icons/fa";
 
 export default function Navbar() {
   const { t } = useTranslation();
@@ -10,16 +11,18 @@ export default function Navbar() {
 
   return (
     <div className="media bg-primary-900 z-10 sticky top-0 right-0 left-0 bg-opacity-50 px-5 h-16 items-center w-full flex justify-between text-primary-100">
-      <button
-        onClick={() => setOpen(!open)}
-        className="absolute right-4 top-5 md:hidden col-span-1"
-      >
-        {!open ? (
-          <BiMenu className="w-9 h-9 text-secondary-0" />
-        ) : (
-          <BiX className="w-9 h-9 text-secondary-0" />
-        )}
-      </button>
+      <div className=" md:hidden flex justify-between w-full">
+        <button onClick={() => setOpen(!open)} className=" col-span-1">
+          {!open ? (
+            <BiMenu className="w-9 h-9 text-secondary-0" />
+          ) : (
+            <BiX className="w-9 h-9 text-secondary-0" />
+          )}
+        </button>
+        <Link to={"/"}>
+          <FaSpotify className="text-4xl text-secondary-0" />
+        </Link>
+      </div>
 
       <div dir="rtl" className="hidden md:flex gap-x-2">
         <button className="bg-primary-900 bg-opacity-70 h-8 w-8 rounded-full border-none flex justify-center items-center">
