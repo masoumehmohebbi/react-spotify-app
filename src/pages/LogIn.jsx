@@ -36,13 +36,13 @@ export default function LogIn() {
   };
 
   return (
-    <div className="w-full md:max-w-3xl mx-auto flex items-center justify-center mt-8">
-      <div className="bg-primary-900 text-secondary-0 py-20 px-24 rounded-xl w-full flex items-center justify-center flex-col gap-12">
-        <h1 className="text-5xl font-bold tracking-wide">
+    <div className="w-full md:max-w-3xl mx-auto flex items-center justify-center md:mt-8">
+      <div className="bg-primary-900 text-secondary-0 py-20 md:px-24 rounded-xl w-full flex items-center justify-center flex-col gap-12">
+        <h1 className="text-4xl xl:text-5xl px-5 md:px-0 text-center font-bold tracking-wide">
           {t("login_to_spotify")}
         </h1>
         {error && (
-          <div className="bg-red-600 w-full flex items-center justify-end gap-4 px-4 py-2 rounded">
+          <div className="bg-red w-full flex items-center justify-end gap-4 px-4 py-2 rounded">
             <p className="text-md">
               {error && <p>{t("invalid_pass_email")}</p>}
             </p>

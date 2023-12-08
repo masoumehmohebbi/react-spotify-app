@@ -38,6 +38,7 @@ export default {
           0: withOpacity("--color-secondary-0"),
         },
         success: withOpacity("--color-green-500"),
+        red: withOpacity("color-red-300"),
       },
 
       container: {

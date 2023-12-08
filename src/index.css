@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --color-primary-900: 0, 0, 0;
+    --color-primary-900: 0, 0, 0; /* #000000 */
     --color-primary-800: 18, 18, 18; /* #121212 */
     --color-primary-700: 40, 40, 40; /* #282828 */
     --color-primary-600: 42, 42, 42; /* #2A2A2A */
@@ -39,8 +39,13 @@ body {
   min-height: 100vh;
   user-select: none;
   background-color: rgb(var(--color-primary-900));
-}
 
+  font-family: CircularSp, CircularSp-Arab, CircularSp-Hebr, CircularSp-Cyrl,
+    CircularSp-Grek, CircularSp-Deva, Helvetica, Arial, sans-serif;
+}
+.f {
+  background: linear-gradient(rgba(255, 255, 255, 0.1) 0%, rgb(0, 0, 0) 100%);
+}
 /* width */
 ::-webkit-scrollbar {
   width: 10px;

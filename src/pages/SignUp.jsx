@@ -25,9 +25,9 @@ export const SignUp = ({ userPass }) => {
   };
 
   return (
-    <div className="w-full mx-auto md:max-w-3xl flex items-center justify-center mt-8">
-      <div className="bg-primary-900 text-white py-20 px-24 rounded-xl w-full flex items-center justify-center flex-col gap-12">
-        <h1 className="text-5xl font-bold tracking-wide">
+    <div className="w-full mx-auto md:max-w-3xl flex items-center justify-center md:mt-8">
+      <div className="bg-primary-900 text-secondary-0 py-20 md:px-24 rounded-xl w-full flex items-center justify-center flex-col gap-12">
+        <h1 className="text-4xl xl:text-5xl px-5 md:px-0 text-center font-bold tracking-wide">
           {t("sign_up_to_start_listening")}
         </h1>
         {err && (
