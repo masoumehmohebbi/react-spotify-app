@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import { useOpenModal } from "../context/OpenModalContext";
 const languages = [
   {
     title: "English",
@@ -28,7 +29,9 @@ const languages = [
     code: "es",
   },
 ];
-export const Modal = ({ isShowModalHandler }) => {
+export const Modal = () => {
+  const { isOpen, setIsOpen } = useOpenModal();
+
   const navigate = useNavigate();
   const [langCode, setLangCode] = useState(localStorage.getItem("i18nextLng"));
 
@@ -38,7 +41,7 @@ export const Modal = ({ isShowModalHandler }) => {
     window.location.reload();
     console.log(langCode);
   };
-
+  if (!isOpen) return;
   return (
     <div>
       <div className="w-full h-screen absolute top-0 z-40 opacity-70 bg-primary-900"></div>
@@ -49,7 +52,7 @@ export const Modal = ({ isShowModalHandler }) => {
               <h4 className="text-xl font-bold">زبانی را انتخاب کنید</h4>
               <AiOutlineClose
                 className="cursor-pointer p-2 rounded-full bg-primary-800 text-secondary-0 text-4xl "
-                onClick={isShowModalHandler}
+                onClick={() => setIsOpen(false)}
               />
             </div>
             <p className="text-secondary-50 mt-4">

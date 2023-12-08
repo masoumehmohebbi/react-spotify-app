@@ -4,6 +4,9 @@ import { CgDanger } from "react-icons/cg";
 import { useState } from "react";
 import { validEmail, validPassword } from "../features/auth/Regex";
 import { useTranslation } from "react-i18next";
+import googleLogo from "./../assets/images/google.svg";
+import appleLogo from "./../assets/images/apple.svg";
+import facebookLogo from "./../assets/images/facebook.svg";
 
 export default function LogIn() {
   const { t } = useTranslation();
@@ -51,13 +54,13 @@ export default function LogIn() {
             <span className="w-[80%] text-[18px]">
               {t("continue_with_google")}
             </span>
-            <img src="/google.svg" alt="googleLogo" className="w-[27px]" />
+            <img src={googleLogo} alt="googleLogo" className="w-[27px]" />
           </button>
           <button className="flex items-center gap-12 rounded-full border px-8 py-2 border-gray-600 hover:border-white">
             <span className="w-[80%] text-[18px]">
               {t("continue_with_facebook")}
             </span>
-            <img src="/facebook.svg" alt="facebookLogo" className="w-[27px]" />
+            <img src={facebookLogo} alt="facebookLogo" className="w-[27px]" />
           </button>
 
           <div className="flex items-center gap-12 rounded-full border px-8 py-2 border-gray-600 hover:border-white">
@@ -65,7 +68,7 @@ export default function LogIn() {
               {t("continue_with_apple")}
             </span>
 
-            <img src="/apple.svg" alt="appleLogo" className="w-[27px]" />
+            <img src={appleLogo} alt="appleLogo" className="w-[27px]" />
           </div>
         </div>
         <div className="w-full h-[1px] bg-primary-800 rounded"></div>

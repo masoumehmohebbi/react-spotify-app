@@ -3,6 +3,7 @@ import { CgDanger } from "react-icons/cg";
 import { useState } from "react";
 import { validEmail, validPassword } from "../features/auth/Regex";
 import { useTranslation } from "react-i18next";
+import googleLogo from "./../assets/images/google.svg";
 
 export const SignUp = ({ userPass }) => {
   const { t } = useTranslation();
@@ -71,7 +72,7 @@ export const SignUp = ({ userPass }) => {
             <span className="w-[80%] text-[18px]">
               {t("signup_with_google")}
             </span>
-            <img src="/google.svg" alt="googleLogo" className="w-[27px]" />
+            <img src={googleLogo} alt="googleLogo" className="w-[27px]" />
           </button>
         </div>
         <p className="text-gray-400">
