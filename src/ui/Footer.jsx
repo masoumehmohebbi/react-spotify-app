@@ -25,7 +25,7 @@ export const Footer = () => {
               <p className="font-bold text-secondary-0 text-xl md:text-lg">
                 {t("team")}
               </p>
-              <Link to={"/aboutUs"}>{t("about")}</Link>
+              <Link to={"/about-us/contact"}>{t("about")}</Link>
             </ul>
           </div>
         </div>

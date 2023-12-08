@@ -16,12 +16,14 @@ function App() {
   return (
     <Providers>
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route element={<AuthFormLayout />}>
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} />
         </Route>
-        <Route path="/" element={<Home />} />
-        <Route path="/aboutUs" element={<AboutUs />} />
+        <Route element={<AuthFormLayout />}>
+          <Route path="/about-us/contact" element={<AboutUs />} />
+        </Route>
       </Routes>
     </Providers>
   );

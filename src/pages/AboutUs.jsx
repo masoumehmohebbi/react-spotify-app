@@ -1,191 +1,93 @@
-import { Link } from "react-router-dom"
-import { FaSpotify } from "react-icons/fa"
+import { Link } from "react-router-dom";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
-import { BiLibrary, BiLogoFacebookCircle, BiLogoInstagram, BiLogoTwitter } from "react-icons/bi";
+import { FaTelegram } from "react-icons/fa";
 
-const navBar = [
-    {
+const developers = [
+  {
+    id: 1,
+    name: "Afshar Sharifi",
+    field: "Back-end developer",
+    socialMedia: [
+      {
         id: 1,
-        title: "Premium",
-        href: "/"
-    },
-    {
-        id: 2,
-        title: "Support",
-        href: "/"
-    },
-    {
-        id: 3,
-        title: "Herunterladen",
-        href: "/"
-    },
-    {
-        id: 4,
-        title: "Registrieren",
-        href: "/"
-    },
-    {
-        id: 5,
-        title: "Anmelden",
-        href: "/"
-    },
-]
+        icon: FaLinkedin,
+        src: "https://www.linkedin.com/in/afsharsharifi/",
+      },
+      { id: 2, icon: FaGithub, src: "https://github.com/afsharsharifi" },
+      { id: 3, icon: FaTelegram, src: "" },
+    ],
+  },
+  {
+    id: 2,
+    name: " Niloofar Palvaneh",
+    field: "Front-end developer",
+    socialMedia: [
+      {
+        id: 1,
+        icon: FaLinkedin,
+        src: "https://www.linkedin.com/in/niloofar-palvaneh-87216b281/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      },
+      { id: 2, icon: FaGithub, src: "https://github.com/Niloofar-Palvaneh" },
+      { id: 3, icon: FaTelegram, src: "" },
+    ],
+  },
+  {
+    id: 3,
+    name: "Masoume Mohebbi",
+    field: "Front-end developer",
+    socialMedia: [
+      {
+        id: 1,
+        icon: FaLinkedin,
+        src: "https://www.linkedin.com/in/masoumemohebbi/",
+      },
+      { id: 2, icon: FaGithub, src: "https://github.com/masoumehmohebbi" },
+      { id: 3, icon: FaTelegram, src: "" },
+    ],
+  },
+];
 export const AboutUs = () => {
-    return (
-        <>
-            {/* stert navbar in about page */}
-            <div className="text-secondary-0 absolute top-0 w-full flex items-center justify-center bg-primary-900">
-                <ul className="w-full flex items-center justify-around p-4">
-                    <li className="text-white">
-                        <Link className="flex items-center gap-1" to={"/"}>
-                            <FaSpotify className="text-4xl" />
-                            <h1 className="italic font-bold text-3xl text-secondary-0">Spotify</h1>
-                        </Link>
-                    </li>
-                    <div className="flex items-center gap-8 text-md font-bold ">
-                        {
-                            navBar.map(item => (
-                                <li key={item.id} className="hover:text-green-500">
-                                    <Link to={"#"}>{item.title}</Link>
-                                </li>
-                            ))
-                        }
-                    </div>
-                </ul>
-            </div>
-            {/* end navbar in about page */}
-
-            {/* start abou page main */}
-            <div className="bg-white w-full h-auto flex items-center justify-center mt-24">
-                <div className="w-[80%] pt-8 pb-24">
-                    <div className="text-center">
-                        <h1 className="text-3xl font-bold">
-                            Our Team
-                        </h1>
-                        <p className="mt-2 text-primary-500">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quae quos accusamus nesciunt, a at odit pariatur ratione aliquam, itaque omnis quidem minus nam laboriosam veritatis sint fugiat. Reprehenderit, veritatis!
-                        </p>
-                    </div>
-                    <div className="flex flex-col gap-12 mt-24">
-                        <div>
-                            <h2 className="text-3xl font-bold text-primary-600">
-                                Masoumeh Mohebbi
-                            </h2>
-                            <p className="mt-2 text-primary-500">
-                                about Masoumeh Mohebbi text ( Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quae quos accusamus nesciunt, )
-                            </p>
-                            <div className="flex items-center gap-4 mt-4">
-                                <Link className="bg-primary-100 rounded-full p-2 border shadow" to={"https://github.com/masoumehmohebbi"}>
-                                    <FaGithub className="text-primary-800 text-xl" />
-                                </Link>
-                                <Link className="bg-primary-100 rounded-full p-2 border shadow" to={"https://www.linkedin.com/in/masoumemohebbi/"}>
-                                    <FaLinkedin className="text-primary-800 text-xl" />
-                                </Link>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h2 className="text-3xl font-bold text-primary-600">
-                                Niloofar Palvaneh
-                            </h2>
-                            <p className="mt-2 text-primary-500">
-                                about Masoumeh Mohebbi text ( Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quae quos accusamus nesciunt, )
-                            </p>
-                            <div className="flex items-center gap-4 mt-4">
-                                <Link className="bg-primary-100 rounded-full p-2 border shadow" to={"https://github.com/Niloofar-Palvaneh"}>
-                                    <FaGithub className="text-primary-800 text-xl" />
-                                </Link>
-                                <Link className="bg-primary-100 rounded-full p-2 border shadow" to={"https://www.linkedin.com/in/niloofar-palvaneh-87216b281/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"}>
-                                    <FaLinkedin className="text-primary-800 text-xl" />
-                                </Link>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h2 className="text-3xl font-bold text-primary-600">
-                                Afshar Sharifi
-                            </h2>
-                            <p className="mt-2 text-primary-500">
-                                about Masoumeh Mohebbi text ( Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quae quos accusamus nesciunt, )
-                            </p>
-                            <div className="flex items-center gap-4 mt-4">
-                                <Link className="bg-primary-100 rounded-full p-2 border shadow" to={"https://github.com/afsharsharifi"}>
-                                    <FaGithub className="text-primary-800 text-xl" />
-                                </Link>
-                                <Link className="bg-primary-100 rounded-full p-2 border shadow" to={"https://www.linkedin.com/in/afsharsharifi/"}>
-                                    <FaLinkedin className="text-primary-800 text-xl" />
-                                </Link>
-                            </div>
-                        </div>
-
-                    </div>
+  return (
+    <div className="bg-secondary-0 w-full px-5 mx-auto h-auto flex items-center justify-center">
+      <div className="pt-8 pb-24 w-full md:w-11/12">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold">About Project</h1>
+          <p className="pt-9 text-primary-500 w-full lg:max-w-4xl mx-auto">
+            Spotify is a web music player. This website has (feauture).Styling
+            is with Tailwind-css. The state managment is react-query. And the
+            form validation is with react-hook-form. Backend is django and
+            mongoDB. Well, This website is developed by the following
+            developers.
+          </p>
+        </div>
+        <div className="text-center mt-24">
+          <h1 className="text-2xl font-bold">Developers</h1>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 pt-9">
+            {developers.map((dev) => (
+              <div
+                key={dev.id}
+                className="border block sm:justify-between sm:items-center sm:flex md:block border-secondary-50 hover:scale-105 duration-300 p-4 text-center rounded-md shadow-md"
+              >
+                <h2 className="text-2xl font-bold text-primary-700">
+                  {dev.name}
+                </h2>
+                <p className="mt-2 text-secondary-500">{dev.field}</p>
+                <div className="flex items-center justify-center gap-4 mt-4">
+                  {dev.socialMedia.map((item) => (
+                    <Link
+                      key={item.id}
+                      className="bg-primary-100 font-extralight hover:bg-primary-300 duration-500 rounded-full p-2 border shadow"
+                      to={item.src}
+                    >
+                      <item.icon className="text-primary-800 text-xl" />
+                    </Link>
+                  ))}
                 </div>
-            </div>
-            {/* end abou page main */}
-
-            <footer className="px-9 flex items-center justify-center">
-                <div className=" flex items-start justify-between text-primary-100 w-[80%] py-12">
-                    <div className="text-white">
-                        <Link className="flex items-center gap-1" to={"/"}>
-                            <FaSpotify className="text-4xl text-primary-100" />
-                            <h1 className="italic font-bold text-3xl text-secondary-0">Spotify</h1>
-                        </Link>
-                    </div>
-                    <div className="col-span-8 md:col-s pan-5">
-                        <div className="flex items-start gap-32">
-                            <ul className="space-y-2">
-                                <p className="font-bold text-secondary-0 text-xl md:text-lg">
-                                    Useful links
-                                </p>
-                                <Link to={"/"}>
-                                    <li>Home</li>
-                                </Link>
-                                <Link to={"/login"}>
-                                    <li>Log in</li>
-                                </Link>
-                                <Link to={"/signup"}>
-                                    <li>Sign up</li>
-                                </Link>
-                            </ul>
-                            <ul className="space-y-2">
-                                <p className="font-bold text-secondary-0 text-xl md:text-lg">
-                                    team
-                                </p>
-                                <Link to={"/aboutUs"}>about</Link>
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="col-span-8 md:col-span-3 flex md:justify-end ">
-                        <ul className="flex gap-x-5">
-                            <li>
-                                <a
-                                    href="#"
-                                    className="rounded-full bg-primary-700 duration-300 hover:bg-secondary-100 h-10 w-10 flex justify-center items-center border-none"
-                                >
-                                    <BiLogoInstagram className="text-2xl" />
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="#"
-                                    className="rounded-full bg-primary-700 duration-300 hover:bg-secondary-100 h-10 w-10 flex justify-center items-center border-none"
-                                >
-                                    <BiLogoTwitter className="text-2xl" />
-                                </a>
-                            </li>
-
-                            <li>
-                                <a
-                                    href="#"
-                                    className="rounded-full bg-primary-700 duration-300 hover:bg-secondary-100 h-10 w-10 flex justify-center items-center border-none"
-                                >
-                                    <BiLogoFacebookCircle className="text-2xl" />
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </footer>
-        </>
-    )
-}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
