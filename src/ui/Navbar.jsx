@@ -10,7 +10,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="bg-primary-900 z-10 sticky top-0 right-0 left-0 bg-opacity-50 px-5 h-16 items-center w-full flex justify-between text-primary-100">
+    <div className="bg-primary-900 z-10 sticky top-0 right-0 left-0 bg-opacity-50 px-5 h-20 md:h-16 items-center w-full flex justify-between text-primary-100">
       <div className=" md:hidden flex justify-between w-full">
         <button onClick={() => setOpen(!open)} className=" col-span-1">
           {!open ? (
