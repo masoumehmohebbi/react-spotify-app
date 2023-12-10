@@ -2,14 +2,14 @@ import { useState } from "react";
 import { AiFillHome, AiOutlineHome } from "react-icons/ai";
 import { FaSpotify } from "react-icons/fa";
 import { RiSearchFill, RiSearchLine } from "react-icons/ri";
-import { BiLibrary } from "react-icons/bi";
+import { BiLibrary, BiPlus } from "react-icons/bi";
+import { PiMusicNotesPlusDuotone } from "react-icons/pi";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import ModalButton from "./ModalButton";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 import "tippy.js/animations/shift-toward.css";
-import "tippy.js/themes/material.css";
 
 export const SideBar = () => {
   const { t } = useTranslation();
@@ -66,30 +66,38 @@ export const SideBar = () => {
 
         <ul className="bg-primary-800 flex flex-col gap-6 p-4 pt-0 rounded">
           <li className="text-gray-400 z-10">
-            <Link className="flex items-center justify-between gap-1 " to={"/"}>
+            <Link
+              className="flex items-center justify-between gap-1 pt-2"
+              to={"/"}
+            >
               <div className="flex items-center gap-2 transition duration-500 hover:text-secondary-50">
                 <BiLibrary className="text-2xl" />
                 <span>{t("your-library")}</span>
               </div>
-              <div className="p-2 rounded-full transition duration-300 hover:bg-primary-800 hover:text-secondary-50">
-                <svg
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 4.5v15m7.5-7.5h-15"
-                  />
-                </svg>
-              </div>
+              <Tippy
+                trigger="click"
+                placement="bottom-start"
+                arrow=""
+                content={
+                  <div className="flex items-center justify-center gap-x-2">
+                    <PiMusicNotesPlusDuotone className="text-xl" />
+                    <p>{t("create_New_playList")}</p>
+                  </div>
+                }
+              >
+                <Tippy arrow="" content={t("create_paylist_folder")}>
+                  <span className="p-1 rounded-full transition duration-300 hover:bg-primary-600 hover:text-secondary-50">
+                    <BiPlus className="w-6 h-6" />
+                  </span>
+                </Tippy>
+              </Tippy>
             </Link>
           </li>
 
-          <ul className="flex static flex-col  gap-8 overflow-y-scroll overflow-x-hidden  p-2 h-[172px] text-secondary-50 ">
+          <ul
+            onClick={() => setVisibleTippy(false)}
+            className="list flex static flex-col  gap-8 overflow-y-scroll overflow-x-hidden  p-2 h-[172px] text-secondary-50 "
+          >
             <li className="bg-primary-600 rounded px-4 py-6 flex w-full flex-col gap-6">
               <h3 className="text-md font-bold">{t("first_playlist")}</h3>
               <p className="text-sm">{t("help_you")}</p>
@@ -128,6 +136,7 @@ export const SideBar = () => {
                 }
               >
                 <button
+                  id="exceptionId"
                   onClick={() => setVisibleTippy(true)}
                   className="bg-secondary-0 rounded-[500px] border-none py-2 mt-4 px-6 w-max font-bold text-primary-900 hover:scale-105 transition"
                 >

@@ -42,11 +42,11 @@ body {
   font-family: CircularSp, CircularSp-Arab, CircularSp-Hebr, CircularSp-Cyrl,
     CircularSp-Grek, CircularSp-Deva, Helvetica, Arial, sans-serif;
 }
-.tippy-box {
+.list .tippy-box {
   background-color: rgb(var(--color-blue));
 }
 
-.tippy-arrow {
+.list .tippy-arrow {
   color: rgb(var(--color-blue));
 }
 .f {
