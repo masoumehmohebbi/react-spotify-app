@@ -11,7 +11,8 @@ import ModalButton from "./ModalButton";
 export const SideBar = () => {
   const { t } = useTranslation();
   const [activeLink, setActiveLink] = useState(1);
-  const [isShowCreateLibraryTooltip, setIsShowCreateLibraryTooltip] = useState(false)
+  const [isShowCreateLibraryTooltip, setIsShowCreateLibraryTooltip] =
+    useState(false);
   const sidebarLinks = [
     {
       id: 1,
@@ -31,8 +32,8 @@ export const SideBar = () => {
     setActiveLink(id);
   };
   const isShowCreateLibraryTooltipHandler = () => {
-    setIsShowCreateLibraryTooltip(!isShowCreateLibraryTooltip)
-  }
+    setIsShowCreateLibraryTooltip(!isShowCreateLibraryTooltip);
+  };
 
   return (
     <aside className="hidden md:block h-screen p-2 pl-0 select-none sticky right-0 top-0">
@@ -48,10 +49,11 @@ export const SideBar = () => {
             <li
               key={item.id}
               onClick={() => activeLinkhandler(item.id)}
-              className={`flex transition duration-500 hover:text-secondary-50 ${item.id === activeLink
-                ? "text-secondary-50 "
-                : "text-secondary-100"
-                }`}
+              className={`flex transition duration-500 hover:text-secondary-50 ${
+                item.id === activeLink
+                  ? "text-secondary-50 "
+                  : "text-secondary-100"
+              }`}
             >
               <Link className="flex items-center gap-2" to={"/"}>
                 <div className="text-2xl">
@@ -92,21 +94,28 @@ export const SideBar = () => {
               <h3 className="text-md font-bold">{t("first_playlist")}</h3>
               <p className="text-sm">{t("help_you")}</p>
 
-
               <button
                 onClick={isShowCreateLibraryTooltipHandler}
-                className="bg-secondary-0 rounded-[500px] border-none py-2 mt-4 px-6 w-max font-bold text-primary-900 hover:scale-105 transition">
+                className="bg-secondary-0 rounded-[500px] border-none py-2 mt-4 px-6 w-max font-bold text-primary-900 hover:scale-105 transition"
+              >
                 {t("create_playList")}
               </button>
 
-              <div className={`w-[90%] absolute rounded transition-all ${isShowCreateLibraryTooltip ? 'top-1' : '-top-[400px]'}`}>
+              <div
+                className={`w-[90%] absolute rounded transition-all ${
+                  isShowCreateLibraryTooltip ? "top-1" : "-top-[400px]"
+                }`}
+              >
                 <div className="w-[90%] p-2 bg-blue-600 text-white relative top-1 rounded flex flex-col gap-2 ">
                   <h4 className="font-bold">Create a playlist</h4>
-                  <p className="text-sm">Log in to create and share playlists.</p>
+                  <p className="text-sm">
+                    Log in to create and share playlists.
+                  </p>
                   <div className="flex items-center justify-end gap-2 mt-2">
                     <p
                       onClick={isShowCreateLibraryTooltipHandler}
-                      className="text-primary-300 cursor-pointer">
+                      className="text-primary-300 cursor-pointer"
+                    >
                       not now
                     </p>
                     <Link
@@ -119,7 +128,6 @@ export const SideBar = () => {
                   <div className="w-[13px] h-[13px] bg-blue-600 absolute -bottom-[6px] rotate-45"></div>
                 </div>
               </div>
-
             </li>
             <li className="bg-primary-600 rounded px-4 py-6 flex flex-col gap-6">
               <h3 className="text-md font-bold">{t("find_padcast")}</h3>
