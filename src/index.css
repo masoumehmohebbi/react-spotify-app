@@ -28,8 +28,7 @@
     --color-success: 0, 192, 115;
     --color-warning: 255, 153, 0;
     --color-error: 255, 71, 87;
-    --color-green-500: 30, 215, 96; /* #1ED760 */
-    --color-red-300: 252, 165, 165;
+    --color-blue: 13, 114, 234; /* 0d72ea */
   }
 }
 html,
@@ -43,13 +42,12 @@ body {
   font-family: CircularSp, CircularSp-Arab, CircularSp-Hebr, CircularSp-Cyrl,
     CircularSp-Grek, CircularSp-Deva, Helvetica, Arial, sans-serif;
 }
-.tt {
-  z-index: 9999;
-  visibility: visible;
-  position: absolute;
-  inset: 0px auto auto 0px;
-  margin: 0px;
-  transform: translate3d(328px, 187px, 0px);
+.tippy-box {
+  background-color: rgb(var(--color-blue));
+}
+
+.tippy-arrow {
+  color: rgb(var(--color-blue));
 }
 .f {
   background: linear-gradient(rgba(255, 255, 255, 0.1) 0%, rgb(0, 0, 0) 100%);
