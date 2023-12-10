@@ -94,10 +94,7 @@ export const SideBar = () => {
             </Link>
           </li>
 
-          <ul
-            onClick={() => setVisibleTippy(false)}
-            className="list flex static flex-col  gap-8 overflow-y-scroll overflow-x-hidden  p-2 h-[172px] text-secondary-50 "
-          >
+          <ul className="list flex static flex-col  gap-8 overflow-y-scroll overflow-x-hidden  p-2 h-[172px] text-secondary-50 ">
             <li className="bg-primary-600 rounded px-4 py-6 flex w-full flex-col gap-6">
               <h3 className="text-md font-bold">{t("first_playlist")}</h3>
               <p className="text-sm">{t("help_you")}</p>
