@@ -14,7 +14,15 @@ import "tippy.js/animations/shift-toward.css";
 export const SideBar = () => {
   const { t } = useTranslation();
   const [activeLink, setActiveLink] = useState(1);
-  const [visibleTippy, setVisibleTippy] = useState(false);
+
+  const [isCreateNewPlaylist, setIsCreateNewPlaylist] = useState(false);
+  const showCreateNewPlaylist = () => setIsCreateNewPlaylist(true);
+  const hideCreateNewPlaylist = () => setIsCreateNewPlaylist(false);
+
+  const [isCreatePlaylist, setIsCreatePlaylist] = useState(false);
+  const showCreatePlaylist = () => setIsCreatePlaylist(true);
+  const hideCreatePlaylist = () => setIsCreatePlaylist(false);
+
   const sidebarLinks = [
     {
       id: 1,
@@ -75,18 +83,33 @@ export const SideBar = () => {
                 <span>{t("your-library")}</span>
               </div>
               <Tippy
-                trigger="click"
+                interactive={true}
+                visible={isCreateNewPlaylist}
+                onClickOutside={hideCreateNewPlaylist}
                 placement="bottom-start"
                 arrow=""
                 content={
-                  <div className="flex items-center justify-center gap-x-2">
+                  <div
+                    onClick={() => {
+                      setIsCreateNewPlaylist(false);
+                      setIsCreatePlaylist(true);
+                    }}
+                    className="flex items-center justify-center gap-x-2 cursor-pointer"
+                  >
                     <PiMusicNotesPlusDuotone className="text-xl" />
                     <p>{t("create_New_playList")}</p>
                   </div>
                 }
               >
                 <Tippy arrow="" content={t("create_paylist_folder")}>
-                  <span className="p-1 rounded-full transition duration-300 hover:bg-primary-600 hover:text-secondary-50">
+                  <span
+                    onClick={
+                      isCreateNewPlaylist
+                        ? hideCreateNewPlaylist
+                        : showCreateNewPlaylist
+                    }
+                    className="p-1 rounded-full transition duration-300 hover:bg-primary-600 hover:text-secondary-50"
+                  >
                     <BiPlus className="w-6 h-6" />
                   </span>
                 </Tippy>
@@ -104,38 +127,36 @@ export const SideBar = () => {
                 animation="shift-toward"
                 placement="right-end"
                 offset={[60, 120]}
-                visible={visibleTippy}
+                visible={isCreatePlaylist}
+                onClickOutside={hideCreatePlaylist}
                 content={
-                  <div>
-                    <div className="w-full p-2 text-secondary-0 relative top-1 rounded flex flex-col gap-2 ">
-                      <h4 className="font-semibold text-lg">
-                        Create a playlist
-                      </h4>
-                      <p className="text-sm">
-                        Log in to create and share playlists.
+                  <div className="min-w-[300px] max-w-[336px] p-2 text-secondary-0 relative top-1 rounded flex flex-col gap-2 ">
+                    <h4 className="font-semibold text-lg">
+                      {t("create_playList")}
+                    </h4>
+                    <p>{t("login_create_playlist")}</p>
+                    <div className="flex items-center justify-end gap-4 mt-2 text-base">
+                      <p
+                        onClick={() => setIsCreatePlaylist(false)}
+                        className="text-primary-300 cursor-pointer hover:scale-105 hover:text-secondary-0"
+                      >
+                        {t("not_now")}
                       </p>
-                      <div className="flex items-center justify-end gap-2 mt-2">
-                        <p
-                          onClick={() => setVisibleTippy(false)}
-                          className="text-primary-300 cursor-pointer"
-                        >
-                          not now
-                        </p>
-                        <Link
-                          to={"/login"}
-                          className="rounded-[500px] border-none md:bg-white py-1 md:px-6  text-secondary-0 md:text-primary-900"
-                        >
-                          {t("log_in")}
-                        </Link>
-                      </div>
+                      <Link
+                        to={"/login"}
+                        className="exceptionId hover:scale-105 rounded-[500px] border-none md:bg-secondary-0 py-1 md:px-6 text-secondary-0 md:text-primary-900"
+                      >
+                        {t("log_in")}
+                      </Link>
                     </div>
                   </div>
                 }
               >
                 <button
-                  id="exceptionId"
-                  onClick={() => setVisibleTippy(true)}
-                  className="bg-secondary-0 rounded-[500px] border-none py-2 mt-4 px-6 w-max font-bold text-primary-900 hover:scale-105 transition"
+                  onClick={
+                    isCreatePlaylist ? hideCreatePlaylist : showCreatePlaylist
+                  }
+                  className="exceptionId bg-secondary-0 rounded-[500px] border-none py-2 mt-4 px-6 w-max font-bold text-primary-900 hover:scale-105 transition"
                 >
                   {t("create_playList")}
                 </button>
