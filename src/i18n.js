@@ -3,7 +3,7 @@ import HttpBackend from "i18next-http-backend";
 import LanguageDetector from "i18next-browser-languagedetector";
 import { initReactI18next } from "react-i18next";
 
-const apiKey = "-W-3j3QZDz3uTPmEm2En4A";
+const apiKey = "h0qKTFfBaheP9aHI7DkXFg";
 const loadPath = `https://api.i18nexus.com/project_resources/translations/{{lng}}/{{ns}}.json?api_key=${apiKey}`;
 
 i18next
@@ -16,7 +16,7 @@ i18next
     ns: ["spotify-app"],
     defaultNS: "spotify-app",
 
-    supportedLngs: ["en", "fr", "zh", "es", "hi", "fa"],
+    supportedLngs: ["en", "fa", "hi", "zh", "fr", "es"],
 
     backend: {
       loadPath: loadPath,

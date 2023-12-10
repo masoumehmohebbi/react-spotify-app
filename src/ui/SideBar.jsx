@@ -11,6 +11,8 @@ import ModalButton from "./ModalButton";
 export const SideBar = () => {
   const { t } = useTranslation();
   const [activeLink, setActiveLink] = useState(1);
+  const [isShowCreateLibraryTooltip, setIsShowCreateLibraryTooltip] =
+    useState(false);
   const sidebarLinks = [
     {
       id: 1,
@@ -28,7 +30,9 @@ export const SideBar = () => {
 
   const activeLinkhandler = (id) => {
     setActiveLink(id);
-    console.log(activeLink);
+  };
+  const isShowCreateLibraryTooltipHandler = () => {
+    setIsShowCreateLibraryTooltip(!isShowCreateLibraryTooltip);
   };
 
   return (
@@ -85,13 +89,45 @@ export const SideBar = () => {
               </div>
             </Link>
           </li>
-          <ul className="flex flex-col gap-8 overflow-y-scroll p-2 h-[172px] text-secondary-50">
-            <li className="bg-primary-600 rounded px-4 py-6 flex flex-col gap-6">
+          <ul className="flex flex-col gap-8 overflow-y-scroll overflow-x-visible  p-2 h-[172px] text-secondary-50 ">
+            <li className="bg-primary-600 rounded px-4 py-6 flex flex-col gap-6  relative">
               <h3 className="text-md font-bold">{t("first_playlist")}</h3>
               <p className="text-sm">{t("help_you")}</p>
-              <button className="bg-secondary-0 rounded-[500px] border-none py-2 px-6 w-max font-bold text-primary-900 hover:scale-105 transition">
+
+              <button
+                onClick={isShowCreateLibraryTooltipHandler}
+                className="bg-secondary-0 rounded-[500px] border-none py-2 mt-4 px-6 w-max font-bold text-primary-900 hover:scale-105 transition"
+              >
                 {t("create_playList")}
               </button>
+
+              <div
+                className={`w-[90%] absolute rounded transition-all ${
+                  isShowCreateLibraryTooltip ? "top-1" : "-top-[400px]"
+                }`}
+              >
+                <div className="w-[90%] p-2 bg-blue-600 text-white relative top-1 rounded flex flex-col gap-2 ">
+                  <h4 className="font-bold">Create a playlist</h4>
+                  <p className="text-sm">
+                    Log in to create and share playlists.
+                  </p>
+                  <div className="flex items-center justify-end gap-2 mt-2">
+                    <p
+                      onClick={isShowCreateLibraryTooltipHandler}
+                      className="text-primary-300 cursor-pointer"
+                    >
+                      not now
+                    </p>
+                    <Link
+                      to={"/login"}
+                      className="rounded-[500px] border-none md:bg-white py-1 md:px-6  text-secondary-0 md:text-primary-900"
+                    >
+                      {t("log_in")}
+                    </Link>
+                  </div>
+                  <div className="w-[13px] h-[13px] bg-blue-600 absolute -bottom-[6px] rotate-45"></div>
+                </div>
+              </div>
             </li>
             <li className="bg-primary-600 rounded px-4 py-6 flex flex-col gap-6">
               <h3 className="text-md font-bold">{t("find_padcast")}</h3>

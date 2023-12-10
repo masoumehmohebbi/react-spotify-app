@@ -43,6 +43,14 @@ body {
   font-family: CircularSp, CircularSp-Arab, CircularSp-Hebr, CircularSp-Cyrl,
     CircularSp-Grek, CircularSp-Deva, Helvetica, Arial, sans-serif;
 }
+.tt {
+  z-index: 9999;
+  visibility: visible;
+  position: absolute;
+  inset: 0px auto auto 0px;
+  margin: 0px;
+  transform: translate3d(328px, 187px, 0px);
+}
 .f {
   background: linear-gradient(rgba(255, 255, 255, 0.1) 0%, rgb(0, 0, 0) 100%);
 }
