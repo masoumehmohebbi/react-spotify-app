@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import Navbar from "../ui/Navbar";
 import { BiSearch } from "react-icons/bi";
+import { useEffect, useRef } from "react";
 
 const Search = () => {
   return (
@@ -21,10 +22,17 @@ const Search = () => {
 export default Search;
 
 export function SearchField() {
+  const searchFieldRef = useRef();
   const { t } = useTranslation();
+
+  useEffect(() => {
+    searchFieldRef.current.focus();
+  }, []);
+
   return (
     <>
       <input
+        ref={searchFieldRef}
         className="py-2 md:py-3 px-3 w-full bg-transparent outline-none "
         type="text"
         placeholder={t("what_to_listen")}

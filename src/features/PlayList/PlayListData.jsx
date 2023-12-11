@@ -15,6 +15,34 @@ const playlistData = [
     title: "lofi bits",
     desc: "chill beats, lofi vibes, new tracks every week...",
   },
+  {
+    id: 3,
+    imageSrc:
+      "https://i.scdn.co/image/ab67706f0000000254473de875fea0fd19d39037",
+    title: "lofi bits",
+    desc: "chill beats, lofi vibes, new tracks every week...",
+  },
+  {
+    id: 4,
+    imageSrc:
+      "https://i.scdn.co/image/ab67706f0000000254473de875fea0fd19d39037",
+    title: "lofi bits",
+    desc: "chill beats, lofi vibes, new tracks every week...",
+  },
+  {
+    id: 5,
+    imageSrc:
+      "https://i.scdn.co/image/ab67706f0000000254473de875fea0fd19d39037",
+    title: "lofi bits",
+    desc: "chill beats, lofi vibes, new tracks every week...",
+  },
+  {
+    id: 6,
+    imageSrc:
+      "https://i.scdn.co/image/ab67706f0000000254473de875fea0fd19d39037",
+    title: "lofi bits",
+    desc: "chill beats, lofi vibes, new tracks every week...",
+  },
 ];
 export const PlayListData = () => {
   return (
@@ -22,7 +50,7 @@ export const PlayListData = () => {
       {playlistData.map((item) => (
         <div
           key={item.id}
-          className="group bg-primary-500 hover:bg-primary-700 shadow-md rounded-md p-5 cursor-pointer"
+          className="group w-48 md:w-auto bg-primary-500 hover:bg-primary-700 shadow-md rounded-md p-5 cursor-pointer"
         >
           <div className="relative overflow-hidden">
             <img className="rounded-md" src={item.imageSrc} />

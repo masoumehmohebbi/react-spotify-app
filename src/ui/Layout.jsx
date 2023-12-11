@@ -5,7 +5,6 @@ import { Modal } from "./Modal";
 import { SideBar } from "./SideBar";
 const Layout = () => {
   const { isOpen } = useOpenModal();
-  console.log(isOpen);
   return (
     <>
       <div
