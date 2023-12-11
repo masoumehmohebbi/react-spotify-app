@@ -7,16 +7,11 @@ import googleLogo from "./../assets/images/google.svg";
 
 export const SignUp = ({ userPass }) => {
   const { t } = useTranslation();
-  const [userEmail, setUserEmail] = useState("");
   const [err, setErrr] = useState(false);
-
-  const setUserEmailInStateHandler = (e) => {
-    setUserEmail(e.target.value);
-  };
 
   const validate = (event) => {
     event.preventDefault();
-    if (!validEmail.test(userEmail)) {
+    if (!validEmail.test("userEmail")) {
       setErrr(true);
     }
     if (!validPassword.test(userPass)) {
@@ -37,22 +32,6 @@ export const SignUp = ({ userPass }) => {
           </div>
         )}
         <form className="w-3/4 flex flex-col gap-4 mt-8">
-          {/* <div className="flex flex-col gap-2 w-full">
-            <label className="font-bold" htmlFor="email">
-              {t("email_address")}
-            </label>
-
-            <input
-              id="email"
-              value={userEmail}
-              onChange={(e) => setUserEmailInStateHandler(e)}
-              className="bg-primary-800 rounded border border-gray-400 text-end px-4 py-2 w-full
-                                 outline-none focus:outline-white focus:outline-2 focus:border-none "
-              type="text"
-              placeholder="name@domain.com"
-              name="email"
-            />
-          </div> */}
           <div className="flex flex-col gap-2 w-full">
             <label className="font-bold" htmlFor="firstname">
               First name
@@ -60,8 +39,8 @@ export const SignUp = ({ userPass }) => {
 
             <input
               id="firstname"
-              className="bg-primary-800 rounded border border-gray-400 px-4 py-2 w-full
-                                 outline-none focus:outline-white focus:outline-2 focus:border-none "
+              className="bg-primary-800 rounded border px-4 py-2 w-full
+                                 outline-none focus:border-none duration-500 focus:ring-secondary-0 focus:ring-2"
               type="text"
               placeholder="E.g. john"
               name="firstname"
@@ -95,11 +74,39 @@ export const SignUp = ({ userPass }) => {
               name="number"
             />
           </div>
+          <div className="flex flex-col gap-2 w-full">
+            <label className="font-bold" htmlFor="password">
+              Password
+            </label>
+
+            <input
+              id="password"
+              className="bg-primary-800 rounded border border-gray-400 px-4 py-2 w-full
+                                 outline-none focus:outline-white focus:outline-2 focus:border-none "
+              type="password"
+              placeholder="E.g. ******"
+              name="password"
+            />
+          </div>
+          <div className="flex flex-col gap-2 w-full">
+            <label className="font-bold" htmlFor="confirmPassword">
+              Confirm password
+            </label>
+
+            <input
+              id="confirmPassword"
+              className="bg-primary-800 rounded border border-gray-400 px-4 py-2 w-full
+                                 outline-none focus:outline-white focus:outline-2 focus:border-none "
+              type="confirmPassword"
+              placeholder="E.g. ******"
+              name="confirmPassword"
+            />
+          </div>
           <button
             onClick={validate}
             className="bg-green-500 rounded-full w-full text-center text-black py-2 font-bold mt-4 hover:scale-105 transition"
           >
-            {t("sign_up")}
+            Next
           </button>
         </form>
         <div className="flex w-full relative">
