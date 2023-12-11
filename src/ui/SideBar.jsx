@@ -85,10 +85,7 @@ export const SideBar = () => {
 
         <ul className="bg-primary-800 flex flex-col gap-6 p-4 pt-0 rounded">
           <li className="text-gray-400 z-10">
-            <Link
-              className="flex items-center justify-between gap-1 pt-2"
-              to={"/"}
-            >
+            <div className="flex items-center justify-between gap-1 pt-2">
               <div className="flex items-center gap-2 transition duration-500 hover:text-secondary-50">
                 <BiLibrary className="text-2xl" />
                 <span>{t("your-library")}</span>
@@ -113,7 +110,7 @@ export const SideBar = () => {
                 }
               >
                 <Tippy arrow="" content={t("create_paylist_folder")}>
-                  <span
+                  <button
                     onClick={
                       isCreateNewPlaylist
                         ? hideCreateNewPlaylist
@@ -122,10 +119,10 @@ export const SideBar = () => {
                     className="p-1 rounded-full transition duration-300 hover:bg-primary-600 hover:text-secondary-50"
                   >
                     <BiPlus className="w-6 h-6" />
-                  </span>
+                  </button>
                 </Tippy>
               </Tippy>
-            </Link>
+            </div>
           </li>
 
           <ul className="list flex static flex-col  gap-8 overflow-y-scroll overflow-x-hidden  p-2 h-[172px] text-secondary-50 ">
@@ -167,7 +164,7 @@ export const SideBar = () => {
                   onClick={
                     isCreatePlaylist ? hideCreatePlaylist : showCreatePlaylist
                   }
-                  className="exceptionId bg-secondary-0 rounded-[500px] border-none py-2 mt-4 px-6 w-max font-bold text-primary-900 hover:scale-105 transition"
+                  className="bg-secondary-0 rounded-[500px] border-none py-2 mt-4 px-6 w-max font-bold text-primary-900 hover:scale-105 transition"
                 >
                   {t("create_playList")}
                 </button>
