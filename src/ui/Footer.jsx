@@ -17,9 +17,16 @@ export const Footer = () => {
               <p className="font-bold text-secondary-0 text-xl md:text-lg">
                 {t("useful_links")}
               </p>
-              <li>{t("home")}</li>
-              <li>{t("log_in")}</li>
-              <li>{t("sign_up")}</li>
+              <Link to={"/"}>
+                <li>{t("home")}</li>
+              </Link>
+              <Link to={"/login"}>
+                <li>{t("log_in")}</li>
+              </Link>
+
+              <Link to={"/signup"}>
+                <li>{t("sign_up")}</li>
+              </Link>
             </ul>
             <ul className="space-y-2">
               <p className="font-bold text-secondary-0 text-xl md:text-lg">

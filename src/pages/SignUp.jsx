@@ -37,7 +37,7 @@ export const SignUp = ({ userPass }) => {
           </div>
         )}
         <form className="w-3/4 flex flex-col gap-4 mt-8">
-          <div className="flex flex-col items-end gap-2 w-full">
+          {/* <div className="flex flex-col gap-2 w-full">
             <label className="font-bold" htmlFor="email">
               {t("email_address")}
             </label>
@@ -51,6 +51,48 @@ export const SignUp = ({ userPass }) => {
               type="text"
               placeholder="name@domain.com"
               name="email"
+            />
+          </div> */}
+          <div className="flex flex-col gap-2 w-full">
+            <label className="font-bold" htmlFor="firstname">
+              First name
+            </label>
+
+            <input
+              id="firstname"
+              className="bg-primary-800 rounded border border-gray-400 px-4 py-2 w-full
+                                 outline-none focus:outline-white focus:outline-2 focus:border-none "
+              type="text"
+              placeholder="E.g. john"
+              name="firstname"
+            />
+          </div>
+          <div className="flex flex-col gap-2 w-full">
+            <label className="font-bold" htmlFor="lastname">
+              Last name
+            </label>
+
+            <input
+              id="lastname"
+              className="bg-primary-800 rounded border border-gray-400 px-4 py-2 w-full
+                                 outline-none focus:outline-white focus:outline-2 focus:border-none "
+              type="text"
+              placeholder="E.g. smith"
+              name="lastname"
+            />
+          </div>
+          <div className="flex flex-col gap-2 w-full">
+            <label className="font-bold" htmlFor="number">
+              Number
+            </label>
+
+            <input
+              id="number"
+              className="bg-primary-800 rounded border border-gray-400 px-4 py-2 w-full
+                                 outline-none focus:outline-white focus:outline-2 focus:border-none "
+              type="number"
+              placeholder="E.g. 9999 999 9999"
+              name="number"
             />
           </div>
           <button
