@@ -26,8 +26,8 @@ export const PlayListData = () => {
         >
           <div className="relative overflow-hidden">
             <img className="rounded-md" src={item.imageSrc} />
-            <div className="flex bg-success hover:scale-105 rounded-full p-4 w-fit absolute transition-all ease-linear duration-150 items-center justify-center -bottom-9 h-0 group-hover:h-fit overflow-hidden group-hover:bottom-1 left-1">
-              <FaPlay className="text-lg text-primary-900 shadow-md" />
+            <div className="flex bg-success hover:scale-105 shadow-md rounded-full p-4 w-fit absolute transition-all ease-linear duration-150 items-center justify-center -bottom-9 h-0 group-hover:h-fit overflow-hidden group-hover:bottom-1 left-1">
+              <FaPlay className="text-lg text-primary-900" />
             </div>
           </div>
           <h1 className="text-secondary-0">{item.title}</h1>
