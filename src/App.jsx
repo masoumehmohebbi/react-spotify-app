@@ -24,10 +24,10 @@ function App() {
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} />
         </Route>
-        <Route path="/about-us/contact" element={<AboutUs />} />
         <Route element={<Layout />}>
           <Route path="/search" element={<Search />} />
         </Route>
+        <Route path="/about-us/contact" element={<AboutUs />} />
       </Routes>
     </Providers>
   );
