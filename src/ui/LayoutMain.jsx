@@ -9,7 +9,7 @@ const LayoutMain = () => {
   console.log(isOpen);
   return (
     <>
-      <div className="grid grid-cols-8 gap-x-2 mb-2">
+      <div className={`grid grid-cols-8 gap-x-2 h-[100vh] ${isOpen ? "overflow-hidden" : "overflow-auto"}`}>
         <div className="col-span-3 lg:col-span-2">
           <SideBar />
         </div>
