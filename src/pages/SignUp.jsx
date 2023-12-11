@@ -26,87 +26,82 @@ export const SignUp = ({ userPass }) => {
           {t("sign_up_to_start_listening")}
         </h1>
         {err && (
-          <div className="bg-red-600 w-full flex items-center justify-end gap-4 px-4 py-2 rounded">
+          <div className="bg-error w-full flex items-center justify-end gap-4 px-4 py-2 rounded">
             <p className="text-md">{err && <p>ایمیل معتبر نمیباشد</p>}</p>
             <CgDanger className="text-2xl" />
           </div>
         )}
-        <form className="w-3/4 flex flex-col gap-4 mt-8">
+        <form className="w-3/4 flex flex-col gap-y-7 mt-8">
           <div className="flex flex-col gap-2 w-full">
             <label className="font-bold" htmlFor="firstname">
-              First name
+              {t("first_name")}
             </label>
 
             <input
               id="firstname"
-              className="bg-primary-800 rounded border px-4 py-2 w-full
-                                 outline-none focus:border-none duration-500 focus:ring-secondary-0 focus:ring-2"
+              className="input__field"
               type="text"
-              placeholder="E.g. john"
+              placeholder={t("first_name")}
               name="firstname"
             />
           </div>
           <div className="flex flex-col gap-2 w-full">
             <label className="font-bold" htmlFor="lastname">
-              Last name
+              {t("last_name")}
             </label>
 
             <input
               id="lastname"
-              className="bg-primary-800 rounded border border-gray-400 px-4 py-2 w-full
-                                 outline-none focus:outline-white focus:outline-2 focus:border-none "
+              className="input__field"
               type="text"
-              placeholder="E.g. smith"
+              placeholder={t("last_name")}
               name="lastname"
             />
           </div>
           <div className="flex flex-col gap-2 w-full">
             <label className="font-bold" htmlFor="number">
-              Number
+              {t("phone_number")}
             </label>
 
             <input
               id="number"
-              className="bg-primary-800 rounded border border-gray-400 px-4 py-2 w-full
-                                 outline-none focus:outline-white focus:outline-2 focus:border-none "
+              className="input__field"
               type="number"
-              placeholder="E.g. 9999 999 9999"
+              placeholder={t("phone_number")}
               name="number"
             />
           </div>
           <div className="flex flex-col gap-2 w-full">
             <label className="font-bold" htmlFor="password">
-              Password
+              {t("password")}
             </label>
 
             <input
               id="password"
-              className="bg-primary-800 rounded border border-gray-400 px-4 py-2 w-full
-                                 outline-none focus:outline-white focus:outline-2 focus:border-none "
+              className="input__field"
               type="password"
-              placeholder="E.g. ******"
+              placeholder={t("password")}
               name="password"
             />
           </div>
           <div className="flex flex-col gap-2 w-full">
             <label className="font-bold" htmlFor="confirmPassword">
-              Confirm password
+              {t("confirm_password")}
             </label>
 
             <input
               id="confirmPassword"
-              className="bg-primary-800 rounded border border-gray-400 px-4 py-2 w-full
-                                 outline-none focus:outline-white focus:outline-2 focus:border-none "
+              className="input__field"
               type="confirmPassword"
-              placeholder="E.g. ******"
+              placeholder={t("confirm_password")}
               name="confirmPassword"
             />
           </div>
           <button
             onClick={validate}
-            className="bg-green-500 rounded-full w-full text-center text-black py-2 font-bold mt-4 hover:scale-105 transition"
+            className="bg-success rounded-full w-full text-center text-primary-900 py-2 font-bold mt-4 hover:scale-105 transition"
           >
-            Next
+            {t("next")}
           </button>
         </form>
         <div className="flex w-full relative">
@@ -117,18 +112,18 @@ export const SignUp = ({ userPass }) => {
           <div className="w-full h-[1px] bg-primary-700 rounded"></div>
         </div>
         <div className="flex flex-col gap-4">
-          <button className="flex items-center gap-12 rounded-full border px-8 py-2 border-gray-600 hover:border-white">
+          <button className="flex items-center gap-12 rounded-full border px-8 py-2 border-primary-100 hover:border-secondary-0">
             <span className="w-[80%] text-[18px]">
               {t("signup_with_google")}
             </span>
             <img src={googleLogo} alt="googleLogo" className="w-[27px]" />
           </button>
         </div>
-        <p className="text-gray-400">
+        <p className="text-primary-100">
           {t("already_have_account")}
           <Link
             to={"/login"}
-            className="underline text-white hover:text-green-600 ml-2"
+            className="underline mx-2 text-secondary-0 hover:text-success ml-2"
           >
             {t("log_in")}
           </Link>

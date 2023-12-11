@@ -5,8 +5,6 @@ import { useState } from "react";
 import { validEmail, validPassword } from "../features/auth/Regex";
 import { useTranslation } from "react-i18next";
 import googleLogo from "./../assets/images/google.svg";
-import appleLogo from "./../assets/images/apple.svg";
-import facebookLogo from "./../assets/images/facebook.svg";
 
 export default function LogIn() {
   const { t } = useTranslation();
@@ -56,24 +54,10 @@ export default function LogIn() {
             </span>
             <img src={googleLogo} alt="googleLogo" className="w-[27px]" />
           </button>
-          <button className="flex items-center gap-12 rounded-full border px-8 py-2 border-gray-600 hover:border-secondary-0">
-            <span className="w-[80%] text-[18px]">
-              {t("continue_with_facebook")}
-            </span>
-            <img src={facebookLogo} alt="facebookLogo" className="w-[27px]" />
-          </button>
-
-          <div className="flex items-center gap-12 rounded-full border px-8 py-2 border-gray-600 hover:border-secondary-0">
-            <span className="w-[80%] text-[18px]">
-              {t("continue_with_apple")}
-            </span>
-
-            <img src={appleLogo} alt="appleLogo" className="w-[27px]" />
-          </div>
         </div>
         <div className="w-full h-[1px] bg-primary-800 rounded"></div>
-        <form className="w-3/4 flex flex-col gap-4">
-          <div className="flex flex-col items-end gap-2 w-full">
+        <form className="w-3/4 flex flex-col gap-y-7">
+          <div className="flex flex-col gap-2 w-full">
             <label className="font-bold" htmlFor="emailOurUsername">
               {t("email_or_username")}
             </label>
@@ -81,20 +65,20 @@ export default function LogIn() {
               id="emailOurUsername"
               value={userEmail}
               onChange={(e) => setUserEmailInStateHandler(e)}
-              className="bg-primary-800 rounded border border-gray-400 text-end px-4 py-2 w-full
-                                   outline-none focus:outline-secondary-0 focus:outline-2 focus:border-none "
+              className="input__field"
               type="text"
               placeholder={t("email_or_username")}
               name="emailOurUsername"
             />
           </div>
-          <div className="flex flex-col items-end gap-4 w-full ">
+
+          {/* <div className="flex flex-col gap-4 w-full ">
             <label className="font-bold" htmlFor="password">
               {t("password")}
             </label>
-            <div className="relative  w-full flex items-center justify-between">
+            <div className="relative w-full flex items-center">
               <div
-                className="cursor-pointer text-xl z-10 mr-2"
+                className="cursor-pointer text-xl z-10 mx-1 absolute left-2 "
                 onClick={isShowPasswordHandler}
               >
                 {isShowPassword ? <IoMdEye /> : <IoMdEyeOff />}
@@ -106,12 +90,29 @@ export default function LogIn() {
                 placeholder={t("password")}
                 name="pass"
                 onChange={(e) => setUserPassInStateHandler(e)}
-                className="bg-transparent rounded border bg-primary-800
-                                          focus:outline-secondary-0 focus:outline-2 focus:border-none 
-                                          text-end absolute w-full px-4 py-2"
+                className="ltr:pr-9 pl-9 input__field"
               />
             </div>
+          </div> */}
+
+          <div className="gap-y-2 flex flex-col">
+            <label className="font-bold" htmlFor="password">
+              {t("password")}
+            </label>
+            <div className="input__field rtl:pl-3 ltr:pr-3 flex items-center focus-within:ring-secondary-0 focus-within:ring-2">
+              <input
+                id="password"
+                type={`${isShowPassword ? "text" : "password"}`}
+                value={userPass}
+                placeholder={t("password")}
+                name="pass"
+                onChange={(e) => setUserPassInStateHandler(e)}
+                className=" h-full w-full py-1 rtl:pl-1 ltr:pr-1 outline-none border-none bg-transparent"
+              />
+              <IoMdEye className="text-2xl" />
+            </div>
           </div>
+
           <div className="flex justify-end w-full mt-4">
             <label
               htmlFor="Toggle1"
@@ -120,27 +121,27 @@ export default function LogIn() {
               <span className="text-sm">{t("remember_me")}</span>
               <span className="relative">
                 <input id="Toggle1" type="checkbox" className="hidden peer" />
-                <div className="w-8 h-4 rounded-full shadow-inner dark:bg-gray-400 peer-checked:dark:bg-green-400  hover:outline hover:outline-gray-500 hover:outline-offset-2"></div>
-                <div className="absolute inset-y-0 left-0 w-2 h-2 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-800"></div>
+                <div className="w-8 h-4 rounded-full shadow-inner dark:bg-primary-100 peer-checked:dark:bg-green-400  hover:outline hover:outline-primary-100 hover:outline-offset-2"></div>
+                <div className="absolute inset-y-0 left-0 w-2 h-2 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-primary-800"></div>
               </span>
             </label>
           </div>
           <button
             onClick={validate}
-            className="bg-green-500 rounded-full w-full text-center text-black py-2 font-bold mt-4 hover:scale-105 transition"
+            className="bg-success rounded-full w-full text-center text-secondary-0 py-2 font-bold mt-4 hover:scale-105 transition"
           >
             {t("log_in")}
           </button>
-          <span className="text-center mt-4 underline hover:text-green-600">
+          <span className="text-center mt-4 underline hover:text-success">
             {t("forgot_your_password")}
           </span>
         </form>
         <div className="w-full h-[1px] bg-primary-800 rounded"></div>
-        <button className="text-gray-400">
+        <button className="text-primary-100">
           {t("have_account")}
           <Link
             to={"/signup"}
-            className="underline text-secondary-0 hover:text-green-600 ml-2"
+            className="underline text-secondary-0 hover:bg-success ml-2"
           >
             {t("sign_up_for_spotify")}
           </Link>

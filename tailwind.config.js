@@ -38,6 +38,7 @@ export default {
           0: withOpacity("--color-secondary-0"),
         },
         success: withOpacity("--color-success"),
+        error: withOpacity("--color-error"),
         blue: withOpacity("color-blue"),
       },
 

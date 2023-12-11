@@ -30,7 +30,7 @@ function HamburgerMenu({ setOpen, open }) {
         )}
       </button>
 
-      <div className="px-4 lock md:hidden rounded-[500px] max-w-md  w-full">
+      <div className="px-4 block md:hidden rounded-[500px] max-w-md  w-full">
         <div className="justify-between px-3 flex bg-primary-600 items-center rounded-[500px] focus-within:border-secondary-0 border-primary-600 border-2 duration-300">
           <SearchBox />
         </div>
