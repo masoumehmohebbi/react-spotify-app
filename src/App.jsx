@@ -8,6 +8,8 @@ import { useEffect } from "react";
 import Providers from "./features/Providers";
 import { AboutUs } from "./pages/AboutUs";
 import Layout from "./ui/Layout";
+import MainLayout from "./ui/mainLayout";
+import Search from "./pages/Search";
 
 function App() {
   useEffect(() => {
@@ -17,13 +19,18 @@ function App() {
   return (
     <Providers>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<Home />} />
+        </Route>
         <Route element={<AuthFormLayout />}>
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} />
         </Route>
         <Route element={<Layout />}>
           <Route path="/about-us/contact" element={<AboutUs />} />
+        </Route>
+        <Route element={<MainLayout />}>
+          <Route path="/search" element={<Search />} />
         </Route>
       </Routes>
     </Providers>

@@ -50,20 +50,20 @@ export default function LogIn() {
           </div>
         )}
         <div className="flex flex-col gap-4">
-          <button className="flex items-center gap-12 rounded-full border px-8 py-2 border-gray-600 hover:border-white">
+          <button className="flex items-center gap-12 rounded-full border px-8 py-2 border-gray-600 hover:border-secondary-0">
             <span className="w-[80%] text-[18px]">
               {t("continue_with_google")}
             </span>
             <img src={googleLogo} alt="googleLogo" className="w-[27px]" />
           </button>
-          <button className="flex items-center gap-12 rounded-full border px-8 py-2 border-gray-600 hover:border-white">
+          <button className="flex items-center gap-12 rounded-full border px-8 py-2 border-gray-600 hover:border-secondary-0">
             <span className="w-[80%] text-[18px]">
               {t("continue_with_facebook")}
             </span>
             <img src={facebookLogo} alt="facebookLogo" className="w-[27px]" />
           </button>
 
-          <div className="flex items-center gap-12 rounded-full border px-8 py-2 border-gray-600 hover:border-white">
+          <div className="flex items-center gap-12 rounded-full border px-8 py-2 border-gray-600 hover:border-secondary-0">
             <span className="w-[80%] text-[18px]">
               {t("continue_with_apple")}
             </span>
@@ -82,7 +82,7 @@ export default function LogIn() {
               value={userEmail}
               onChange={(e) => setUserEmailInStateHandler(e)}
               className="bg-primary-800 rounded border border-gray-400 text-end px-4 py-2 w-full
-                                   outline-none focus:outline-white focus:outline-2 focus:border-none "
+                                   outline-none focus:outline-secondary-0 focus:outline-2 focus:border-none "
               type="text"
               placeholder={t("email_or_username")}
               name="emailOurUsername"
@@ -107,7 +107,7 @@ export default function LogIn() {
                 name="pass"
                 onChange={(e) => setUserPassInStateHandler(e)}
                 className="bg-transparent rounded border bg-primary-800
-                                          focus:outline-white focus:outline-2 focus:border-none 
+                                          focus:outline-secondary-0 focus:outline-2 focus:border-none 
                                           text-end absolute w-full px-4 py-2"
               />
             </div>
@@ -140,7 +140,7 @@ export default function LogIn() {
           {t("have_account")}
           <Link
             to={"/signup"}
-            className="underline text-white hover:text-green-600 ml-2"
+            className="underline text-secondary-0 hover:text-green-600 ml-2"
           >
             {t("sign_up_for_spotify")}
           </Link>

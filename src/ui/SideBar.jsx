@@ -13,7 +13,7 @@ import "tippy.js/animations/shift-toward.css";
 
 export const SideBar = () => {
   const { t } = useTranslation();
-  const [activeLink, setActiveLink] = useState(1);
+  const [activeLink, setActiveLink] = useState(2);
 
   const [isCreateNewPlaylist, setIsCreateNewPlaylist] = useState(false);
   const showCreateNewPlaylist = () => setIsCreateNewPlaylist(true);
@@ -23,24 +23,24 @@ export const SideBar = () => {
   const showCreatePlaylist = () => setIsCreatePlaylist(true);
   const hideCreatePlaylist = () => setIsCreatePlaylist(false);
 
-  const sidebarLinks = [
-    {
-      id: 1,
-      title: t("home"),
-      icon: <AiOutlineHome />,
-      iconActive: <AiFillHome />,
-    },
-    {
-      id: 2,
-      title: t("search"),
-      icon: <RiSearchLine />,
-      iconActive: <RiSearchFill />,
-    },
-  ];
+  // const sidebarLinks = [
+  //   {
+  //     id: 1,
+  //     title: t("home"),
+  //     icon: <AiOutlineHome />,
+  //     iconActive: <AiFillHome />,
+  //   },
+  //   {
+  //     id: 2,
+  //     title: t("search"),
+  //     icon: <RiSearchLine />,
+  //     iconActive: <RiSearchFill />,
+  //   },
+  // ];
 
-  const activeLinkhandler = (id) => {
-    setActiveLink(id);
-  };
+  // const activeLinkhandler = (id) => {
+  //   setActiveLink(id);
+  // };
 
   return (
     <aside className="hidden md:block z-10 h-screen p-2 pl-0 select-none sticky right-0 top-0">
@@ -52,24 +52,35 @@ export const SideBar = () => {
               <FaSpotify className="text-2xl" />
             </Link>
           </li>
-          {sidebarLinks.map((item) => (
-            <li
-              key={item.id}
-              onClick={() => activeLinkhandler(item.id)}
-              className={`flex transition duration-500 hover:text-secondary-50 ${
-                item.id === activeLink
-                  ? "text-secondary-50 "
-                  : "text-secondary-100"
-              }`}
-            >
-              <Link className="flex items-center gap-2" to={"/"}>
-                <div className="text-2xl">
-                  {item.id === activeLink ? item.iconActive : item.icon}
-                </div>
-                {item.title}
-              </Link>
-            </li>
-          ))}
+          {/* home */}
+          <li
+            onClick={() => setActiveLink(2)}
+            className={`flex transition duration-500 hover:text-secondary-50 ${
+              1 === activeLink ? "text-secondary-50 " : "text-secondary-100"
+            }`}
+          >
+            <Link className="flex items-center gap-2" to={"/"}>
+              <div className="text-2xl">
+                {1 === activeLink ? <AiOutlineHome /> : <AiFillHome />}
+              </div>
+              {t("home")}
+            </Link>
+          </li>
+
+          {/* search */}
+          <li
+            onClick={() => setActiveLink(1)}
+            className={`flex transition duration-500 hover:text-secondary-50 ${
+              2 === activeLink ? "text-secondary-50 " : "text-secondary-100"
+            }`}
+          >
+            <Link className="flex items-center gap-2" to={"/search"}>
+              <div className="text-2xl">
+                {2 === activeLink ? <RiSearchLine /> : <RiSearchFill />}
+              </div>
+              {t("search")}
+            </Link>
+          </li>
         </ul>
 
         <ul className="bg-primary-800 flex flex-col gap-6 p-4 pt-0 rounded">

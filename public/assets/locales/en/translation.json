@@ -40,5 +40,7 @@
   "email_address": "Email address",
   "signup_with_google": "Sign up With Google",
   "already_have_account": "Already have an account?",
-  "or": "or"
+  "or": "or",
+
+  "what_to_listen": "What do you want to listen to?"
 }
