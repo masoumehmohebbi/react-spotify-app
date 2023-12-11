@@ -21,7 +21,7 @@
     --color-secondary-500: 107, 114, 128;
     --color-secondary-400: 156, 163, 175;
     --color-secondary-300: 209, 213, 219;
-    --color-secondary-200: 229, 231, 235;
+    --color-secondary-200: 114, 114, 114; /* #727272 */
     --color-secondary-100: 167, 167, 167; /* #a7a7a7 */
     --color-secondary-50: 179, 179, 179; /* #b3b3b3 */
     --color-secondary-0: 255, 255, 255; /* #ffffff  (از کمرنگ به پررنگ) */
