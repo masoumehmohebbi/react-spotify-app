@@ -34,7 +34,7 @@ export const Footer = () => {
             <li>
               <a
                 href="#"
-                className="rounded-full bg-primary-700 duration-300 hover:bg-secondary-100 h-10 w-10 flex justify-center items-center border-none"
+                className="rounded-full bg-primary-700 duration-300 hover:bg-primary-700 h-10 w-10 flex justify-center items-center border-none"
               >
                 <BiLogoInstagram className="text-2xl" />
               </a>
@@ -42,7 +42,7 @@ export const Footer = () => {
             <li>
               <a
                 href="#"
-                className="rounded-full bg-primary-700 duration-300 hover:bg-secondary-100 h-10 w-10 flex justify-center items-center border-none"
+                className="rounded-full bg-primary-700 duration-300 hover:bg-primary-700 h-10 w-10 flex justify-center items-center border-none"
               >
                 <BiLogoTwitter className="text-2xl" />
               </a>
@@ -51,7 +51,7 @@ export const Footer = () => {
             <li>
               <a
                 href="#"
-                className="rounded-full bg-primary-700 duration-300 hover:bg-secondary-100 h-10 w-10 flex justify-center items-center border-none"
+                className="rounded-full bg-primary-700 duration-300 hover:bg-primary-700 h-10 w-10 flex justify-center items-center border-none"
               >
                 <BiLogoFacebookCircle className="text-2xl" />
               </a>
