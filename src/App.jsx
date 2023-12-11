@@ -8,7 +8,7 @@ import { useEffect } from "react";
 import Providers from "./features/Providers";
 import { AboutUs } from "./pages/AboutUs";
 import Layout from "./ui/Layout";
-import MainLayout from "./ui/mainLayout";
+import LayoutMain from "./ui/LayoutMain";
 import Search from "./pages/Search";
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
   return (
     <Providers>
       <Routes>
-        <Route element={<MainLayout />}>
+        <Route element={<LayoutMain />}>
           <Route path="/" element={<Home />} />
         </Route>
         <Route element={<AuthFormLayout />}>
@@ -29,7 +29,7 @@ function App() {
         <Route element={<Layout />}>
           <Route path="/about-us/contact" element={<AboutUs />} />
         </Route>
-        <Route element={<MainLayout />}>
+        <Route element={<LayoutMain />}>
           <Route path="/search" element={<Search />} />
         </Route>
       </Routes>

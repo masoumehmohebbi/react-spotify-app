@@ -4,7 +4,7 @@ import { Footer } from "./Footer";
 import { Modal } from "./Modal";
 import { SideBar } from "./SideBar";
 
-const MainLayout = () => {
+const LayoutMain = () => {
   const { isOpen } = useOpenModal();
   console.log(isOpen);
   return (
@@ -23,4 +23,4 @@ const MainLayout = () => {
   );
 };
 
-export default MainLayout;
+export default LayoutMain;
