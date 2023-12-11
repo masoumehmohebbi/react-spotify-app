@@ -8,6 +8,8 @@ import Providers from "./features/Providers";
 import { AboutUs } from "./pages/AboutUs";
 import Layout from "./ui/Layout";
 import Search from "./pages/Search";
+import AdminPanel from "./pages/AdminPanel";
+
 
 function App() {
   useEffect(() => {
@@ -28,6 +30,7 @@ function App() {
           <Route path="/search" element={<Search />} />
         </Route>
         <Route path="/about-us/contact" element={<AboutUs />} />
+        <Route path="/admin-panel" element={<AdminPanel />} />
       </Routes>
     </Providers>
   );
