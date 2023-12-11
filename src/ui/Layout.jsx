@@ -9,7 +9,7 @@ const Layout = () => {
   return (
     <>
       <div
-        className={`grid grid-cols-8 gap-x-2 h-[100vh] ${
+        className={`grid grid-cols-8 gap-x-2 h-screen md:h-auto ${
           isOpen ? "overflow-hidden" : "overflow-auto"
         }`}
       >
