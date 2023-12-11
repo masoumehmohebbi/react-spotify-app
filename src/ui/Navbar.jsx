@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { BiMenu, BiX } from "react-icons/bi";
+import { BiMenu, BiSearch, BiX } from "react-icons/bi";
 import { useTranslation } from "react-i18next";
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import { FaSpotify } from "react-icons/fa";
-import { SearchField } from "../pages/Search";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar({ children }) {
   const [open, setOpen] = useState(false);
@@ -32,7 +32,7 @@ function HamburgerMenu({ setOpen, open }) {
 
       <div className="px-4 lock md:hidden rounded-[500px] max-w-md  w-full">
         <div className="justify-between px-3 flex bg-primary-600 items-center rounded-[500px] focus-within:border-secondary-0 border-primary-600 border-2 duration-300">
-          <SearchField />
+          <SearchBox />
         </div>
       </div>
 
@@ -74,5 +74,21 @@ function SigninSignUpButtons({ open }) {
         {t("log_in")}
       </Link>
     </div>
+  );
+}
+
+function SearchBox() {
+  const { t } = useTranslation();
+  const navigate = useNavigate();
+  return (
+    <>
+      <input
+        onFocus={() => navigate("/search")}
+        className="py-2 md:py-3 px-3 w-full bg-transparent outline-none "
+        type="text"
+        placeholder={t("what_to_listen")}
+      />
+      <BiSearch className="text-2xl text-primary-50 " />
+    </>
   );
 }
