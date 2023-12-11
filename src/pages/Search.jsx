@@ -25,7 +25,7 @@ export function SearchField() {
   return (
     <>
       <input
-        className="py-3 px-3 w-full bg-transparent outline-none "
+        className="py-2 md:py-3 px-3 w-full bg-transparent outline-none "
         type="text"
         placeholder={t("what_to_listen")}
       />

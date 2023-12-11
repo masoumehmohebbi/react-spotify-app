@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --color-primary-900: 0, 0, 0; /* #000000 */
+    --color-primary-900: 0, 0, 0; /* #000000  (از پررنگ به کمرنگ)*/
     --color-primary-800: 18, 18, 18; /* #121212 */
     --color-primary-700: 40, 40, 40; /* #282828 */
     --color-primary-600: 42, 42, 42; /* #2A2A2A */
@@ -24,7 +24,8 @@
     --color-secondary-200: 229, 231, 235;
     --color-secondary-100: 167, 167, 167; /* #a7a7a7 */
     --color-secondary-50: 179, 179, 179; /* #b3b3b3 */
-    --color-secondary-0: 255, 255, 255; /* #ffffff */
+    --color-secondary-0: 255, 255, 255; /* #ffffff  (از کمرنگ به پررنگ) */
+
     --color-success: 0, 192, 115;
     --color-warning: 255, 153, 0;
     --color-error: 255, 71, 87;

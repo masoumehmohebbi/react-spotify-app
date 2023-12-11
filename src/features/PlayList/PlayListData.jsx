@@ -22,7 +22,7 @@ export const PlayListData = () => {
       {playlistData.map((item) => (
         <div
           key={item.id}
-          className="group bg-primary-500 shadow-md rounded-md p-5 cursor-pointer"
+          className="group bg-primary-500 hover:bg-primary-700 shadow-md rounded-md p-5 cursor-pointer"
         >
           <div className="relative overflow-hidden">
             <img className="rounded-md" src={item.imageSrc} />

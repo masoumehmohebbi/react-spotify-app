@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import { FaTelegram } from "react-icons/fa";
 import { Header } from "../features/auth/AuthFormLayout";
+import { Footer } from "../ui/Footer";
 
 const developers = [
   {
@@ -92,6 +93,7 @@ export const AboutUs = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

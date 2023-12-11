@@ -69,7 +69,7 @@ function SigninSignUpButtons({ open }) {
       </button>
       <Link
         to={"/login"}
-        className="hover:scale-110 rounded-[500px] border-none md:bg-white py-2 md:px-6  font-bold text-secondary-0 md:text-primary-900"
+        className="hover:scale-110 rounded-[500px] border-none md:bg-white py-2 md:px-6  md:font-bold text-secondary-0 md:text-primary-900"
       >
         {t("log_in")}
       </Link>

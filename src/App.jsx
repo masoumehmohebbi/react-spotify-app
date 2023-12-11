@@ -1,4 +1,3 @@
-import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { AuthFormLayout } from "./features/auth/AuthFormLayout";
@@ -8,7 +7,6 @@ import { useEffect } from "react";
 import Providers from "./features/Providers";
 import { AboutUs } from "./pages/AboutUs";
 import Layout from "./ui/Layout";
-import LayoutMain from "./ui/LayoutMain";
 import Search from "./pages/Search";
 
 function App() {
@@ -19,17 +17,15 @@ function App() {
   return (
     <Providers>
       <Routes>
-        <Route element={<LayoutMain />}>
+        <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
         </Route>
         <Route element={<AuthFormLayout />}>
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} />
         </Route>
+        <Route path="/about-us/contact" element={<AboutUs />} />
         <Route element={<Layout />}>
-          <Route path="/about-us/contact" element={<AboutUs />} />
-        </Route>
-        <Route element={<LayoutMain />}>
           <Route path="/search" element={<Search />} />
         </Route>
       </Routes>
