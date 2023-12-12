@@ -74,7 +74,7 @@ const DashboardSideBar = () => {
             to={link.href}
           >
             <span
-              className={`text-white ${isShowSidebar ? "inline" : "hidden"}`}
+              className={`text-secondary-0 ${isShowSidebar ? "inline" : "hidden"}`}
             >
               {link.title}
             </span>
@@ -90,7 +90,7 @@ const DashboardSideBar = () => {
         <button
           className={`${
             isShowSidebar ? "p-2" : "p-2"
-          } mt-12 bg-red-600 text-white rounded transition duration-300 hover:bg-transparent border border-red-600`}
+          } mt-12 bg-red-600 text-secondary-0 rounded transition duration-300 hover:bg-transparent border border-red-600`}
         >
           {isShowSidebar ? (
             <span>خروج از پنل مدیریت</span>
