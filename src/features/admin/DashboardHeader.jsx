@@ -21,7 +21,7 @@ const DashboardHeader = () => {
         >
           <div
             dir="ltr"
-            className="text-3xl text-secondary-50 flex items-center gap-6 "
+            className="text-3xl text-secondary-50 flex flex-col xl:flex-row pt-12 xl:pt-0 items-center gap-6 "
           >
             <div className="hidden xl:flex items-center justify-between gap-12 ">
               <DashboardSearchBox />
