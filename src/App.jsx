@@ -9,6 +9,7 @@ import { AboutUs } from "./pages/AboutUs";
 import Search from "./pages/Search";
 import AppLayout from "./ui/AppLayout";
 import Playlist from "./features/PlayList/Playlist";
+import NotFound from "./pages/NotFound";
 
 function App() {
   useEffect(() => {
@@ -28,6 +29,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
         </Route>
         <Route path="/about-us/contact" element={<AboutUs />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Providers>
   );
