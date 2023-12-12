@@ -11,6 +11,7 @@ import AppLayout from "./ui/AppLayout";
 import Playlist from "./features/PlayList/Playlist";
 import NotFound from "./pages/NotFound";
 import AdminPanel from "./pages/AdminPanel";
+import AllUsers from "./pages/AdminPanelPages/AllUsers";
 
 function App() {
   useEffect(() => {
@@ -32,6 +33,8 @@ function App() {
         <Route path="/about-us/contact" element={<AboutUs />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/admin-panel" element={<AdminPanel />} />
+        <Route path="/admin-panel/all-users" element={<AllUsers />} />
+
       </Routes>
     </Providers>
   );
