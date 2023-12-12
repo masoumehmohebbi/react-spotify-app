@@ -10,8 +10,9 @@ import Search from "./pages/Search";
 import AppLayout from "./ui/AppLayout";
 import Playlist from "./features/PlayList/Playlist";
 import NotFound from "./pages/NotFound";
-import AdminPanel from "./pages/AdminPanel";
-import AllUsers from "./pages/AdminPanelPages/AllUsers";
+import DashboardLayout from "./features/admin/DashboardLayout";
+import AdminDashboard from "./pages/AdminDashboard";
+import Users from "./features/admin/Users";
 
 function App() {
   useEffect(() => {
@@ -26,15 +27,19 @@ function App() {
           <Route path="/search" element={<Search />} />
           <Route path="/playlist/:id" element={<Playlist />} />
         </Route>
+
         <Route element={<AuthFormLayout />}>
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} />
         </Route>
+
+        <Route element={<DashboardLayout />}>
+          <Route path="/admin-dashboard" element={<AdminDashboard />} />
+          <Route path="/admin-dashboard/users" element={<Users />} />
+        </Route>
+
         <Route path="/about-us/contact" element={<AboutUs />} />
         <Route path="*" element={<NotFound />} />
-        <Route path="/admin-panel" element={<AdminPanel />} />
-        <Route path="/admin-panel/all-users" element={<AllUsers />} />
-
       </Routes>
     </Providers>
   );
