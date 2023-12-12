@@ -3,9 +3,8 @@ import { Outlet } from "react-router-dom";
 import DashboardSideBar from "./DashboardSideBar";
 const DashboardLayout = () => {
   return (
-    <div>
+    <div dir="ltr">
       <DashboardHeader />
-
       <div className="w-full flex justify-between ">
         <Outlet />
         <DashboardSideBar />
