@@ -20,7 +20,7 @@ const users = [
 const Users = () => {
   return (
     <>
-      <h2 className="text-end p-4 tex-xl font-bold mb-4 ">
+      <h2 className="text-end text-secondary-0 p-4 tex-xl font-bold mb-4 ">
         نمایش تمام کاربر های سایت
       </h2>
       <div className="flex items-center justify-center w-full p-2">
@@ -47,14 +47,14 @@ const Users = () => {
               </th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="text-secondary-0">
             {users.map((user) => (
               <tr key={user.id}>
                 <td className="py-4 text-center px-6 border-b border-primary-200 flex items-center gap-2">
-                  <span className="bg-red-600 text-secondary-0 py-1 px-2 rounded-full text-[14px] cursor-pointer">
+                  <span className="bg-error  py-1 px-2 rounded-full text-[14px] cursor-pointer">
                     حذف
                   </span>
-                  <span className="bg-green-600 text-secondary-0 py-1 px-2 rounded-full  text-[14px] cursor-pointer">
+                  <span className="bg-success  py-1 px-2 rounded-full  text-[14px] cursor-pointer">
                     تغییر نقش
                   </span>
                 </td>

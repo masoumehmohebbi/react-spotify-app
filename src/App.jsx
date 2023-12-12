@@ -13,6 +13,7 @@ import NotFound from "./pages/NotFound";
 import DashboardLayout from "./features/admin/DashboardLayout";
 import AdminDashboard from "./pages/AdminDashboard";
 import Users from "./features/admin/Users";
+import Musics from "./features/admin/Musics";
 
 function App() {
   useEffect(() => {
@@ -36,6 +37,7 @@ function App() {
         <Route element={<DashboardLayout />}>
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/admin-dashboard/users" element={<Users />} />
+          <Route path="/admin-dashboard/musics" element={<Musics />} />
         </Route>
 
         <Route path="/about-us/contact" element={<AboutUs />} />
