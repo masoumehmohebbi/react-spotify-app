@@ -20,7 +20,7 @@ const DashboardHeader = () => {
           <h1 className="italic font-bold text-2xl text-secondary-0">
             Spotify
           </h1>
-          <FaSpotify className="text-3xl text-white" />
+          <FaSpotify className="text-3xl text-secondary-0" />
         </Link>
         <div className="flex items-center justify-between w-[30%] gap-12 ">
           <div className="text-3xl text-secondary-50 flex items-center gap-6 ">
@@ -29,20 +29,20 @@ const DashboardHeader = () => {
           </div>
           <div className="justify-between px-3 flex bg-primary-600 items-center rounded-[500px] ">
             <input
-              className="py-2 text-white px-3 bg-transparent outline-none transition-all w-[90px] focus:w-[190px]"
+              className="py-2 text-secondary-0 px-3 bg-transparent outline-none transition-all w-[90px] focus:w-[190px]"
               type="text"
               placeholder="...جستجو"
             />
             <BiSearch className="text-2xl text-secondary-50" />
           </div>
         </div>
-        <div className="text-white  relative w-[15%]">
+        <div className="text-secondary-0  relative w-[15%]">
           <div
             onClick={showAdminInfoHandler}
             className="flex items-center justify-end gap-2 cursor-pointer"
           >
             <MdArrowDropDown className="text-2xl" />
-            <h3 className="text-white font-bold">معصومه محبی</h3>
+            <h3 className="text-secondary-0 font-bold">معصومه محبی</h3>
             <div className="w-[50px] h-[50px] bg-primary-400 rounded-full border "></div>
           </div>
           <div
