@@ -4,13 +4,10 @@ import { IoNotificationsOutline } from "react-icons/io5";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { PiScrollDuotone } from "react-icons/pi";
 import { MdArrowDropDown } from "react-icons/md";
-import { useState } from "react";
+import Tippy from "@tippyjs/react";
+import "tippy.js/dist/tippy.css";
 
 const DashboardHeader = () => {
-  const [isShowAdminInfo, setIsShoeAdminInfo] = useState(false);
-  const showAdminInfoHandler = () => {
-    setIsShoeAdminInfo(!isShowAdminInfo);
-  };
   return (
     <div className="px-11 py-3 bg-primary-900 bg-opacity-50 flex items-center justify-center w-full sticky top-0 z-40 ">
       <div className="flex items-center justify-between w-full">
@@ -20,36 +17,36 @@ const DashboardHeader = () => {
             Spotify
           </h1>
         </Link> */}
-
-        <div className="text-white  relative w-fit">
-          <div
-            className={`transition-all ${
-              isShowAdminInfo ? "top-12" : "-top-[300px]"
-            } absolute bg-secondary-50 text-primary-500  left-0 rounded p-2 flex
-                     flex-col gap-4 group-hover:bg-red-200`}
-          >
-            <div className="flex items-center justify-end gap-2">
-              <span>معصومه محبی</span>
-              <CiUser />
+        <Tippy
+          interactive={true}
+          trigger="click"
+          placement="bottom"
+          content={
+            <div
+              className={`transition-all  text-primary-50  left-0 rounded p-2 flex
+                    flex-col gap-4 `}
+            >
+              <div className="flex items-center justify-end gap-2">
+                <span>معصومه محبی</span>
+                <CiUser />
+              </div>
+              <div className="flex items-center gap-2 justify-end">
+                <span>Mm12345687</span>
+                <RiLockPasswordLine />
+              </div>
+              <div className="flex items-center gap-2 justify-end">
+                <span>Admin</span>
+                <PiScrollDuotone />
+              </div>
             </div>
-            <div className="flex items-center gap-2 justify-end">
-              <span>Mm12345687</span>
-              <RiLockPasswordLine />
-            </div>
-            <div className="flex items-center gap-2 justify-end">
-              <span>Admin</span>
-              <PiScrollDuotone />
-            </div>
-          </div>
-          <div
-            onClick={showAdminInfoHandler}
-            className="flex items-center justify-end gap-2 cursor-pointer"
-          >
+          }
+        >
+          <div className="flex items-center justify-end gap-2 cursor-pointer">
             <div className="w-[50px] h-[50px] bg-primary-400 rounded-full border "></div>
             <h3 className="text-secondary-0 font-bold">نیلوفر پلوانه</h3>
             <MdArrowDropDown className="text-2xl text-secondary-0" />
           </div>
-        </div>
+        </Tippy>
         <div className="text-3xl text-secondary-50 flex items-center gap-6 ">
           <div className="flex items-center justify-between gap-12 ">
             <div className="justify-between px-3 flex bg-primary-600 items-center rounded-[500px] ">
