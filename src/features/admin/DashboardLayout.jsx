@@ -2,23 +2,22 @@
 import { Outlet } from "react-router-dom";
 import DashboardSideBar from "./DashboardSideBar";
 import { useState } from "react";
+import DashboardHeader from "./DashboardHeader";
 const DashboardLayout = () => {
   const [isShowSidebar, setIsShowSidebar] = useState(true);
   return (
     <div dir="ltr">
+      <DashboardHeader/>
       <div
-        className={`grid ${
-          isShowSidebar ? "grid-cols-5" : "grid-cols-12"
-        }  gap-x-2 `}
-      >
+        className={`grid ${isShowSidebar ? "grid-cols-5" : "grid-cols-12"
+          }  gap-x-2 `}>
         <div
-          className={`bg-primary-800 rounded-lg ${
-            isShowSidebar ? "col-span-4" : " col-span-11"
-          }`}
-        >
+          className={`bg-primary-800 rounded-lg ${isShowSidebar ? "col-span-4" : " col-span-11"
+            }`}>
           <Outlet />
         </div>
-        <div className={` ${isShowSidebar ? "col-span-1" : "col-span-1"}`}>
+        <div
+          className={`${isShowSidebar ? "col-span-1" : "col-span-1"}`}>
           <DashboardSideBar
             isShowSidebar={isShowSidebar}
             setIsShowSidebar={setIsShowSidebar}

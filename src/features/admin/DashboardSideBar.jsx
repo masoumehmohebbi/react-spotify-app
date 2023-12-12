@@ -17,7 +17,7 @@ const DashboardSideBar = ({ isShowSidebar, setIsShowSidebar }) => {
     {
       id: 1,
       title: "همه آهنگ ها",
-      href: "#",
+      href: "/admin-dashboard/musics",
       icon: <HiMusicNote />,
     },
     {
@@ -35,7 +35,7 @@ const DashboardSideBar = ({ isShowSidebar, setIsShowSidebar }) => {
     {
       id: 4,
       title: "همه کاربران",
-      href: "#",
+      href: "/admin-dashboard/users",
       icon: <FaUsers />,
     },
   ];
