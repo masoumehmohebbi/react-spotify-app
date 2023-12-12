@@ -1,18 +1,15 @@
 import { Link } from "react-router-dom";
 import { BiMenu } from "react-icons/bi";
-import { FaUsers } from "react-icons/fa";
+import { FaSpotify, FaUsers } from "react-icons/fa";
 import { useState } from "react";
 import { HiMusicNote } from "react-icons/hi";
 import { GiHeartInside } from "react-icons/gi";
 import { PiFoldersDuotone } from "react-icons/pi";
 import { IoIosLogOut, IoIosArrowForward } from "react-icons/io";
 
-const DashboardSideBar = () => {
-  const [isShowSidebar, setIsShowSidebar] = useState(true);
+const DashboardSideBar = ({ isShowSidebar, setIsShowSidebar }) => {
   const [activeLink, setActiveLink] = useState(1);
-  const isShowSidebarHandler = () => {
-    setIsShowSidebar(!isShowSidebar);
-  };
+
   const isActiveLinkHandler = (id) => {
     setActiveLink(id);
   };
@@ -44,37 +41,51 @@ const DashboardSideBar = () => {
   ];
 
   return (
-    <ul
-      className={`relative bg-primary-900 bg-opacity-50 p-4 transition-all duration-300 ${
-        isShowSidebar ? "w-[15%]" : "w-[5%]"
-      } h-screen flex justify-end sticky right-0 top-0 z-30 `}
+    <div
+      className={`h-screen  sticky  top-0  w-full rounded bg-primary-800 bg-opacity-50 p-4 transition-all duration-300
+        flex z-30`}
     >
-      <div className="fixed flex flex-col items-end justify-end gap-8  mt-[80px]">
-        <div className="text-secondary-50 text-3xl mb-8  flex gap-24  -top-24 -right-2 absolute  bg-primary-900 rounded">
+      <div className="w-full flex flex-col gap-y-6">
+        <div className="text-secondary-50 justify-between text-3xl mb-8 flex">
           <div
-            onClick={isShowSidebarHandler}
+            onClick={() => setIsShowSidebar((prev) => !prev)}
             className=" text-secondary-50  cursor-pointer z-50 p-2 "
           >
             {isShowSidebar ? (
-              <div className="bg-primary-800 rounded-full  p-2 hover:bg-primary-600">
+              <div className="bg-primary-800 rounded-full p-2 hover:bg-primary-600">
                 <IoIosArrowForward />
               </div>
             ) : (
-              <div className="bg-primary-800 rounded-full  p-2 hover:bg-primary-600">
+              <div className="bg-primary-800 rounded-full p-2 hover:bg-primary-600">
                 <BiMenu />
               </div>
             )}
           </div>
+          <Link
+            className={` ${
+              isShowSidebar ? "flex" : "hidden"
+            } duration-500 items-center gap-1 `}
+            to={"/"}
+          >
+            <FaSpotify className="text-2xl" />
+            <h1 className="italic text-base font-bold text-secondary-0">
+              Spotify
+            </h1>
+          </Link>
         </div>
         {links.map((link) => (
           <Link
             onClick={() => isActiveLinkHandler(link.id)}
             key={link.id}
-            className={`flex items-center gap-2 justify-end group`}
+            className={`flex items-center gap-2 w-full duration-500 ${
+              isShowSidebar ? "justify-end" : "justify-center"
+            } group`}
             to={link.href}
           >
             <span
-              className={`text-secondary-0 ${isShowSidebar ? "inline" : "hidden"}`}
+              className={`text-secondary-0 ${
+                isShowSidebar ? "inline" : "hidden"
+              }`}
             >
               {link.title}
             </span>
@@ -88,8 +99,8 @@ const DashboardSideBar = () => {
           </Link>
         ))}
         <button
-          className={`${
-            isShowSidebar ? "p-2" : "p-2"
+          className={`  ${
+            isShowSidebar ? "p-2" : "p-2 mx-auto"
           } mt-12 bg-red-600 text-secondary-0 rounded transition duration-300 hover:bg-transparent border border-red-600`}
         >
           {isShowSidebar ? (
@@ -99,7 +110,7 @@ const DashboardSideBar = () => {
           )}
         </button>
       </div>
-    </ul>
+    </div>
   );
 };
 
