@@ -11,7 +11,17 @@ export default function Navbar({ children }) {
 
   return (
     <div className="bg-primary-900 z-10 sticky top-0 right-0 left-0 bg-opacity-50 px-5 h-20 md:h-[4.5rem] items-center w-full flex justify-between text-primary-100">
-      <HamburgerMenu setOpen={setOpen} open={open} />
+      <HamburgerMenu setOpen={setOpen} open={open} size="md">
+        <div className="px-4 block md:hidden rounded-[500px] max-w-md  w-full">
+          <div className="justify-between px-3 flex bg-primary-600 items-center rounded-[500px] focus-within:border-secondary-0 border-primary-600 border-2 duration-300">
+            <SearchBox />
+          </div>
+        </div>
+
+        <Link to={"/"}>
+          <FaSpotify className="text-4xl text-secondary-0" />
+        </Link>
+      </HamburgerMenu>
       <NextPrevButtons />
       {children}
       <SigninSignUpButtons open={open} />
@@ -19,9 +29,9 @@ export default function Navbar({ children }) {
   );
 }
 
-function HamburgerMenu({ setOpen, open }) {
+export function HamburgerMenu({ setOpen, open, children, size }) {
   return (
-    <div className=" md:hidden flex justify-between items-center w-full">
+    <div className={`${size}:hidden flex justify-between items-center w-full`}>
       <button onClick={() => setOpen(!open)} className=" col-span-1">
         {!open ? (
           <BiMenu className="w-9 h-9 text-secondary-0" />
@@ -30,15 +40,7 @@ function HamburgerMenu({ setOpen, open }) {
         )}
       </button>
 
-      <div className="px-4 block md:hidden rounded-[500px] max-w-md  w-full">
-        <div className="justify-between px-3 flex bg-primary-600 items-center rounded-[500px] focus-within:border-secondary-0 border-primary-600 border-2 duration-300">
-          <SearchBox />
-        </div>
-      </div>
-
-      <Link to={"/"}>
-        <FaSpotify className="text-4xl text-secondary-0" />
-      </Link>
+      {children}
     </div>
   );
 }

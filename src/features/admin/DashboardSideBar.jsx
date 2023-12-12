@@ -42,7 +42,7 @@ const DashboardSideBar = ({ isShowSidebar, setIsShowSidebar }) => {
 
   return (
     <div
-      className={`h-screen  sticky  top-0  w-full rounded bg-primary-800 bg-opacity-50 p-4 transition-all duration-300
+      className={`h-screen sticky top-0 w-full rounded bg-primary-800 bg-opacity-50 p-4 transition-all duration-300
         flex z-30`}
     >
       <div className="w-full flex flex-col gap-y-6">
@@ -77,9 +77,7 @@ const DashboardSideBar = ({ isShowSidebar, setIsShowSidebar }) => {
           <Link
             onClick={() => isActiveLinkHandler(link.id)}
             key={link.id}
-            className={`flex items-center gap-2 w-full duration-500 ${
-              isShowSidebar ? "justify-end" : "justify-center"
-            } group`}
+            className={`flex items-center gap-2 w-full duration-500 justify-end group`}
             to={link.href}
           >
             <span
@@ -99,9 +97,7 @@ const DashboardSideBar = ({ isShowSidebar, setIsShowSidebar }) => {
           </Link>
         ))}
         <button
-          className={`  ${
-            isShowSidebar ? "p-2" : "p-2 mx-auto"
-          } mt-12 bg-red-600 text-secondary-0 rounded transition duration-300 hover:bg-transparent border border-red-600`}
+          className={` p-2 mt-12 bg-red-600 text-secondary-0 rounded transition duration-300 hover:bg-transparent border border-red-600`}
         >
           {isShowSidebar ? (
             <span>خروج از پنل مدیریت</span>
