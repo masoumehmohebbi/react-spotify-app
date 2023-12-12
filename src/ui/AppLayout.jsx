@@ -3,13 +3,13 @@ import { useOpenModal } from "../context/OpenModalContext";
 import { Footer } from "./Footer";
 import { Modal } from "./Modal";
 import { SideBar } from "./SideBar";
-const Layout = () => {
+const AppLayout = () => {
   const { isOpen } = useOpenModal();
   return (
     <>
       <div
-        className={`grid grid-cols-8 gap-x-2 h-screen md:h-auto ${
-          isOpen ? "overflow-hidden" : "overflow-auto"
+        className={`grid grid-cols-8 gap-x-2 ${
+          isOpen ? "overflow-hidden h-screen md:h-auto" : ""
         }`}
       >
         <div className="col-span-3 lg:col-span-2">
@@ -25,4 +25,4 @@ const Layout = () => {
   );
 };
 
-export default Layout;
+export default AppLayout;

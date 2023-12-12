@@ -16,6 +16,7 @@ export default function LogIn() {
   const isShowPasswordHandler = () => {
     setIsShowPassword(!isShowPassword);
   };
+  console.log(isShowPasswordHandler);
   const setUserEmailInStateHandler = (e) => {
     setUserEmail(e.target.value);
   };
@@ -58,17 +59,17 @@ export default function LogIn() {
         <div className="w-full h-[1px] bg-primary-800 rounded"></div>
         <form className="w-3/4 flex flex-col gap-y-7">
           <div className="flex flex-col gap-2 w-full">
-            <label className="font-bold" htmlFor="emailOurUsername">
-              {t("email_or_username")}
+            <label className="font-bold" htmlFor="phonenumber">
+              {t("phone_number")}
             </label>
             <input
-              id="emailOurUsername"
+              id="phonenumber"
               value={userEmail}
               onChange={(e) => setUserEmailInStateHandler(e)}
               className="input__field"
               type="text"
-              placeholder={t("email_or_username")}
-              name="emailOurUsername"
+              placeholder={t("phone_number")}
+              name="phonenumber"
             />
           </div>
 
