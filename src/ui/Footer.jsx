@@ -27,6 +27,7 @@ export const Footer = () => {
               <Link to={"/signup"}>
                 <li>{t("sign_up")}</li>
               </Link>
+              <Link to={"/admin-dashboard"}>Admin Dashboard</Link>
             </ul>
             <ul className="space-y-2">
               <p className="font-bold text-secondary-0 text-xl md:text-lg">
