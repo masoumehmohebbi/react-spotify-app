@@ -9,6 +9,7 @@ import { AboutUs } from "./pages/AboutUs";
 import Layout from "./ui/Layout";
 import Search from "./pages/Search";
 import AdminPanel from "./pages/AdminPanel";
+import AllUsers from "./pages/AdminPanelPages/AllUsers";
 
 
 function App() {
@@ -31,6 +32,8 @@ function App() {
         </Route>
         <Route path="/about-us/contact" element={<AboutUs />} />
         <Route path="/admin-panel" element={<AdminPanel />} />
+        <Route path="/admin-panel/all-users" element={<AllUsers />} />
+
       </Routes>
     </Providers>
   );
