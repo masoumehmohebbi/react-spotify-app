@@ -81,7 +81,7 @@ const DashboardSideBar = ({ isShowSidebar, setIsShowSidebar }) => {
             to={link.href}
           >
             <span
-              className={`text-secondary-0 ${
+              className={`text-secondary-0 transition duration-500 h-5 w-full flex justify-end overflow-y-hidden ${
                 isShowSidebar ? "inline" : "hidden"
               }`}
             >
@@ -97,7 +97,7 @@ const DashboardSideBar = ({ isShowSidebar, setIsShowSidebar }) => {
           </Link>
         ))}
         <button
-          className={` p-2 mt-12 bg-red-600 text-secondary-0 rounded transition duration-300 hover:bg-transparent border border-red-600`}
+          className={`p-2 mt-12 h-9 overflow-y-hidden  bg-red-600 text-secondary-0 rounded transition duration-300 hover:bg-transparent border border-red-600`}
         >
           {isShowSidebar ? (
             <span>خروج از پنل مدیریت</span>
