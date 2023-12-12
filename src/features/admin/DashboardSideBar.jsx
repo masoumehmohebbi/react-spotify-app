@@ -42,7 +42,7 @@ const DashboardSideBar = ({ isShowSidebar, setIsShowSidebar }) => {
 
   return (
     <div
-      className={`h-screen sticky top-0 w-full rounded bg-primary-800 bg-opacity-50 p-4 transition-all duration-300
+      className={`h-screen sticky top-0 w-full rounded bg-primary-800 bg-opacity-50 p-4 transition-all duration-300 mt-12
         flex z-30`}
     >
       <div className="w-full flex flex-col gap-y-6">
