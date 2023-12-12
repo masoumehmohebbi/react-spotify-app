@@ -1,11 +1,9 @@
 import { BiSearch } from "react-icons/bi";
 import { CiSettings, CiUser } from "react-icons/ci";
-import { FaSpotify } from "react-icons/fa";
 import { IoNotificationsOutline } from "react-icons/io5";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { PiScrollDuotone } from "react-icons/pi";
 import { MdArrowDropDown } from "react-icons/md";
-import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const DashboardHeader = () => {
