@@ -26,7 +26,7 @@ const Users = () => {
       <div className="flex items-center justify-center w-full p-2">
         <table className="w-full table-fixed">
           <thead>
-            <tr className="bg-secondary-0">
+            <tr className="bg-secondary-100">
               <th className="w-1/4 py-4 px-6 text-center text-primary-500 font-bold uppercase">
                 عملیات
               </th>
