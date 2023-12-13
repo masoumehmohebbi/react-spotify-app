@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 import { BiMenu } from "react-icons/bi";
-import { FaSpotify, FaUsers } from "react-icons/fa";
+import { FaRegComments, FaSpotify } from "react-icons/fa";
 import { useState } from "react";
-import { HiMusicNote } from "react-icons/hi";
-import { GiHeartInside } from "react-icons/gi";
-import { PiFoldersDuotone } from "react-icons/pi";
+import {
+  HiOutlineHome,
+  HiOutlineMusicNote,
+  HiOutlineUsers,
+} from "react-icons/hi";
+import { PiFoldersDuotone, PiMicrophoneStageDuotone } from "react-icons/pi";
 import { IoIosLogOut, IoIosArrowForward } from "react-icons/io";
 
 const DashboardSideBar = ({ isShowSidebar, setIsShowSidebar }) => {
@@ -16,27 +19,40 @@ const DashboardSideBar = ({ isShowSidebar, setIsShowSidebar }) => {
   const links = [
     {
       id: 1,
-      title: "همه آهنگ ها",
-      href: "/admin-dashboard/musics",
-      icon: <HiMusicNote />,
+      title: "داشبورد",
+      href: "#",
+      icon: <HiOutlineHome />,
     },
     {
       id: 2,
-      title: "همه خواننده ها",
-      href: "#",
-      icon: <GiHeartInside />,
-    },
-    {
-      id: 3,
-      title: "همه دسته بندی ها",
+      title: " دسته بندی ها",
       href: "#",
       icon: <PiFoldersDuotone />,
     },
     {
+      id: 3,
+      title: " آهنگ ها",
+      href: "/admin-dashboard/musics",
+      icon: <HiOutlineMusicNote />,
+    },
+    {
       id: 4,
-      title: "همه کاربران",
+      title: " خواننده ها",
+      href: "#",
+      icon: <PiMicrophoneStageDuotone />,
+    },
+
+    {
+      id: 5,
+      title: " کاربران",
       href: "/admin-dashboard/users",
-      icon: <FaUsers />,
+      icon: <HiOutlineUsers />,
+    },
+    {
+      id: 6,
+      title: " نظرات",
+      href: "/admin-dashboard/users",
+      icon: <FaRegComments />,
     },
   ];
 
@@ -77,11 +93,15 @@ const DashboardSideBar = ({ isShowSidebar, setIsShowSidebar }) => {
           <Link
             onClick={() => isActiveLinkHandler(link.id)}
             key={link.id}
-            className={`flex items-center gap-2 w-full duration-500 justify-end group`}
+            className={` ${
+              link.id === activeLink && "bg-success"
+            } flex items-center p-2 rounded-sm gap-2 w-full duration-500 justify-end group`}
             to={link.href}
           >
             <span
-              className={`text-secondary-0 transition duration-500 h-5 w-full flex justify-end overflow-y-hidden ${
+              className={`  ${
+                link.id === activeLink ? "text-primary-800" : "text-secondary-0"
+              }  transition duration-500 font-semibold h-5 w-full flex justify-end overflow-y-hidden ${
                 isShowSidebar ? "inline" : "hidden"
               }`}
             >
@@ -89,8 +109,10 @@ const DashboardSideBar = ({ isShowSidebar, setIsShowSidebar }) => {
             </span>
             <span
               className={`${
-                link.id === activeLink && "bg-primary-700"
-              } text-secondary-50 text-2xl transition group-hover:bg-primary-700 p-2 rounded-full`}
+                link.id === activeLink
+                  ? "text-primary-500"
+                  : "text-secondary-50"
+              }  text-2xl transition `}
             >
               {link.icon}
             </span>
