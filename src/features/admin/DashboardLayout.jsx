@@ -1,11 +1,13 @@
 // import DashboardHeader from "./DashboardHeader";
 import { Outlet } from "react-router-dom";
 import DashboardSideBar from "./DashboardSideBar";
+import DashboardHeader from "./DashboardHeader";
 import { useState } from "react";
 const DashboardLayout = () => {
   const [isShowSidebar, setIsShowSidebar] = useState(true);
   return (
     <div dir="ltr">
+      <DashboardHeader/>
       <div className={` ${isShowSidebar ? "w-full " : "w-full "}  gap-x-2 `}>
         <div
           className={`transition-all ease-linear duration-300 bg-primary-800 rounded-lg ${
