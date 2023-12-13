@@ -1,14 +1,7 @@
-import Users from "../features/admin/Users";
+import DashboardHeader from "../features/admin/DashboardHeader";
 
 const AdminDashboard = () => {
-  return (
-    <>
-      <div className="text-secondary-0 w-full p-5 h-screen">
-        <h2>main items here</h2>
-        <Users />
-      </div>
-    </>
-  );
+  return <DashboardHeader />;
 };
 
 export default AdminDashboard;

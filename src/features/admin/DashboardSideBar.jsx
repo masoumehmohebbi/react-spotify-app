@@ -20,7 +20,7 @@ const DashboardSideBar = ({ isShowSidebar, setIsShowSidebar }) => {
     {
       id: 1,
       title: "داشبورد",
-      href: "#",
+      href: "/admin-dashboard/home",
       icon: <HiOutlineHome />,
     },
     {
@@ -58,7 +58,7 @@ const DashboardSideBar = ({ isShowSidebar, setIsShowSidebar }) => {
 
   return (
     <div
-      className={`h-screen sticky top-0 w-full rounded bg-primary-800 bg-opacity-50 p-4 transition-all duration-300 mt-12
+      className={`h-screen sticky top-0 w-full rounded bg-primary-800 bg-opacity-50 p-4 transition-all duration-300
         flex z-30`}
     >
       <div className="w-full flex flex-col gap-y-6">
@@ -119,7 +119,7 @@ const DashboardSideBar = ({ isShowSidebar, setIsShowSidebar }) => {
           </Link>
         ))}
         <button
-          className={`p-2 mt-12 h-9 overflow-y-hidden  bg-red-600 text-secondary-0 rounded transition duration-300 hover:bg-transparent border border-red-600`}
+          className={`p-2 flex justify-center items-center mt-12 h-9 overflow-y-hidden  hover:bg-error text-secondary-0 rounded transition duration-300 border border-error`}
         >
           {isShowSidebar ? (
             <span>خروج از پنل مدیریت</span>

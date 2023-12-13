@@ -1,3 +1,5 @@
+import DashboardHeader from "./DashboardHeader";
+
 const users = [
   {
     id: 1,
@@ -20,6 +22,7 @@ const users = [
 const Users = () => {
   return (
     <>
+      <DashboardHeader />
       <h2 className="text-end text-secondary-0 p-4 tex-xl font-bold mb-4 ">
         نمایش تمام کاربر های سایت
       </h2>

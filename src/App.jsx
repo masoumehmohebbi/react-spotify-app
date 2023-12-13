@@ -14,6 +14,7 @@ import DashboardLayout from "./features/admin/DashboardLayout";
 import AdminDashboard from "./pages/AdminDashboard";
 import Users from "./features/admin/Users";
 import Musics from "./features/admin/Musics";
+import DashboardHome from "./features/admin/DashboardHome";
 
 function App() {
   useEffect(() => {
@@ -35,6 +36,11 @@ function App() {
         </Route>
 
         <Route element={<DashboardLayout />}>
+          <Route
+            index
+            path="/admin-dashboard/home"
+            element={<DashboardHome />}
+          />
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/admin-dashboard/users" element={<Users />} />
           <Route path="/admin-dashboard/musics" element={<Musics />} />

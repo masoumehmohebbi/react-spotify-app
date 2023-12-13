@@ -1,3 +1,5 @@
+import DashboardHeader from "./DashboardHeader";
+
 export default function Musics() {
   const playlistData = [
     {
@@ -45,6 +47,7 @@ export default function Musics() {
   ];
   return (
     <>
+      <DashboardHeader />
       <h2 className="text-end text-secondary-0 p-4 tex-xl font-bold mb-4 ">
         نمایش تمام آهنگ های سایت
       </h2>
