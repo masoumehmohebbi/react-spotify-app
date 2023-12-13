@@ -6,7 +6,11 @@ const DashboardLayout = () => {
   const [isShowSidebar, setIsShowSidebar] = useState(true);
   return (
     <div dir="ltr">
-      <div className={` ${isShowSidebar ? "w-full " : "w-full "}  gap-x-2 `}>
+      <div
+        className={`w-full h-screen overflow-y-scroll no-scrollbar ${
+          isShowSidebar ? "w-full " : "w-full "
+        }  gap-x-2 `}
+      >
         <div
           className={`transition-all ease-linear duration-300 bg-primary-800 rounded-lg ${
             isShowSidebar ? "w-full xl:w-[80%] " : "w-full xl:w-[94.1%] "
