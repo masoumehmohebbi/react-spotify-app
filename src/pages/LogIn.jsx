@@ -73,29 +73,6 @@ export default function LogIn() {
             />
           </div>
 
-          {/* <div className="flex flex-col gap-4 w-full ">
-            <label className="font-bold" htmlFor="password">
-              {t("password")}
-            </label>
-            <div className="relative w-full flex items-center">
-              <div
-                className="cursor-pointer text-xl z-10 mx-1 absolute left-2 "
-                onClick={isShowPasswordHandler}
-              >
-                {isShowPassword ? <IoMdEye /> : <IoMdEyeOff />}
-              </div>
-              <input
-                id="password"
-                type={`${isShowPassword ? "text" : "password"}`}
-                value={userPass}
-                placeholder={t("password")}
-                name="pass"
-                onChange={(e) => setUserPassInStateHandler(e)}
-                className="ltr:pr-9 pl-9 input__field"
-              />
-            </div>
-          </div> */}
-
           <div className="gap-y-2 flex flex-col">
             <label className="font-bold" htmlFor="password">
               {t("password")}
@@ -110,9 +87,13 @@ export default function LogIn() {
                 onChange={(e) => setUserPassInStateHandler(e)}
                 className=" h-full w-full py-1 rtl:pl-1 ltr:pr-1 outline-none border-none bg-transparent"
               />
-              <IoMdEye
-               onClick={isShowPasswordHandler}
-              className="text-2xl cursor-pointer" />
+
+              <div
+                className="text-2xl cursor-pointer"
+                onClick={isShowPasswordHandler}
+              >
+                {isShowPassword ? <IoMdEye /> : <IoMdEyeOff />}
+              </div>
             </div>
           </div>
 

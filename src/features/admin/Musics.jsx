@@ -50,7 +50,7 @@ export default function Musics() {
       <DashboardHeader />
       {/* :) */}
       <div className="overflow-y-scroll h-screen pt-5">
-        <h2 className="text-end text-secondary-0 p-4 tex-xl font-bold mb-4 ">
+        <h2 className="text-end text-secondary-0 p-4 tex-xl font-bold mb-4">
           نمایش تمام آهنگ های سایت
         </h2>
         <div className="grid grid-cols-4 gap-8 m-2 mb-11 pb-20">
