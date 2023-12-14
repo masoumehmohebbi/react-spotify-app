@@ -41,7 +41,7 @@ export default function LogIn() {
           {t("login_to_spotify")}
         </h1>
         {error && (
-          <div className="bg-red w-full flex items-center justify-end gap-4 px-4 py-2 rounded">
+          <div className="bg-error w-full flex items-center justify-end gap-4 px-4 py-2 rounded">
             <p className="text-md">
               {error && <p>{t("invalid_pass_email")}</p>}
             </p>
@@ -49,7 +49,7 @@ export default function LogIn() {
           </div>
         )}
         <div className="flex flex-col gap-4">
-          <button className="flex items-center gap-12 rounded-full border px-8 py-2 border-gray-600 hover:border-secondary-0">
+          <button className="flex items-center gap-12 rounded-full border px-8 py-2 border-secondary-500 hover:border-secondary-0">
             <span className="w-[80%] text-[18px]">
               {t("continue_with_google")}
             </span>
@@ -110,7 +110,9 @@ export default function LogIn() {
                 onChange={(e) => setUserPassInStateHandler(e)}
                 className=" h-full w-full py-1 rtl:pl-1 ltr:pr-1 outline-none border-none bg-transparent"
               />
-              <IoMdEye className="text-2xl" />
+              <IoMdEye
+               onClick={isShowPasswordHandler}
+              className="text-2xl cursor-pointer" />
             </div>
           </div>
 
@@ -122,7 +124,7 @@ export default function LogIn() {
               <span className="text-sm">{t("remember_me")}</span>
               <span className="relative">
                 <input id="Toggle1" type="checkbox" className="hidden peer" />
-                <div className="w-8 h-4 rounded-full shadow-inner dark:bg-primary-100 peer-checked:dark:bg-green-400  hover:outline hover:outline-primary-100 hover:outline-offset-2"></div>
+                <div className="w-8 h-4 rounded-full shadow-inner dark:bg-primary-100 peer-checked:dark:bg-success  hover:outline hover:outline-primary-100 hover:outline-offset-2"></div>
                 <div className="absolute inset-y-0 left-0 w-2 h-2 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-primary-800"></div>
               </span>
             </label>

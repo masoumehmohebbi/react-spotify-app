@@ -14,7 +14,7 @@ export const AuthFormLayout = () => {
 export function Header() {
   return (
     <div className="w-full bg-primary-900">
-      <div className=" w-full flex justify-end text-white px-12 py-8">
+      <div className=" w-full flex justify-end text-secondary-0 px-12 py-8">
         <Link className="flex items-center gap-1" to={"/"}>
           <h2 className="italic font-bold text-2xl">Spotify</h2>
           <FaSpotify className="text-4xl" />

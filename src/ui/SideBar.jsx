@@ -84,7 +84,7 @@ export const SideBar = () => {
         </ul>
 
         <ul className="bg-primary-800 flex flex-col gap-6 p-4 pt-0 rounded">
-          <li className="text-gray-400 z-10">
+          <li className="text-secondary-100 z-10">
             <div className="flex items-center justify-between gap-1 pt-2">
               <div className="flex items-center gap-2 transition duration-500 hover:text-secondary-50">
                 <BiLibrary className="text-2xl" />
