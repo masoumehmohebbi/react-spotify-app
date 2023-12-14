@@ -50,7 +50,7 @@ const developers = [
 ];
 export const AboutUs = () => {
   return (
-    <>
+    <div className="pb-5">
       <Header />
       <div className="bg-secondary-0 w-full px-5 mx-auto h-auto flex items-center justify-center">
         <div className="pt-8 pb-24 w-full md:w-11/12">
@@ -94,6 +94,6 @@ export const AboutUs = () => {
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 };

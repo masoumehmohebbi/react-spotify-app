@@ -4,9 +4,8 @@ import {
   BiLogoTwitter,
   BiLogoFacebookCircle,
 } from "react-icons/bi";
-import ModalButton from "./ModalButton";
 import { Link } from "react-router-dom";
-export const Footer = () => {
+export const Footer = ({ children }) => {
   const { t } = useTranslation();
   return (
     <footer className="px-9 pt-5">
@@ -68,11 +67,9 @@ export const Footer = () => {
         </div>
       </div>
       <hr className="border-primary-700 bg-opacity-10 border-spacing-y-11 my-11" />
-      <p className="font-normal text-secondary-100 mb-11">© 2023 Spotify AB</p>
+      <p className="font-normal text-secondary-100 mb-9">© 2023 Spotify AB</p>
 
-      <div className="block md:hidden">
-        <ModalButton />
-      </div>
+      {children}
     </footer>
   );
 };
