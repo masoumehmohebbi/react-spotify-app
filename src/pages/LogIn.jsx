@@ -105,8 +105,8 @@ export default function LogIn() {
               <span className="text-sm">{t("remember_me")}</span>
               <span className="relative">
                 <input id="Toggle1" type="checkbox" className="hidden peer" />
-                <div className="w-8 h-4 rounded-full shadow-inner dark:bg-primary-100 peer-checked:dark:bg-success  hover:outline hover:outline-primary-100 hover:outline-offset-2"></div>
-                <div className="absolute inset-y-0 left-0 w-2 h-2 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-primary-800"></div>
+                <div className="w-9 h-5 rounded-full shadow-inner bg-secondary-200 peer-checked:bg-success  hover:outline-primary-100 hover:outline-offset-2"></div>
+                <div className="absolute inset-y-0 left-0 w-3 h-3 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto bg-primary-800"></div>
               </span>
             </label>
           </div>
