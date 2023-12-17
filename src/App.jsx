@@ -15,12 +15,14 @@ import AdminDashboard from "./pages/AdminDashboard";
 import Users from "./features/admin/Users";
 import Musics from "./features/admin/Musics";
 import DashboardHome from "./features/admin/DashboardHome";
+import Auth from "./pages/Auth";
 
 function App() {
   useEffect(() => {
     const i18nextLng = localStorage.getItem("i18nextLng");
     if (i18nextLng === "fa") document.body.dir = "rtl";
   }, []);
+
   return (
     <Providers>
       <Routes>
@@ -33,6 +35,7 @@ function App() {
         <Route element={<AuthFormLayout />}>
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/auth" element={<Auth />} />
         </Route>
 
         <Route element={<DashboardLayout />}>
