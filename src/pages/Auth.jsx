@@ -1,10 +1,12 @@
-import CheckOtpForm from "../features/auth/CheckOtpForm";
+// import CheckOtpForm from "../features/auth/CheckOtpForm";
+
+import { SendOtpForm } from "../features/auth/SendOtpForm";
 
 const Auth = () => {
   return (
     <div>
-      {/* <SendOtpForm /> */}
-      <CheckOtpForm />
+      <SendOtpForm />
+      {/* <CheckOtpForm /> */}
     </div>
   );
 };

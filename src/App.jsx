@@ -16,7 +16,11 @@ import Users from "./features/admin/Users";
 import Musics from "./features/admin/Musics";
 import DashboardHome from "./features/admin/DashboardHome";
 import Auth from "./pages/Auth";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Toaster } from "react-hot-toast";
 
+
+const queryClient = new QueryClient();
 function App() {
   useEffect(() => {
     const i18nextLng = localStorage.getItem("i18nextLng");
@@ -24,35 +28,38 @@ function App() {
   }, []);
 
   return (
-    <Providers>
-      <Routes>
-        <Route element={<AppLayout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/search" element={<Search />} />
-          <Route path="/playlist/:id" element={<Playlist />} />
-        </Route>
+    <QueryClientProvider client={queryClient}>
+      <Toaster />
+      <Providers>
+        <Routes>
+          <Route element={<AppLayout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/search" element={<Search />} />
+            <Route path="/playlist/:id" element={<Playlist />} />
+          </Route>
 
-        <Route element={<AuthFormLayout />}>
-          <Route path="/login" element={<LogIn />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/auth" element={<Auth />} />
-        </Route>
+          <Route element={<AuthFormLayout />}>
+            <Route path="/login" element={<LogIn />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/auth" element={<Auth />} />
+          </Route>
 
-        <Route element={<DashboardLayout />}>
-          <Route
-            index
-            path="/admin-dashboard/home"
-            element={<DashboardHome />}
-          />
-          <Route path="/admin-dashboard" element={<AdminDashboard />} />
-          <Route path="/admin-dashboard/users" element={<Users />} />
-          <Route path="/admin-dashboard/musics" element={<Musics />} />
-        </Route>
+          <Route element={<DashboardLayout />}>
+            <Route
+              index
+              path="/admin-dashboard/home"
+              element={<DashboardHome />}
+            />
+            <Route path="/admin-dashboard" element={<AdminDashboard />} />
+            <Route path="/admin-dashboard/users" element={<Users />} />
+            <Route path="/admin-dashboard/musics" element={<Musics />} />
+          </Route>
 
-        <Route path="/about-us/contact" element={<AboutUs />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </Providers>
+          <Route path="/about-us/contact" element={<AboutUs />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Providers>
+    </QueryClientProvider>
   );
 }
 
