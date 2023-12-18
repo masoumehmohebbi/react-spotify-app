@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const app = axios.create({
-  baseURL: "https://spotify.apanel.top/api",
+  baseURL: " https://spotify.apanel.top/api",
   withCredentials: true,
 });
 

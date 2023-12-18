@@ -19,18 +19,27 @@ import Auth from "./pages/Auth";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
 
-
 const queryClient = new QueryClient();
 function App() {
   useEffect(() => {
     const i18nextLng = localStorage.getItem("i18nextLng");
     if (i18nextLng === "fa") document.body.dir = "rtl";
   }, []);
+  // axios
+  //   .post("https://spotify.apanel.top/api/auth/otp/send/", {
+  //     first_name: "l",
+  //     last_name: "ll",
+  //     phone: "09118476029",
+  //     password: "147896523",
+  //   })
+  //   .then((response) => {
+  //     console.log(response);
+  //   });
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <Toaster />
-      <Providers>
+    <Providers>
+      <QueryClientProvider client={queryClient}>
+        <Toaster />
         <Routes>
           <Route element={<AppLayout />}>
             <Route path="/" element={<Home />} />
@@ -58,8 +67,8 @@ function App() {
           <Route path="/about-us/contact" element={<AboutUs />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </Providers>
-    </QueryClientProvider>
+      </QueryClientProvider>
+    </Providers>
   );
 }
 

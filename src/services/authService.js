@@ -5,7 +5,7 @@ export function registerUser(data) {
 }
 
 export function getOtp(data) {
-  return http.post("/auth/otp/send", data);
+  return http.post("/auth/otp/send/", data);
 }
 
 export function checkOtp(data) {
