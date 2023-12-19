@@ -1,7 +1,7 @@
 import http from "./httpService";
 
 export function registerUser(data) {
-  return http.post("/auth/register", data);
+  return http.post("/auth/register/", data);
 }
 
 export function getOtp(data) {

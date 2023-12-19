@@ -4,7 +4,6 @@ const app = axios.create({
   baseURL: " https://spotify.apanel.top/api",
   withCredentials: true,
 });
-
 const http = {
   get: app.get,
   post: app.post,

@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import googleLogo from "./../../assets/images/google.svg";
+import TextField from "../../ui/TextField";
 import { useMutation } from "@tanstack/react-query";
 import { registerUser } from "../../services/authService";
-import TextField from "../../ui/TextField";
 
 export const SendOtpForm = () => {
   const [firstName, setFirstName] = useState("");
@@ -14,26 +14,27 @@ export const SendOtpForm = () => {
   const [password, setPassword] = useState("");
 
   const { t } = useTranslation();
-  const { mutateAsync } = useMutation({
+
+  const { isPending, error, data, mutateAsync } = useMutation({
     mutationFn: registerUser,
   });
-
   const sendOtpHandler = async (e) => {
     e.preventDefault();
     try {
-      const data = await mutateAsync({
+      const res = await mutateAsync({
         first_name: firstName,
         last_name: lastName,
         phone: phoneNumber,
         password: password,
       });
-      console.log(data);
-      //   toast.success(data.message)
+      console.log(res);
     } catch (error) {
       console.log(error);
-      //   toast.error(error?.response?.data?.message)
     }
   };
+
+  //   toast.success(data.message)
+  //   toast.error(error?.response?.data?.message)
 
   //   const [err, setErrr] = useState(false);
 

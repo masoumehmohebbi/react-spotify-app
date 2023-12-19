@@ -18,27 +18,32 @@ import DashboardHome from "./features/admin/DashboardHome";
 import Auth from "./pages/Auth";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+// import axios from "axios";
 
 const queryClient = new QueryClient();
+
 function App() {
   useEffect(() => {
     const i18nextLng = localStorage.getItem("i18nextLng");
     if (i18nextLng === "fa") document.body.dir = "rtl";
+
+    // axios
+    //   .post("https://spotify.apanel.top/api/auth/register/", {
+    //     first_name: "test2",
+    //     last_name: "test2",
+    //     phone: "09111111112",
+    //     password: "123456789",
+    //   })
+    //   .then((response) => {
+    //     console.log(response);
+    //   });
   }, []);
-  // axios
-  //   .post("https://spotify.apanel.top/api/auth/otp/send/", {
-  //     first_name: "l",
-  //     last_name: "ll",
-  //     phone: "09118476029",
-  //     password: "147896523",
-  //   })
-  //   .then((response) => {
-  //     console.log(response);
-  //   });
 
   return (
     <Providers>
       <QueryClientProvider client={queryClient}>
+        <ReactQueryDevtools initialIsOpen={false} />
         <Toaster />
         <Routes>
           <Route element={<AppLayout />}>
