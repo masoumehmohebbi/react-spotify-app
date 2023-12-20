@@ -1,8 +1,9 @@
-import { useState, useNavigate } from "react";
+import { useState } from "react";
 import OTPInput from "react-otp-input";
 import { useMutation } from "@tanstack/react-query";
 import { checkOtp } from "../../services/authService";
 import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const CheckOtpForm = ({ phoneNumber }) => {
   const [otp, setOtp] = useState("");
