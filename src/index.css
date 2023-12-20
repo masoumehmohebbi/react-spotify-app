@@ -36,8 +36,6 @@
 
 html,
 body {
-  padding: 0;
-  margin: 0;
   min-height: 100vh;
   user-select: none;
   background-color: rgb(var(--color-primary-900));
@@ -52,21 +50,10 @@ body {
   color: rgb(var(--color-blue));
 }
 
-.f {
+.bg-linear {
   background: linear-gradient(rgba(255, 255, 255, 0.1) 0%, rgb(0, 0, 0) 100%);
 }
 
-@layer utilities {
-  /* Hide scrollbar for Chrome, Safari and Opera */
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-  /* Hide scrollbar for IE, Edge and Firefox */
-  .no-scrollbar {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-  }
-}
 @layer components {
   .input__field {
     @apply bg-primary-800 rounded border px-4 py-2 w-full
@@ -79,29 +66,35 @@ body {
     @apply bg-success w-full text-center text-primary-900 py-2 mt-4 hover:scale-105;
   }
 }
-/* width */
-::-webkit-scrollbar {
-  width: 10px;
-}
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: transparent;
-}
+@layer utilities {
+  /* hide scrollar */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  border-radius: 20px;
-  background: rgb(97, 97, 97);
-  background: linear-gradient(
-    25deg,
-    rgba(97, 97, 97, 1) 0%,
-    rgb(97, 97, 97) 35%,
-    rgba(25, 25, 25, 1) 100%
-  );
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #5555557f;
+  /* style scrollbar*/
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background: rgb(97, 97, 97);
+    background: linear-gradient(
+      25deg,
+      rgba(97, 97, 97, 1) 0%,
+      rgb(97, 97, 97) 35%,
+      rgba(25, 25, 25, 1) 100%
+    );
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #5555557f;
+  }
 }

@@ -3,7 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 
 export const AuthFormLayout = () => {
   return (
-    <div className="f w-full">
+    <div className="bg-linear w-full">
       <Header />
       <Outlet />
       <Footer />
