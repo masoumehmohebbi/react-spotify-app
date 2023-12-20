@@ -5,31 +5,48 @@ import { useTranslation } from "react-i18next";
 import googleLogo from "./../../assets/images/google.svg";
 import TextField from "../../ui/TextField";
 import { useMutation } from "@tanstack/react-query";
-import { registerUser } from "../../services/authService";
+import { getOtp, registerUser } from "../../services/authService";
+import { toast } from "react-hot-toast";
+import Loading from "../../ui/Loading";
 
-export const SendOtpForm = () => {
+export const SendOtpForm = ({ setStep, phoneNumber, onChange }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
 
   const { t } = useTranslation();
 
-  const { isPending, error, data, mutateAsync } = useMutation({
+  const {
+    isPending,
+    error,
+    data,
+    mutateAsync: mutateAsyncRegister,
+  } = useMutation({
     mutationFn: registerUser,
+  });
+  const { mutateAsync: mutateAsyncGetOtp } = useMutation({
+    mutationFn: getOtp,
   });
   const sendOtpHandler = async (e) => {
     e.preventDefault();
     try {
-      const res = await mutateAsync({
+      const res = await mutateAsyncRegister({
         first_name: firstName,
         last_name: lastName,
         phone: phoneNumber,
         password: password,
       });
+      const { data } = await mutateAsyncGetOtp({
+        phone: phoneNumber,
+      });
+
       console.log(res);
+      console.log(data.code);
+      toast.success(data.detail);
+      setStep(2);
     } catch (error) {
       console.log(error);
+      toast.error(error?.request?.response);
     }
   };
 
@@ -88,7 +105,7 @@ export const SendOtpForm = () => {
             type="number"
             placeholder={t("phone_number")}
             value={phoneNumber}
-            onChange={(e) => setPhoneNumber(e.target.value)}
+            onChange={onChange}
           />
           <TextField
             label={t("password")}
@@ -111,12 +128,14 @@ export const SendOtpForm = () => {
               name="confirmPassword"
             />
           </div> */}
-          <button
-            type="submit"
-            className="bg-success rounded-full w-full text-center text-primary-900 py-2 font-bold mt-4 hover:scale-105 transition"
-          >
-            {t("next")}
-          </button>
+
+          {isPending ? (
+            <Loading height="56px" />
+          ) : (
+            <button type="submit" className="btn btn--primary">
+              {t("next")}
+            </button>
+          )}
         </form>
         <div className="flex w-full relative">
           <div className="w-full h-[1px] bg-primary-700 rounded"></div>

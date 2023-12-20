@@ -1,14 +1,7 @@
-// import CheckOtpForm from "../features/auth/CheckOtpForm";
-
-import { SendOtpForm } from "../features/auth/SendOtpForm";
+import AuthContainer from "../features/auth/AuthContainer";
 
 const Auth = () => {
-  return (
-    <div>
-      <SendOtpForm />
-      {/* <CheckOtpForm /> */}
-    </div>
-  );
+  return <AuthContainer />;
 };
 
 export default Auth;

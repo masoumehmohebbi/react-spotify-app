@@ -1,10 +1,36 @@
-import { useState } from "react";
+import { useState, useNavigate } from "react";
 import OTPInput from "react-otp-input";
-const CheckOtpForm = () => {
+import { useMutation } from "@tanstack/react-query";
+import { checkOtp } from "../../services/authService";
+import { toast } from "react-hot-toast";
+
+const CheckOtpForm = ({ phoneNumber }) => {
   const [otp, setOtp] = useState("");
+  const navigate = useNavigate();
+
+  const { isPending, error, data, mutateAsync } = useMutation({
+    mutationFn: checkOtp,
+  });
+
+  const checkOtpHandler = async (e) => {
+    e.preventDefault();
+    try {
+      const data = await mutateAsync({ phone: phoneNumber, otp_code: otp });
+      // toast.success(msg)
+      console.log(data);
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+      toast.error(error?.request?.response);
+    }
+  };
+
   return (
     <div className="h-[calc(100vh_-_11.25rem)] pt-16">
-      <form className="flex flex-col w-fit mx-auto space-y-11">
+      <form
+        onSubmit={checkOtpHandler}
+        className="flex flex-col w-fit mx-auto space-y-11"
+      >
         <p className="font-bold text-secondary-0 flex justify-end text-xl">
           Enter otp code
         </p>
@@ -25,9 +51,7 @@ const CheckOtpForm = () => {
             outline: "none",
           }}
         />
-        <button className="bg-success p-2 rounded-md text-secondary-0">
-          Confirm
-        </button>
+        <button className="btn btn--primary">Confirm</button>
       </form>
     </div>
   );
