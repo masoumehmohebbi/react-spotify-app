@@ -8,6 +8,7 @@ const TextField = ({ label, value, id, type, placeholder, onChange }) => {
       <input
         value={value}
         onChange={onChange}
+        autoComplete="off"
         id={id}
         className="input__field"
         type={type}
