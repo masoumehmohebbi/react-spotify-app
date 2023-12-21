@@ -7,7 +7,7 @@ import { toast } from "react-hot-toast";
 
 const AuthContainer = () => {
   const [step, setStep] = useState(1);
-  const [phoneNumber, setPhoneNumber] = useState("09115847699");
+  const [phoneNumber, setPhoneNumber] = useState("");
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
