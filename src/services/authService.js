@@ -9,5 +9,5 @@ export function getOtp(data) {
 }
 
 export function checkOtp(data) {
-  return http.post("/auth/otp/check", data);
+  return http.post("/auth/otp/check/", data);
 }

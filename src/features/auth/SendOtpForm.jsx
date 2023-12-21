@@ -1,54 +1,23 @@
 import { Link } from "react-router-dom";
 // import { CgDanger } from "react-icons/cg";
-import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import googleLogo from "./../../assets/images/google.svg";
 import TextField from "../../ui/TextField";
-import { useMutation } from "@tanstack/react-query";
-import { getOtp, registerUser } from "../../services/authService";
-import { toast } from "react-hot-toast";
 import Loading from "../../ui/Loading";
 
-export const SendOtpForm = ({ setStep, phoneNumber, onChange }) => {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [password, setPassword] = useState("");
-
+export const SendOtpForm = ({
+  phoneNumber,
+  onChange,
+  firstName,
+  setFirstName,
+  lastName,
+  setLastName,
+  password,
+  setPassword,
+  onSubmit,
+  isSendingOtp,
+}) => {
   const { t } = useTranslation();
-
-  const {
-    isPending,
-    error,
-    data,
-    mutateAsync: mutateAsyncRegister,
-  } = useMutation({
-    mutationFn: registerUser,
-  });
-  const { mutateAsync: mutateAsyncGetOtp } = useMutation({
-    mutationFn: getOtp,
-  });
-  const sendOtpHandler = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await mutateAsyncRegister({
-        first_name: firstName,
-        last_name: lastName,
-        phone: phoneNumber,
-        password: password,
-      });
-      const { data } = await mutateAsyncGetOtp({
-        phone: phoneNumber,
-      });
-
-      console.log(res);
-      console.log(data.code);
-      toast.success(data.detail);
-      setStep(2);
-    } catch (error) {
-      console.log(error);
-      toast.error(error?.request?.response);
-    }
-  };
 
   //   toast.success(data.message)
   //   toast.error(error?.response?.data?.message)
@@ -77,10 +46,7 @@ export const SendOtpForm = ({ setStep, phoneNumber, onChange }) => {
             <CgDanger className="text-2xl" />
           </div>
         )} */}
-        <form
-          className="w-3/4 flex flex-col gap-y-7 mt-8"
-          onSubmit={sendOtpHandler}
-        >
+        <form className="w-3/4 flex flex-col gap-y-7 mt-8" onSubmit={onSubmit}>
           <TextField
             label={t("first_name")}
             id="firstname"
@@ -129,7 +95,7 @@ export const SendOtpForm = ({ setStep, phoneNumber, onChange }) => {
             />
           </div> */}
 
-          {isPending ? (
+          {isSendingOtp ? (
             <Loading height="56px" />
           ) : (
             <button type="submit" className="btn btn--primary">
