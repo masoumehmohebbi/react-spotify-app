@@ -27,17 +27,6 @@ function App() {
   useEffect(() => {
     const i18nextLng = localStorage.getItem("i18nextLng");
     if (i18nextLng === "fa") document.body.dir = "rtl";
-
-    // axios
-    //   .post("https://spotify.apanel.top/api/auth/register/", {
-    //     first_name: "test2",
-    //     last_name: "test2",
-    //     phone: "09111111112",
-    //     password: "123456789",
-    //   })
-    //   .then((response) => {
-    //     console.log(response);
-    //   });
   }, []);
 
   return (
@@ -54,8 +43,7 @@ function App() {
 
           <Route element={<AuthFormLayout />}>
             <Route path="/login" element={<LogIn />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/auth" element={<Auth />} />
+            <Route path="/signup" element={<Auth />} />
           </Route>
 
           <Route element={<DashboardLayout />}>

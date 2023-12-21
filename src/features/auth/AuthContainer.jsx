@@ -6,8 +6,8 @@ import { getOtp, registerUser } from "../../services/authService";
 import { toast } from "react-hot-toast";
 
 const AuthContainer = () => {
-  const [step, setStep] = useState(2);
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [step, setStep] = useState(1);
+  const [phoneNumber, setPhoneNumber] = useState("09115847699");
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -23,11 +23,15 @@ const AuthContainer = () => {
   });
 
   const getOtpHandler = async () => {
-    const { data } = await mutateAsyncGetOtp({
-      phone: phoneNumber,
-    });
-    console.log(data.code);
-    toast.success(data.detail);
+    try {
+      const { data } = await mutateAsyncGetOtp({
+        phone: phoneNumber,
+      });
+      console.log(data.code);
+      toast.success(data.detail);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const sendOtpHandler = async (e) => {
