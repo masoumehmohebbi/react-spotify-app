@@ -2,7 +2,6 @@ import { Routes, Route } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { AuthFormLayout } from "./features/auth/AuthFormLayout";
 import LogIn from "./pages/LogIn";
-import { SignUp } from "./pages/SignUp";
 import { useEffect } from "react";
 import Providers from "./features/Providers";
 import { AboutUs } from "./pages/AboutUs";

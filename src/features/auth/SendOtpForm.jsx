@@ -4,6 +4,8 @@ import { useTranslation } from "react-i18next";
 import googleLogo from "./../../assets/images/google.svg";
 import TextField from "../../ui/TextField";
 import Loading from "../../ui/Loading";
+import PasswordField from "../../ui/PasswordField";
+import { useState } from "react";
 
 export const SendOtpForm = ({
   phoneNumber,
@@ -18,6 +20,7 @@ export const SendOtpForm = ({
   isSendingOtp,
 }) => {
   const { t } = useTranslation();
+  const [isShowPassword, setIsShowPassword] = useState(false);
 
   //   toast.success(data.message)
   //   toast.error(error?.response?.data?.message)
@@ -73,13 +76,11 @@ export const SendOtpForm = ({
             value={phoneNumber}
             onChange={onChange}
           />
-          <TextField
-            label={t("password")}
-            id="password"
-            type="password"
-            placeholder={t("password")}
-            value={password}
+          <PasswordField
             onChange={(e) => setPassword(e.target.value)}
+            onClick={() => setIsShowPassword((prev) => !prev)}
+            isShowPass={isShowPassword}
+            value={password}
           />
           {/* <div className="flex flex-col gap-2 w-full">
             <label className="font-bold" htmlFor="confirmPassword">

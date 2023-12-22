@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
-import { IoMdEyeOff, IoMdEye } from "react-icons/io";
 import { CgDanger } from "react-icons/cg";
 import { useState } from "react";
 import { validEmail, validPassword } from "../features/auth/Regex";
 import { useTranslation } from "react-i18next";
 import googleLogo from "./../assets/images/google.svg";
+import TextField from "../ui/TextField";
+import PasswordField from "../ui/PasswordField";
 
 export default function LogIn() {
   const { t } = useTranslation();
@@ -12,17 +13,6 @@ export default function LogIn() {
   const [userEmail, setUserEmail] = useState("");
   const [userPass, setUserPass] = useState("");
   const [error, setError] = useState(false);
-
-  const isShowPasswordHandler = () => {
-    setIsShowPassword(!isShowPassword);
-  };
-  console.log(isShowPasswordHandler);
-  const setUserEmailInStateHandler = (e) => {
-    setUserEmail(e.target.value);
-  };
-  const setUserPassInStateHandler = (e) => {
-    setUserPass(e.target.value);
-  };
 
   const validate = (event) => {
     event.preventDefault();
@@ -58,44 +48,21 @@ export default function LogIn() {
         </div>
         <div className="w-full h-[1px] bg-primary-800 rounded"></div>
         <form className="w-3/4 flex flex-col gap-y-7">
-          <div className="flex flex-col gap-2 w-full">
-            <label className="font-bold" htmlFor="phonenumber">
-              {t("phone_number")}
-            </label>
-            <input
-              id="phonenumber"
-              value={userEmail}
-              onChange={(e) => setUserEmailInStateHandler(e)}
-              className="input__field"
-              type="text"
-              placeholder={t("phone_number")}
-              name="phonenumber"
-            />
-          </div>
+          <TextField
+            label={t("phone_number")}
+            id="phonenumber"
+            type="text"
+            placeholder={t("phone_number")}
+            value={userEmail}
+            onChange={(e) => setUserEmail(e.target.value)}
+          />
 
-          <div className="gap-y-2 flex flex-col">
-            <label className="font-bold" htmlFor="password">
-              {t("password")}
-            </label>
-            <div className="input__field rtl:pl-3 ltr:pr-3 flex items-center focus-within:ring-secondary-0 focus-within:ring-2">
-              <input
-                id="password"
-                type={`${isShowPassword ? "text" : "password"}`}
-                value={userPass}
-                placeholder={t("password")}
-                name="pass"
-                onChange={(e) => setUserPassInStateHandler(e)}
-                className=" h-full w-full py-1 rtl:pl-1 ltr:pr-1 outline-none border-none bg-transparent"
-              />
-
-              <div
-                className="text-2xl cursor-pointer"
-                onClick={isShowPasswordHandler}
-              >
-                {isShowPassword ? <IoMdEye /> : <IoMdEyeOff />}
-              </div>
-            </div>
-          </div>
+          <PasswordField
+            onChange={(e) => setUserPass(e.target.value)}
+            onClick={() => setIsShowPassword((prev) => !prev)}
+            isShowPass={isShowPassword}
+            value={userPass}
+          />
 
           <div className="flex justify-end w-full mt-4">
             <label
@@ -125,7 +92,7 @@ export default function LogIn() {
           {t("have_account")}
           <Link
             to={"/signup"}
-            className="underline text-secondary-0 hover:bg-success ml-2"
+            className="underline text-secondary-0 hover:text-success mx-2"
           >
             {t("sign_up_for_spotify")}
           </Link>
