@@ -6,6 +6,7 @@ import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { HiArrowRight } from "react-icons/hi";
 import { FiEdit3 } from "react-icons/fi";
+import Loading from "../../ui/Loading";
 
 const RESEND_TIME = 90;
 
@@ -14,7 +15,7 @@ const CheckOtpForm = ({ phoneNumber, onBack, onReSendOtp, otpResponse }) => {
   const navigate = useNavigate();
   const [time, setTime] = useState(RESEND_TIME);
 
-  const { isPending, error, data, mutateAsync } = useMutation({
+  const { isPending, mutateAsync } = useMutation({
     mutationFn: checkOtp,
   });
 
@@ -96,9 +97,14 @@ const CheckOtpForm = ({ phoneNumber, onBack, onReSendOtp, otpResponse }) => {
             outline: "none",
           }}
         />
-        <button type="submit" className="btn btn--primary">
-          Confirm
-        </button>
+
+        {isPending ? (
+          <Loading height="56px" />
+        ) : (
+          <button type="submit" className="btn btn--primary">
+            Confirm
+          </button>
+        )}
       </form>
     </div>
   );
