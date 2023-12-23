@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 // import { CgDanger } from "react-icons/cg";
 import { useTranslation } from "react-i18next";
-import googleLogo from "./../../assets/images/google.svg";
 import TextField from "../../ui/TextField";
 import Loading from "../../ui/Loading";
 import PasswordField from "../../ui/PasswordField";
@@ -82,19 +81,6 @@ export const SendOtpForm = ({
             isShowPass={isShowPassword}
             value={password}
           />
-          {/* <div className="flex flex-col gap-2 w-full">
-            <label className="font-bold" htmlFor="confirmPassword">
-              {t("confirm_password")}
-            </label>
-
-            <input
-              id="confirmPassword"
-              className="input__field"
-              type="confirmPassword"
-              placeholder={t("confirm_password")}
-              name="confirmPassword"
-            />
-          </div> */}
 
           {isSendingOtp ? (
             <Loading height="56px" />
@@ -104,21 +90,9 @@ export const SendOtpForm = ({
             </button>
           )}
         </form>
-        <div className="flex w-full relative">
-          <div className="w-full h-[1px] bg-primary-700 rounded"></div>
-          <span className="absolute -top-[10px] z-10 right-[45%] bg-primary-900 px-4 ">
-            {t("or")}
-          </span>
-          <div className="w-full h-[1px] bg-primary-700 rounded"></div>
-        </div>
-        <div className="flex flex-col gap-4">
-          <button className="flex items-center gap-12 rounded-full border px-8 py-2 border-primary-100 hover:border-secondary-0">
-            <span className="w-[80%] text-[18px]">
-              {t("signup_with_google")}
-            </span>
-            <img src={googleLogo} alt="googleLogo" className="w-[27px]" />
-          </button>
-        </div>
+
+        <div className="w-full h-[1px] bg-primary-800 rounded"></div>
+
         <p className="text-primary-100">
           {t("already_have_account")}
           <Link

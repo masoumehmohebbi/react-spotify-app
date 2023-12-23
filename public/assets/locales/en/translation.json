@@ -26,7 +26,6 @@
 
   "login_to_spotify": "Log in to Spotify",
   "invalid_pass_email": "Your email or password is invalid",
-  "continue_with_google": "Continue With Google",
   "email_or_username": "Email or username",
   "password": "Password",
   "remember_me": "Remember me",
@@ -35,13 +34,10 @@
   "have_account": "Don't have an account?",
 
   "sign_up_to_start_listening": "Sign up to start listening",
-  "signup_with_google": "Sign up With Google",
   "already_have_account": "Already have an account?",
-  "or": "or",
   "first_name": "First name",
   "last_name": "Last name",
   "phone_number": "Phone Number",
-  "confirm_password": "Confirm Password",
   "next": "Next",
 
   "what_to_listen": "What do you want to listen to?"

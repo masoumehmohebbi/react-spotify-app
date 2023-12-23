@@ -3,7 +3,6 @@ import { CgDanger } from "react-icons/cg";
 import { useState } from "react";
 import { validEmail, validPassword } from "../features/auth/Regex";
 import { useTranslation } from "react-i18next";
-import googleLogo from "./../assets/images/google.svg";
 import TextField from "../ui/TextField";
 import PasswordField from "../ui/PasswordField";
 
@@ -38,16 +37,7 @@ export default function LogIn() {
             <CgDanger className="text-2xl" />
           </div>
         )}
-        <div className="flex flex-col gap-4">
-          <button className="flex items-center gap-12 rounded-full border px-8 py-2 border-secondary-500 hover:border-secondary-0">
-            <span className="w-[80%] text-[18px]">
-              {t("continue_with_google")}
-            </span>
-            <img src={googleLogo} alt="googleLogo" className="w-[27px]" />
-          </button>
-        </div>
-        <div className="w-full h-[1px] bg-primary-800 rounded"></div>
-        <form className="w-3/4 flex flex-col gap-y-7">
+        <form className="w-3/4 flex flex-col gap-y-7 mt-8">
           <TextField
             label={t("phone_number")}
             id="phonenumber"
