@@ -40,7 +40,7 @@ const AuthContainer = () => {
       const res = await mutateAsyncRegister({
         first_name: firstName,
         last_name: lastName,
-        phone: phoneNumber,
+        requested_phone: phoneNumber,
         password: password,
       });
       getOtpHandler();
