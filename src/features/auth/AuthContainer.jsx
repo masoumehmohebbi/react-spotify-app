@@ -6,7 +6,7 @@ import { getOtp, registerUser } from "../../services/authService";
 import { toast } from "react-hot-toast";
 
 const AuthContainer = () => {
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(1);
   const [phoneNumber, setPhoneNumber] = useState("");
 
   const [firstName, setFirstName] = useState("");
