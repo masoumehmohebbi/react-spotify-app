@@ -5,6 +5,7 @@ import TextField from "../../ui/TextField";
 import Loading from "../../ui/Loading";
 import PasswordField from "../../ui/PasswordField";
 import { useState } from "react";
+import axios from "axios";
 
 export const SendOtpForm = ({
   phoneNumber,
@@ -36,6 +37,21 @@ export const SendOtpForm = ({
   //     }
   //   };
 
+  const onSubmited = (e) => {
+    e.preventDefault();
+    try {
+      const data = axios.post("https://spotify.apanel.top/api/auth/register/", {
+        first_name: "firstName",
+        last_name: "lastName",
+        requested_phone: "09115478203",
+        password: "123456987",
+      });
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="w-full mx-auto md:max-w-3xl flex items-center justify-center md:mt-8">
       <div className="bg-primary-900 text-secondary-0 py-20 md:px-24 rounded-xl w-full flex items-center justify-center flex-col gap-12">
@@ -48,7 +64,10 @@ export const SendOtpForm = ({
             <CgDanger className="text-2xl" />
           </div>
         )} */}
-        <form className="w-3/4 flex flex-col gap-y-7 mt-8" onSubmit={onSubmit}>
+        <form
+          className="w-3/4 flex flex-col gap-y-7 mt-8"
+          onSubmit={onSubmited}
+        >
           <TextField
             label={t("first_name")}
             id="firstname"
