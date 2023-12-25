@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
+import { useOpenPlayModal } from "./OpenPlayModalContext";
 
 const PlaySongModal = () => {
+  const { isOpen, setIsOpen } = useOpenPlayModal();
+
+  if (!isOpen) return null;
   return (
     <div className="w-full h-screen bg-[#000000b5] absolute top-0 z-40 flex flex-col gap-2 items-center justify-center">
       <div className="bg-gradient-to-t from-secondary-800 to-secondary-200  w-1/2 rounded-xl z-50 p-12 flex items-center justify-between gap-x-8">
@@ -30,7 +34,10 @@ const PlaySongModal = () => {
           alt="cover"
         />
       </div>
-      <div className="cursor-pointer text-[18px] text-secondary-400 hover:text-secondary-0">
+      <div
+        onClick={() => setIsOpen((prev) => !prev)}
+        className="cursor-pointer text-[18px] text-secondary-400 hover:text-secondary-0"
+      >
         بستن
       </div>
     </div>

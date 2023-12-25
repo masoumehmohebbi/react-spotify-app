@@ -1,6 +1,5 @@
 import { FaPlay } from "react-icons/fa";
-import PlaySongModal from "./PlaySongModal";
-import { useState } from "react";
+import { useOpenPlayModal } from "./OpenPlayModalContext";
 
 const playlistData = [
   {
@@ -47,7 +46,7 @@ const playlistData = [
   },
 ];
 export const PlayListData = () => {
-  const [isOpenModal, setIsOpenModal] = useState();
+  const { setIsOpen } = useOpenPlayModal();
   return (
     <>
       {playlistData.map((item) => (
@@ -59,7 +58,7 @@ export const PlayListData = () => {
             <img className="rounded-md" src={item.imageSrc} />
 
             <div
-              onClick={() => setIsOpenModal((prev) => !prev)}
+              onClick={() => setIsOpen((prev) => !prev)}
               className="flex bg-success hover:scale-105 shadow-md rounded-full p-4 w-fit absolute transition-all ease-linear duration-150 items-center justify-center -bottom-9 h-0 group-hover:h-fit overflow-hidden group-hover:bottom-1 left-1"
             >
               <FaPlay className="text-lg text-primary-900" />
@@ -69,8 +68,6 @@ export const PlayListData = () => {
           <p className="text-secondary-50 text-sm">{item.desc}</p>
         </div>
       ))}
-
-      {isOpenModal && <PlaySongModal />}
     </>
   );
 };
