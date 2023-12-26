@@ -22,9 +22,8 @@ const CheckOtpForm = ({ phoneNumber, onBack, onReSendOtp, otpResponse }) => {
   const checkOtpHandler = async (e) => {
     e.preventDefault();
     try {
-      const data = await mutateAsync({ phone: phoneNumber, otp_code: otp });
-      // toast.success(msg)
-      console.log(data);
+      await mutateAsync({ phone: phoneNumber, otp_code: otp });
+      toast.success("ثبت نام شما با موفقیت انجام شد", { icon: "👏" });
       navigate("/");
     } catch (error) {
       console.log(error);
