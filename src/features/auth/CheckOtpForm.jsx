@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import OTPInput from "react-otp-input";
 import { useMutation } from "@tanstack/react-query";
-import { checkOtp } from "../../services/authService";
+import {
+  checkOtp,
+  getRefreshToken,
+  getTokens,
+} from "../../services/authService";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { HiArrowRight } from "react-icons/hi";
@@ -10,7 +14,13 @@ import Loading from "../../ui/Loading";
 
 const RESEND_TIME = 90;
 
-const CheckOtpForm = ({ phoneNumber, onBack, onReSendOtp, otpResponse }) => {
+const CheckOtpForm = ({
+  phoneNumber,
+  onBack,
+  onReSendOtp,
+  otpResponse,
+  password,
+}) => {
   const [otp, setOtp] = useState("");
   const navigate = useNavigate();
   const [time, setTime] = useState(RESEND_TIME);
@@ -19,10 +29,26 @@ const CheckOtpForm = ({ phoneNumber, onBack, onReSendOtp, otpResponse }) => {
     mutationFn: checkOtp,
   });
 
+  const { mutateAsync: mutateAsyncTokens } = useMutation({
+    mutationFn: getTokens,
+  });
+  const { mutateAsync: mutateAsyncRefreshToken } = useMutation({
+    mutationFn: getRefreshToken,
+  });
+
   const checkOtpHandler = async (e) => {
     e.preventDefault();
     try {
       await mutateAsync({ phone: phoneNumber, otp_code: otp });
+      const { data } = await mutateAsyncTokens({
+        verified_phone: phoneNumber,
+        password,
+      });
+      const res = await mutateAsyncRefreshToken({
+        refresh: data.refresh,
+      });
+      console.log(res);
+
       toast.success("ثبت نام شما با موفقیت انجام شد", { icon: "👏" });
       navigate("/");
     } catch (error) {

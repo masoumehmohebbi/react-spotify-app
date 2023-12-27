@@ -77,6 +77,7 @@ const AuthContainer = () => {
             phoneNumber={phoneNumber}
             onBack={() => setStep((s) => s - 1)}
             otpResponse={otpResponse}
+            password={password}
           />
         );
 
