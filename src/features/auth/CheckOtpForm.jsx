@@ -1,11 +1,7 @@
 import { useEffect, useState } from "react";
 import OTPInput from "react-otp-input";
 import { useMutation } from "@tanstack/react-query";
-import {
-  checkOtp,
-  getRefreshToken,
-  getTokens,
-} from "../../services/authService";
+import { checkOtp, getTokens } from "../../services/authService";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { HiArrowRight } from "react-icons/hi";
@@ -32,9 +28,9 @@ const CheckOtpForm = ({
   const { mutateAsync: mutateAsyncTokens } = useMutation({
     mutationFn: getTokens,
   });
-  const { mutateAsync: mutateAsyncRefreshToken } = useMutation({
-    mutationFn: getRefreshToken,
-  });
+  // const { mutateAsync: mutateAsyncRefreshToken } = useMutation({
+  //   mutationFn: getRefreshToken,
+  // });
 
   const checkOtpHandler = async (e) => {
     e.preventDefault();
@@ -44,13 +40,20 @@ const CheckOtpForm = ({
         verified_phone: phoneNumber,
         password,
       });
-      const res = await mutateAsyncRefreshToken({
-        refresh: data.refresh,
-      });
-      console.log(res);
+      console.log(data.access);
+      console.log(data.refresh);
+      document.cookie = `refreshToken=${data.refresh}`;
+      document.cookie = `accessToken=${data.access}`;
+      // cookies.set("refreshCookie", data.refresh, { path: "/" });
+      // const res = await mutateAsyncRefreshToken({
+      //   refresh: data.refresh,
+      // });
+      // console.log(res);
 
-      toast.success("ثبت نام شما با موفقیت انجام شد", { icon: "👏" });
-      navigate("/");
+      toast.success("ثبت نام شما با موفقیت انجام شد. وارد شوید", {
+        icon: "👏",
+      });
+      navigate("/login");
     } catch (error) {
       console.log(error);
       toast.error(error?.request?.response);

@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import TextField from "../../ui/TextField";
 import PasswordField from "../../ui/PasswordField";
+import { getUser } from "../../services/authService";
+import { useMutation } from "@tanstack/react-query";
 
 export const LogInForm = () => {
   const { t } = useTranslation();
@@ -10,6 +12,18 @@ export const LogInForm = () => {
   const [logInEmail, setLogInEmail] = useState("");
   const [logInPassword, setLogInPassword] = useState("");
 
+  const { mutateAsync } = useMutation({
+    mutationFn: getUser,
+  });
+  const logInHandler = async (e) => {
+    e.preventDefault();
+
+    try {
+      await mutateAsync({ phone: "phoneNumber" });
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="w-full md:max-w-3xl mx-auto flex items-center justify-center md:mt-8">
       <div className="bg-primary-900 text-secondary-0 py-20 md:px-24 rounded-xl w-full flex items-center justify-center flex-col gap-12">
@@ -17,7 +31,10 @@ export const LogInForm = () => {
           {t("login_to_spotify")}
         </h1>
 
-        <form className="w-3/4 flex flex-col gap-y-7 mt-8">
+        <form
+          onSubmit={logInHandler}
+          className="w-3/4 flex flex-col gap-y-7 mt-8"
+        >
           <TextField
             label={t("phone_number")}
             id="phonenumber"
@@ -47,7 +64,10 @@ export const LogInForm = () => {
               </span>
             </label>
           </div>
-          <button className="bg-success rounded-full w-full text-center text-secondary-0 py-2 font-bold mt-4 hover:scale-105 transition">
+          <button
+            type="submit"
+            className="bg-success rounded-full w-full text-center text-secondary-0 py-2 font-bold mt-4 hover:scale-105 transition"
+          >
             {t("log_in")}
           </button>
           <span className="text-center mt-4 underline hover:text-success">

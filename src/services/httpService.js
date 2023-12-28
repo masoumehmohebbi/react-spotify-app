@@ -1,4 +1,7 @@
 import axios from "axios";
+import Cookies from "universal-cookie";
+
+const cookies = new Cookies();
 
 const BASE_URL = "https://spotify.apanel.top/api";
 
@@ -11,27 +14,28 @@ app.interceptors.request.use(
   (res) => res,
   (err) => Promise.reject(err)
 );
+
 app.interceptors.response.use(
   (res) => res,
   async (err) => {
-    console.log(err.config);
     const originalConfig = err.config;
-    if (err.response.status === "401" && !originalConfig._retry) {
+    if (err.response.status === 401 && !originalConfig._retry) {
       originalConfig._retry = true;
       try {
-        const data = await axios.get(`${BASE_URL}/auth/token/refresh/`, {
-          withCredentials: true,
+        const { data } = await axios.post(`${BASE_URL}/auth/token/refresh/`, {
+          refresh: cookies.get("refreshToken"),
         });
 
-        console.log(data);
+        cookies.set("accessToken", data.access);
         if (data) return app(originalConfig);
       } catch (error) {
         return Promise.reject(error);
       }
     }
-    return err.Promise.reject(err);
+    return Promise.reject(err);
   }
 );
+
 const http = {
   get: app.get,
   post: app.post,

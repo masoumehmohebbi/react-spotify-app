@@ -11,7 +11,7 @@ export function checkOtp(data) {
 }
 
 export function getUser({ userId }) {
-  return http.get(`/users/${userId}/`);
+  return http.get(`/users369/${userId}/`);
 }
 
 export function getTokens(data) {
