@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import TextField from "../../ui/TextField";
 import PasswordField from "../../ui/PasswordField";
-// import useUser from "./useUser";
+import useUser from "./useUser";
 import { getTokens } from "../../services/authService";
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
@@ -43,8 +43,8 @@ export const LogInForm = () => {
       // toast.error(error?.response?.data?.detail);
     }
   };
-  // const res = useUser();
-  // console.log(res);
+  const { data } = useUser();
+  console.log(data?.data);
 
   return (
     <div className="w-full md:max-w-3xl mx-auto flex items-center justify-center md:mt-8">

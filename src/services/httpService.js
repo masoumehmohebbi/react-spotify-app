@@ -14,6 +14,13 @@ app.interceptors.request.use(
   (res) => res,
   (err) => Promise.reject(err)
 );
+app.interceptors.request.use((config) => {
+  const token = cookies.get("accessToken");
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
 
 app.interceptors.response.use(
   (res) => res,
