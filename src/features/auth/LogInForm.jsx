@@ -3,27 +3,49 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import TextField from "../../ui/TextField";
 import PasswordField from "../../ui/PasswordField";
-import { getUser } from "../../services/authService";
+// import useUser from "./useUser";
+import { getTokens } from "../../services/authService";
 import { useMutation } from "@tanstack/react-query";
+import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 export const LogInForm = () => {
   const { t } = useTranslation();
   const [isShowPassword, setIsShowPassword] = useState(false);
-  const [logInEmail, setLogInEmail] = useState("");
+  const [logInPhoneNumber, setLogInPhoneNumber] = useState("");
   const [logInPassword, setLogInPassword] = useState("");
+  const navigate = useNavigate();
 
-  const { mutateAsync } = useMutation({
-    mutationFn: getUser,
+  const { mutateAsync: mutateAsyncTokens } = useMutation({
+    mutationFn: getTokens,
   });
+
   const logInHandler = async (e) => {
     e.preventDefault();
-
     try {
-      await mutateAsync({ phone: "phoneNumber" });
+      const { data } = await mutateAsyncTokens({
+        verified_phone: logInPhoneNumber,
+        password: logInPassword,
+      });
+
+      document.cookie = `refreshToken=${data.refresh}`;
+      document.cookie = `accessToken=${data.access}`;
+
+      toast.success("شما با موفقیت لاگین شدید", {
+        icon: "👏",
+      });
+      navigate("/");
+      console.log(data);
     } catch (error) {
-      console.log(error);
+      if (error?.response.status === 401) {
+        toast.error("کاربری با این مشخصات وجود ندارد");
+      } else toast.error(error?.request?.response);
+      // toast.error(error?.response?.data?.detail);
     }
   };
+  // const res = useUser();
+  // console.log(res);
+
   return (
     <div className="w-full md:max-w-3xl mx-auto flex items-center justify-center md:mt-8">
       <div className="bg-primary-900 text-secondary-0 py-20 md:px-24 rounded-xl w-full flex items-center justify-center flex-col gap-12">
@@ -38,10 +60,10 @@ export const LogInForm = () => {
           <TextField
             label={t("phone_number")}
             id="phonenumber"
-            type="text"
+            type="number"
             placeholder={t("phone_number")}
-            value={logInEmail}
-            onChange={(e) => setLogInEmail(e.target.value)}
+            value={logInPhoneNumber}
+            onChange={(e) => setLogInPhoneNumber(e.target.value)}
           />
 
           <PasswordField

@@ -10,8 +10,8 @@ export function checkOtp(data) {
   return http.post("/auth/otp/check/", data);
 }
 
-export function getUser({ userId }) {
-  return http.get(`/users369/${userId}/`);
+export function getUser() {
+  return http.get("/auth/profile/");
 }
 
 export function getTokens(data) {
