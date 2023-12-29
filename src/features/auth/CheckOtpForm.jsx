@@ -41,7 +41,7 @@ const CheckOtpForm = ({
       toast.success("ثبت نام شما با موفقیت انجام شد. وارد شوید", {
         icon: "👏",
       });
-      navigate("/login");
+      navigate("/");
     } catch (error) {
       console.log(error);
       toast.error(error?.request?.response);
