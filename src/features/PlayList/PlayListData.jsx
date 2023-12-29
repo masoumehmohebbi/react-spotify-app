@@ -2,6 +2,7 @@ import { FaPlay } from "react-icons/fa";
 import { useOpenPlayModal } from "./OpenPlayModalContext";
 import { getSongs } from "../../services/songServices";
 import { useQuery } from "@tanstack/react-query";
+import { useNavigate } from "react-router-dom";
 
 // const playlistData = [
 //   {
@@ -48,18 +49,20 @@ import { useQuery } from "@tanstack/react-query";
 //   },
 // ];
 export const PlayListData = () => {
+  const navigate = useNavigate();
   const { setIsOpen } = useOpenPlayModal();
   const { data } = useQuery({
     queryKey: ["get-songs"],
     queryFn: getSongs,
     retry: false,
   });
-  console.log(data.data.results);
+  console.log(data?.data?.results);
   const allSongs = data?.data?.results;
   return (
     <>
-      {allSongs.map((song) => (
+      {allSongs?.map((song) => (
         <div
+          onClick={() => navigate(`/playlist/${song.id}`)}
           key={song.id}
           className="group w-48 md:w-auto bg-primary-500 hover:bg-primary-700 shadow-md rounded-md p-5 cursor-pointer"
         >
@@ -67,14 +70,17 @@ export const PlayListData = () => {
             <img className="rounded-md" src={song.cover_image} />
 
             <div
+              id="exceptionId"
               onClick={() => setIsOpen((prev) => !prev)}
               className="flex bg-success hover:scale-105 shadow-md rounded-full p-4 w-fit absolute transition-all ease-linear duration-150 items-center justify-center -bottom-9 h-0 group-hover:h-fit overflow-hidden group-hover:bottom-1 left-1"
             >
               <FaPlay className="text-lg text-primary-900" />
             </div>
           </div>
-          <h1 className="text-secondary-0">{song.name}</h1>
-          {/* <p className="text-secondary-50 text-sm">{item.desc}</p> */}
+          <h1 className="text-secondary-0">{song.artist.fullname}</h1>
+          <p className="text-secondary-50 text-sm">
+            {song.name} - {song.genre.name}
+          </p>
         </div>
       ))}
     </>

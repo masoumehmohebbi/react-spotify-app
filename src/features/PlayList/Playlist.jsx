@@ -4,7 +4,7 @@ const Playlist = () => {
   return (
     <div>
       <Navbar />
-      Deatils of each Playlist
+      <div className="bg-yellow-100">Deatils of each Playlist</div>
     </div>
   );
 };
