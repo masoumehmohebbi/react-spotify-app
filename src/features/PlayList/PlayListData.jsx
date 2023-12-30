@@ -1,7 +1,7 @@
 import { FaPlay } from "react-icons/fa";
 import { useOpenPlayModal } from "./OpenPlayModalContext";
 import { useNavigate } from "react-router-dom";
-import useOutsideClick from "../../hooks/useOutSideClick";
+import useOutsideClick from "./../../hooks/useOutsideClick.js";
 import { useRef } from "react";
 import Loading from "../../ui/Loading";
 import useSongs from "./useSongs";
