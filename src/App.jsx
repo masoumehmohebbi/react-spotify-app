@@ -18,6 +18,7 @@ import Auth from "./pages/Auth";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import PlayListSongDetails from "./features/PlayList/PlayListSongDetails";
 // import axios from "axios";
 
 const queryClient = new QueryClient();
@@ -37,7 +38,11 @@ function App() {
           <Route element={<AppLayout />}>
             <Route path="/" element={<Home />} />
             <Route path="/search" element={<Search />} />
-            <Route path="/playlist/:id" element={<Playlist />} />
+            <Route path="/playlist/" element={<Playlist />} />
+            <Route
+              path="/playlist-song-detail/:id"
+              element={<PlayListSongDetails />}
+            />
           </Route>
 
           <Route element={<AuthFormLayout />}>

@@ -1,8 +1,10 @@
 import { FaPlay } from "react-icons/fa";
 import { useOpenPlayModal } from "./OpenPlayModalContext";
-import { getSongs } from "../../services/songServices";
-import { useQuery } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
+import useOutsideClick from "../../hooks/useOutSideClick";
+import { useRef } from "react";
+import Loading from "../../ui/Loading";
+import useSongs from "./useSongs";
 
 // const playlistData = [
 //   {
@@ -48,21 +50,32 @@ import { useNavigate } from "react-router-dom";
 //     desc: "chill beats, lofi vibes, new tracks every week...",
 //   },
 // ];
+
 export const PlayListData = () => {
+  const songRef = useRef();
   const navigate = useNavigate();
+  useOutsideClick(songRef, "exceptionId", () => oneSongClickHandler);
+  const oneSongClickHandler = (id) => {
+    navigate(`/playlist-song-detail/${id}`);
+  };
   const { setIsOpen } = useOpenPlayModal();
-  const { data } = useQuery({
-    queryKey: ["get-songs"],
-    queryFn: getSongs,
-    retry: false,
-  });
+  const { data } = useSongs();
   console.log(data?.data?.results);
   const allSongs = data?.data?.results;
+
+  if (!allSongs?.length)
+    return (
+      <div className="col-span-5">
+        <Loading />
+      </div>
+    );
   return (
     <>
       {allSongs?.map((song) => (
         <div
-          onClick={() => navigate(`/playlist/${song.id}`)}
+          ref={songRef}
+          onClick={() => oneSongClickHandler(song.id)}
+          // onClick={() => navigate(`/playlist/${song.id}`)}
           key={song.id}
           className="group w-48 md:w-auto bg-primary-500 hover:bg-primary-700 shadow-md rounded-md p-5 cursor-pointer"
         >

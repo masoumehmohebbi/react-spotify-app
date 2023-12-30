@@ -8,6 +8,7 @@ import { getTokens } from "../../services/authService";
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import Loading from "../../ui/Loading";
 
 export const LogInForm = () => {
   const { t } = useTranslation();
@@ -16,7 +17,7 @@ export const LogInForm = () => {
   const [logInPassword, setLogInPassword] = useState("");
   const navigate = useNavigate();
 
-  const { mutateAsync: mutateAsyncTokens } = useMutation({
+  const { isPending, mutateAsync: mutateAsyncTokens } = useMutation({
     mutationFn: getTokens,
   });
 
@@ -86,12 +87,17 @@ export const LogInForm = () => {
               </span>
             </label>
           </div>
-          <button
-            type="submit"
-            className="bg-success rounded-full w-full text-center text-secondary-0 py-2 font-bold mt-4 hover:scale-105 transition"
-          >
-            {t("log_in")}
-          </button>
+
+          {isPending ? (
+            <Loading height="56px" />
+          ) : (
+            <button
+              type="submit"
+              className="bg-success rounded-full w-full text-center text-secondary-0 py-2 font-bold mt-4 hover:scale-105 transition"
+            >
+              {t("log_in")}
+            </button>
+          )}
           <span className="text-center mt-4 underline hover:text-success">
             {t("forgot_your_password")}
           </span>
