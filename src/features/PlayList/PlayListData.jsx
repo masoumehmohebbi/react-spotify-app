@@ -61,7 +61,7 @@ export const PlayListData = () => {
   const { setIsOpen } = useOpenPlayModal();
   const { data } = useSongs();
   console.log(data?.data?.results);
-  const allSongs = data?.data?.results;
+  const allSongs = data?.data?.results.slice(0, 5);
 
   if (!allSongs?.length)
     return (
