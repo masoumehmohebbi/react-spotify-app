@@ -2,8 +2,13 @@ import { useTranslation } from "react-i18next";
 import Navbar from "../ui/Navbar";
 import { BiSearch } from "react-icons/bi";
 import { useEffect, useRef } from "react";
+import useSongs from "../features/PlayList/useSongs";
+import { useNavigate } from "react-router-dom";
 
 const Search = () => {
+  const navigate = useNavigate();
+  const { data } = useSongs();
+  const allSongs = data?.data?.results;
   return (
     <>
       <Navbar>
@@ -14,7 +19,22 @@ const Search = () => {
         </div>
       </Navbar>
 
-      <div className="px-5 py-5 mb-6 bg-secondary-0">items...</div>
+      <div className="grid grid-cols-4 pb-16 gap-5">
+        {allSongs?.map((song) => (
+          <div
+            onClick={() => navigate(`/playlist-song-detail/${song.id}`)}
+            key={song.id}
+            className=" group w-48 md:w-auto bg-primary-500 hover:bg-primary-700 shadow-md rounded-md p-5 cursor-pointer"
+          >
+            <div className="relative overflow-hidden">
+              <img className="rounded-md" src={song.cover_image} />
+              <p className="absolute right-0 top-0 p-2 font-bold text-primary-800 text-xl w-full h-full bg-secondary-50 bg-opacity-50">
+                {song.name} <br /> {song.genre.name}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
     </>
   );
 };

@@ -1,10 +1,13 @@
 import { useState } from "react";
-import { BiMenu, BiSearch, BiX } from "react-icons/bi";
+import { BiMenu, BiSearch, BiUser, BiX } from "react-icons/bi";
 import { useTranslation } from "react-i18next";
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import { FaSpotify } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import Cookies from "universal-cookie";
+
+const cookies = new Cookies();
 
 export default function Navbar({ children }) {
   const [open, setOpen] = useState(false);
@@ -60,6 +63,16 @@ function NextPrevButtons() {
 
 function SigninSignUpButtons({ open }) {
   const { t } = useTranslation();
+  const token = cookies.get("accessToken");
+  if (token)
+    return (
+      <div className="flex items-end gap-x-2">
+        <h2>خوش آمدید</h2>
+        <button>
+          <BiUser className="w-8 h-9 text-secondary-0" />
+        </button>
+      </div>
+    );
   return (
     <div
       className={`r gap-x-6 fixed top-0 bg-primary-900 text-secondary-0 md:bg-transparent h-screen md:h-auto md:col-span-5 flex md:ml-1 flex-col items-start md:items-center px-5 md:px-0 md:flex-row pt-20 md:pt-0 gap-y-6 md:gap-y-0 md:static md:z-auto z-[-1] left-0 w-full md:w-fit transition-all duration-500 ease-in ${
