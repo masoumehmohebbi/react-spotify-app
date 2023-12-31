@@ -65,6 +65,12 @@ body {
   .btn--primary {
     @apply bg-success w-full text-center text-primary-900 py-2 mt-4 hover:scale-105;
   }
+  .btn-playIcon {
+    @apply flex cursor-pointer bg-success shadow-md rounded-full p-4 w-fit hover:scale-105 transition-all ease-linear duration-150 items-center justify-center;
+  }
+  .list-item {
+    @apply border-b-[1px] py-3 border-primary-700 flex gap-x-2 items-center;
+  }
 }
 
 @layer utilities {

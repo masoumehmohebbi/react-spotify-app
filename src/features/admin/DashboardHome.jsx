@@ -4,7 +4,7 @@ const DashboardHome = () => {
   return (
     <>
       <DashboardHeader />
-      DashboardHome
+      <div className="text-secondary-0"> DashboardHome</div>
     </>
   );
 };

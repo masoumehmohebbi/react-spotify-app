@@ -40,7 +40,7 @@ export const PlayListData = () => {
                 e.stopPropagation();
                 setIsOpen((prev) => !prev);
               }}
-              className="playIcon flex bg-success hover:scale-105 shadow-md rounded-full p-4 w-fit absolute transition-all ease-linear duration-150 items-center justify-center -bottom-9 h-0 group-hover:h-fit overflow-hidden group-hover:bottom-1 left-1"
+              className="playIcon btn-playIcon h-0 group-hover:h-fit overflow-hidden absolute -bottom-9 group-hover:bottom-1 left-1"
             >
               <FaPlay className="text-lg text-primary-900" />
             </div>
