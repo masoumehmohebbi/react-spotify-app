@@ -5,10 +5,12 @@ import { useParams } from "react-router-dom";
 import { HiClock, HiOutlineHeart } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
 import { useGetSongUrl } from "./GetSongUrlContext";
+import { useOpenPlayModal } from "./OpenPlayModalContext";
 
 const PlayListSongDetails = () => {
   const { setSongUrl } = useGetSongUrl();
   const navigate = useNavigate();
+  const { setIsOpen } = useOpenPlayModal();
   const { id } = useParams();
   const { data } = useSongs();
   const selectedSong = data?.data?.results[id - 1];
@@ -65,7 +67,10 @@ const PlayListSongDetails = () => {
 
         <div className="flex gap-3 p-5">
           <div
-            onClick={() => setSongUrl(selectedSong.file)}
+            onClick={() => {
+              setIsOpen((prev) => !prev);
+              setSongUrl(selectedSong.file);
+            }}
             className="btn-playIcon"
           >
             <FaPlay className="text-lg text-primary-900" />

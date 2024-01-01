@@ -76,10 +76,9 @@ function NextPrevButtons() {
 function SigninSignUpButtons({ open }) {
   const { data } = useUser();
   const userProfile = data?.data;
-  console.log(userProfile);
-
   const { t } = useTranslation();
   const token = cookies.get("accessToken");
+
   if (token)
     return (
       <div className="flex items-center gap-x-2">

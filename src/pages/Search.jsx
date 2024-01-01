@@ -1,26 +1,50 @@
 import { useTranslation } from "react-i18next";
 import Navbar from "../ui/Navbar";
 import { BiSearch } from "react-icons/bi";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import useSongs from "../features/PlayList/useSongs";
 import { useNavigate } from "react-router-dom";
 
 const Search = () => {
+  const [serchInput, setSearchInput] = useState("");
   const navigate = useNavigate();
   const { data } = useSongs();
   const allSongs = data?.data?.results;
+  const [filterAllSongs, setFilterAllSongs] = useState([]);
+
+  useEffect(() => {
+    setFilterAllSongs(allSongs);
+  }, [allSongs]);
+
+  const handleSearch = (e) => {
+    setSearchInput(e.target.value);
+    const filteredSongs = filterAllSongs.filter(
+      (song) =>
+        song.name.toLowerCase().includes(e.target.value.toLowerCase()) ||
+        song.artist.fullname
+          .toLowerCase()
+          .includes(e.target.value.toLowerCase()) ||
+        song.genre.name.toLowerCase().includes(e.target.value.toLowerCase())
+    );
+
+    if (!e.target.value == "") {
+      setFilterAllSongs(filteredSongs);
+    } else {
+      setFilterAllSongs(allSongs);
+    }
+  };
   return (
     <>
       <Navbar>
         <div className="hidden md:block rounded-[500px] md:max-w-[12rem] lg:max-w-md xl:max-w-xl focus-within:border-secondary-0 border-primary-600 border-2 duration-300 w-full">
           <div className="justify-between px-3 flex bg-primary-600 items-center rounded-[500px]">
-            <SearchField />
+            <SearchField onChange={handleSearch} serchInput={serchInput} />
           </div>
         </div>
       </Navbar>
 
       <div className="grid grid-cols-4 pb-16 gap-5">
-        {allSongs?.map((song) => (
+        {filterAllSongs?.map((song) => (
           <div
             onClick={() => navigate(`/playlist-song-detail/${song.id}`)}
             key={song.id}
@@ -41,7 +65,7 @@ const Search = () => {
 
 export default Search;
 
-export function SearchField() {
+export function SearchField({ onChange, serchInput }) {
   const searchFieldRef = useRef();
   const { t } = useTranslation();
 
@@ -52,6 +76,8 @@ export function SearchField() {
   return (
     <>
       <input
+        value={serchInput}
+        onChange={onChange}
         ref={searchFieldRef}
         className="py-2 md:py-3 px-3 w-full bg-transparent outline-none "
         type="text"
