@@ -13,6 +13,13 @@ const PlayListSongDetails = () => {
   const allSongs = data?.data?.results;
   console.log(selectedSong);
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <>
       <Navbar />
@@ -76,7 +83,9 @@ const PlayListSongDetails = () => {
           {allSongs?.map((song) => (
             <ul
               key={song.id}
-              onClick={() => navigate(`/playlist-song-detail/${song.id}`)}
+              onClick={() => {
+                navigate(`/playlist-song-detail/${song.id}`), scrollToTop();
+              }}
               className="cursor-pointer grid grid-cols-4 items-center justify-center gap-x-16 p-3 justify-items-start hover:bg-primary-600"
             >
               <li className="flex items-center justify-center gap-x-1">
