@@ -104,3 +104,45 @@ body {
     background: #5555557f;
   }
 }
+.iconify {
+  display: flex;
+  font-size: 39px;
+  margin: 0px 13px;
+}
+
+.progress-bar-wrapper {
+  display: flex;
+}
+.rhap_controls-section {
+  display: flex;
+  justify-content: space-between;
+}
+.rhap_progress-section {
+  display: flex;
+  gap: 5px;
+}
+.toggle-play-button {
+  background-color: red !important;
+}
+.rhap_main {
+  align-items: center;
+  display: flex;
+  flex-direction: column-reverse;
+  background-color: rgb(var(--color-primary-900));
+  color: rgb(var(--color-secondary-50));
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  z-index: 999;
+  width: 100%;
+  padding: 10px;
+}
+.rhap_play-pause-button {
+  color: rgb(var(--color-secondary-0));
+}
+.rhap_play-pause-button:hover {
+  scale: 1.1;
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}

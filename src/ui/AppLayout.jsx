@@ -5,8 +5,11 @@ import { Modal } from "./Modal";
 import { SideBar } from "./SideBar";
 import ModalButton from "./ModalButton";
 import PlaySongModal from "../features/PlayList/PlaySongModal";
+import AudioPlayer from "react-h5-audio-player";
+import { useSongUrl } from "../features/PlayList/SongUrlContext/";
 
 const AppLayout = () => {
+  const { songUrl } = useSongUrl();
   const { isOpen } = useOpenModal();
   return (
     <>
@@ -29,6 +32,13 @@ const AppLayout = () => {
       </div>
       <Modal />
       <PlaySongModal />
+      <AudioPlayer
+        showFilledVolume={true}
+        autoPlay
+        src={songUrl}
+        // onPlay={true}
+        // other props here
+      />
     </>
   );
 };

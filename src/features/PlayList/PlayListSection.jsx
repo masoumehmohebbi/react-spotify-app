@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { PlayListData } from "./PlayListData";
+import { PlayListPopularData } from "./PlayListPopularData";
 
 export const PlayListSection = () => {
   const { t } = useTranslation();
@@ -15,6 +16,9 @@ export const PlayListSection = () => {
       </div>
       <div className="grid-flow-col md:grid-flow-row overflow-x-scroll no-scrollbar grid md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-5 my-9">
         <PlayListData />
+      </div>
+      <div className="grid-flow-col md:grid-flow-row overflow-x-scroll no-scrollbar grid md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-5 my-9">
+        <PlayListPopularData />
       </div>
     </div>
   );

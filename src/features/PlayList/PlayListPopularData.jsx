@@ -2,15 +2,14 @@ import { FaPlay } from "react-icons/fa";
 import { useOpenPlayModal } from "./OpenPlayModalContext";
 import { useNavigate } from "react-router-dom";
 import { useRef } from "react";
-import Loading from "../../ui/Loading";
-import useSongs from "./useSongs";
 import useOutsideClick from "../../hooks/useOutsideClick";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import { useSongUrl } from "../PlayList/SongUrlContext/";
+import usePopularSongs from "./usePopularSongs";
+import { useTranslation } from "react-i18next";
 
-export const PlayListData = () => {
-  const { setSongUrl } = useSongUrl();
+export const PlayListPopularData = () => {
+  const { t } = useTranslation();
   const songRef = useRef();
   const navigate = useNavigate();
 
@@ -20,17 +19,19 @@ export const PlayListData = () => {
     navigate(`/playlist-song-detail/${id}`);
   };
   const { setIsOpen } = useOpenPlayModal();
-  const { data } = useSongs();
-  const allSongs = data?.data?.results.slice(0, 5);
+  const { data } = usePopularSongs();
+  const allSongs = data?.data?.results.slice(0, 3);
 
-  if (!allSongs?.length)
-    return (
-      <div className="col-span-5">
-        <Loading />
-      </div>
-    );
   return (
     <>
+      <div className="flex w-full justify-between col-span-5 mt-11">
+        <h1 className="text-2xl font-bold text-secondary-0">
+          {t("popular-songs")}
+        </h1>
+        <a href="#" className="text-primary-100">
+          {t("show-all")}
+        </a>
+      </div>
       {allSongs?.map((song) => (
         <div
           ref={songRef}
@@ -49,7 +50,6 @@ export const PlayListData = () => {
               onClick={(e) => {
                 e.stopPropagation();
                 setIsOpen((prev) => !prev);
-                setSongUrl(song.file);
               }}
               className="playIcon btn-playIcon h-0 group-hover:h-fit overflow-hidden absolute -bottom-9 group-hover:bottom-3 left-1"
             >
@@ -57,7 +57,7 @@ export const PlayListData = () => {
             </div>
           </div>
           <h1 className="text-secondary-0">{song.artist.fullname}</h1>
-          <p className="text-secondary-50 text-sm ">
+          <p className="text-secondary-50 text-sm">
             {song.name} - {song.genre.name}
           </p>
         </div>

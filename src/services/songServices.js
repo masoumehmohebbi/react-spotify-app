@@ -6,3 +6,7 @@ export function getSongs() {
 export function getOneSong(id) {
   return http.get(`/songs/${id}`);
 }
+
+export function getPopularSongs() {
+  return http.get("/songs/popular/");
+}
