@@ -45,7 +45,7 @@ export const SideBar = () => {
   return (
     <aside className="hidden md:block z-10 h-screen p-2 pl-0 select-none sticky right-0 top-0">
       <div className="flex flex-col gap-2">
-        <ul className="bg-primary-800 flex flex-col gap-6 p-5  rounded">
+        <ul className="bg-primary-800 flex flex-col gap-6 p-5 rounded-lg">
           <li className="text-secondary-50">
             <Link className="flex items-center gap-1" to={"/"}>
               <h1 className="italic font-bold text-secondary-0">Spotify</h1>
@@ -83,7 +83,7 @@ export const SideBar = () => {
           </li>
         </ul>
 
-        <ul className="bg-primary-800 flex flex-col gap-6 p-4 pt-0 rounded">
+        <ul className="bg-primary-800 flex flex-col gap-6 p-4 pt-0 rounded-lg h-[calc(100vh-266px)]">
           <li className="text-secondary-100 z-10">
             <div className="flex items-center justify-between gap-1 pt-2">
               <div className="flex items-center gap-2 transition duration-500 hover:text-secondary-50">
