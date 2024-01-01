@@ -4,8 +4,10 @@ import useSongs from "./useSongs";
 import { useParams } from "react-router-dom";
 import { HiClock, HiOutlineHeart } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
+import { useGetSongUrl } from "./GetSongUrlContext";
 
 const PlayListSongDetails = () => {
+  const { setSongUrl } = useGetSongUrl();
   const navigate = useNavigate();
   const { id } = useParams();
   const { data } = useSongs();
@@ -62,7 +64,10 @@ const PlayListSongDetails = () => {
         </div>
 
         <div className="flex gap-3 p-5">
-          <div className="btn-playIcon">
+          <div
+            onClick={() => setSongUrl(selectedSong.file)}
+            className="btn-playIcon"
+          >
             <FaPlay className="text-lg text-primary-900" />
           </div>
           <button>
