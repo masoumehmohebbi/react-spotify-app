@@ -1,11 +1,17 @@
 import { useState } from "react";
-import { BiMenu, BiSearch, BiUser, BiX } from "react-icons/bi";
+import { BiMenu, BiSearch, BiX } from "react-icons/bi";
 import { useTranslation } from "react-i18next";
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import { FaSpotify } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
+import Tippy from "@tippyjs/react";
+import { RiArrowDownSLine } from "react-icons/ri";
+import { RiUserLine } from "react-icons/ri";
+import "tippy.js/themes/light.css";
+import useUser from "../features/PlayList/useUser";
+import { IoExitOutline } from "react-icons/io5";
 
 const cookies = new Cookies();
 
@@ -62,15 +68,48 @@ function NextPrevButtons() {
 }
 
 function SigninSignUpButtons({ open }) {
+  const { data } = useUser();
+  const userProfile = data?.data;
+  console.log(userProfile);
+
   const { t } = useTranslation();
   const token = cookies.get("accessToken");
   if (token)
     return (
-      <div className="flex items-end gap-x-2">
+      <div className="flex items-center gap-x-2">
         <h2>خوش آمدید</h2>
-        <button>
-          <BiUser className="w-8 h-9 text-secondary-0" />
-        </button>
+        <Tippy
+          theme="light"
+          interactive={true}
+          trigger="click"
+          placement="bottom"
+          content={
+            <div
+              className={`transition-all  text-primary-50  left-0 rounded p-2 flex
+            flex-col gap-4 `}
+            >
+              <div className="flex flex-col items-center justify-end gap-2">
+                <span>
+                  {userProfile?.first_name}
+                  &nbsp;
+                  {userProfile?.last_name}
+                </span>
+
+                <span>{userProfile?.requested_phone}</span>
+                <hr className="h-1 border-secondary-50 w-full" />
+              </div>
+              <button className="flex items-center gap-1 justify-center">
+                <IoExitOutline className="text-primary-900 w-4 h-4" />
+                <span>خروج</span>
+              </button>
+            </div>
+          }
+        >
+          <button className="flex items-center justify-center border border-primary-700 rounded-2xl p-[6px] shadow-sm">
+            <RiUserLine className="w-6 h-6 text-secondary-0" />
+            <RiArrowDownSLine className="w-5 h-5" />
+          </button>
+        </Tippy>
       </div>
     );
   return (
