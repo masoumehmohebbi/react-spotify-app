@@ -14,7 +14,7 @@ const AppLayout = () => {
   const cookies = new Cookies();
   const token = cookies.get("accessToken");
 
-  const { songUrl } = useGetSongUrl();
+  const { songUrl, songCover, songTitle, songArtist } = useGetSongUrl();
   const { isOpen } = useOpenModal();
   return (
     <>
@@ -38,13 +38,24 @@ const AppLayout = () => {
       <Modal />
       {!token && <PlaySongModal />}
       {token && (
-        <AudioPlayer
-          autoPlay={false}
-          src={songUrl}
-          onPlayError={() =>
-            songUrl === "" && toast.error("یک آهنگ انتخاب کنید")
-          }
-        />
+        <div className="fixed bottom-0 w-full z-50 bg-primary-900 grid grid-cols-8">
+          <span className="col-span-1 flex items-center justify-center gap-x-2">
+            <img className="w-16 h-16 rounded-md" src={songCover} alt="" />
+            <div className="flex flex-col">
+              <span className="text-secondary-0 font-bold">{songTitle}</span>
+              <span className="text-secondary-50">{songArtist}</span>
+            </div>
+          </span>
+          <div className="col-span-7">
+            <AudioPlayer
+              autoPlay={false}
+              src={songUrl}
+              onPlayError={() =>
+                songUrl === "" && toast.error("یک آهنگ انتخاب کنید")
+              }
+            />
+          </div>
+        </div>
       )}
     </>
   );

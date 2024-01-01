@@ -10,7 +10,8 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 import { useGetSongUrl } from "./GetSongUrlContext";
 
 export const PlayListData = () => {
-  const { setSongUrl } = useGetSongUrl();
+  const { setSongUrl, setSongCover, setSongTitle, setSongArtist } =
+    useGetSongUrl();
   const songRef = useRef();
   const navigate = useNavigate();
 
@@ -50,6 +51,9 @@ export const PlayListData = () => {
                 e.stopPropagation();
                 setIsOpen((prev) => !prev);
                 setSongUrl(song.file);
+                setSongCover(song.cover_image);
+                setSongTitle(song.name);
+                setSongArtist(song.artist.fullname);
               }}
               className="playIcon btn-playIcon h-0 group-hover:h-fit overflow-hidden absolute -bottom-9 group-hover:bottom-3 left-1"
             >

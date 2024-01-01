@@ -4,6 +4,8 @@ import { BiSearch } from "react-icons/bi";
 import { useEffect, useRef, useState } from "react";
 import useSongs from "../features/PlayList/useSongs";
 import { useNavigate } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const Search = () => {
   const [serchInput, setSearchInput] = useState("");
@@ -51,7 +53,11 @@ const Search = () => {
             className=" group w-48 md:w-auto bg-primary-500 hover:bg-primary-700 shadow-md rounded-md p-5 cursor-pointer"
           >
             <div className="relative overflow-hidden">
-              <img className="rounded-md" src={song.cover_image} />
+              <LazyLoadImage
+                effect="blur"
+                className="rounded-md"
+                src={song.cover_image}
+              />
               <p className="absolute right-0 top-0 p-2 font-bold text-primary-800 text-xl w-full h-full bg-secondary-50 bg-opacity-50">
                 {song.name} <br /> {song.genre.name}
               </p>

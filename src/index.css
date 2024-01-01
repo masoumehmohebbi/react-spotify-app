@@ -130,10 +130,10 @@ body {
   flex-direction: column-reverse;
   background-color: rgb(var(--color-primary-900));
   color: rgb(var(--color-secondary-50));
-  position: fixed;
+  /* position: fixed; */
   bottom: 0px;
   right: 0px;
-  z-index: 999;
+  /* z-index: 999; */
   width: 100%;
   padding: 10px;
 }

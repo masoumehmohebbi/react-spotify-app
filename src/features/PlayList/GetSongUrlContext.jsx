@@ -4,9 +4,23 @@ const GetSongUrlContext = createContext();
 
 export function GetSongUrlProvider({ children }) {
   const [songUrl, setSongUrl] = useState("");
+  const [songCover, setSongCover] = useState("");
+  const [songTitle, setSongTitle] = useState("");
+  const [songArtist, setSongArtist] = useState("");
 
   return (
-    <GetSongUrlContext.Provider value={{ songUrl, setSongUrl }}>
+    <GetSongUrlContext.Provider
+      value={{
+        songUrl,
+        setSongUrl,
+        songCover,
+        setSongCover,
+        songTitle,
+        setSongTitle,
+        songArtist,
+        setSongArtist,
+      }}
+    >
       {children}
     </GetSongUrlContext.Provider>
   );
