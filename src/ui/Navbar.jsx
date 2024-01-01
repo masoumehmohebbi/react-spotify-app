@@ -15,6 +15,12 @@ import { IoExitOutline } from "react-icons/io5";
 
 const cookies = new Cookies();
 
+const logOutHandler = () => {
+  cookies.remove("accessToken");
+  cookies.remove("refreshToken");
+  window.location.reload();
+};
+
 export default function Navbar({ children }) {
   const [open, setOpen] = useState(false);
 
@@ -98,7 +104,10 @@ function SigninSignUpButtons({ open }) {
                 <span>{userProfile?.requested_phone}</span>
                 <hr className="h-1 border-secondary-50 w-full" />
               </div>
-              <button className="flex items-center gap-1 justify-center">
+              <button
+                onClick={logOutHandler}
+                className="flex items-center gap-1 justify-center"
+              >
                 <IoExitOutline className="text-primary-900 w-4 h-4" />
                 <span>خروج</span>
               </button>
