@@ -3,6 +3,7 @@ import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import { FaTelegram } from "react-icons/fa";
 import { Header } from "../features/auth/AuthFormLayout";
 import { Footer } from "../ui/Footer";
+import { useEffect } from "react";
 
 const developers = [
   {
@@ -49,6 +50,9 @@ const developers = [
   },
 ];
 export const AboutUs = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="pb-5">
       <Header />

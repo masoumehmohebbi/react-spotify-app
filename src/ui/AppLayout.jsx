@@ -7,8 +7,13 @@ import ModalButton from "./ModalButton";
 import PlaySongModal from "../features/PlayList/PlaySongModal";
 import AudioPlayer from "react-h5-audio-player";
 import { useGetSongUrl } from "../features/PlayList/GetSongUrlContext";
+import Cookies from "universal-cookie";
+import { toast } from "react-hot-toast";
 
 const AppLayout = () => {
+  const cookies = new Cookies();
+  const token = cookies.get("accessToken");
+
   const { songUrl } = useGetSongUrl();
   const { isOpen } = useOpenModal();
   return (
@@ -31,8 +36,16 @@ const AppLayout = () => {
         </div>
       </div>
       <Modal />
-      <PlaySongModal />
-      <AudioPlayer showFilledVolume={true} autoPlay src={songUrl} />
+      {!token && <PlaySongModal />}
+      {token && (
+        <AudioPlayer
+          autoPlay={false}
+          src={songUrl}
+          onPlayError={() =>
+            songUrl === "" && toast.error("یک آهنگ انتخاب کنید")
+          }
+        />
+      )}
     </>
   );
 };
