@@ -7,7 +7,7 @@ import useSongs from "./useSongs";
 import useOutsideClick from "../../hooks/useOutsideClick";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import { useSongUrl } from "../PlayList/SongUrlContext/";
+import { useSongUrl } from "./songUrlContext";
 
 export const PlayListData = () => {
   const { setSongUrl } = useSongUrl();

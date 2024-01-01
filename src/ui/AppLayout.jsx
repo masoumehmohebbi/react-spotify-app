@@ -6,7 +6,7 @@ import { SideBar } from "./SideBar";
 import ModalButton from "./ModalButton";
 import PlaySongModal from "../features/PlayList/PlaySongModal";
 import AudioPlayer from "react-h5-audio-player";
-import { useSongUrl } from "../features/PlayList/SongUrlContext/";
+import { useSongUrl } from "../features/PlayList/songUrlContext";
 
 const AppLayout = () => {
   const { songUrl } = useSongUrl();
