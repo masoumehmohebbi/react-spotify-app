@@ -1,14 +1,14 @@
 import { OpenModalProvider } from "../context/OpenModalContext";
+import { GetSongUrlProvider } from "./PlayList/GetSongUrlContext";
 import { OpenPlaySongModalProvider } from "./PlayList/OpenPlayModalContext";
-import { SongUrlProvider } from "./PlayList/songUrlContext";
 
 const Providers = ({ children }) => {
   return (
-    <SongUrlProvider>
+    <GetSongUrlProvider>
       <OpenPlaySongModalProvider>
         <OpenModalProvider>{children}</OpenModalProvider>
       </OpenPlaySongModalProvider>
-    </SongUrlProvider>
+    </GetSongUrlProvider>
   );
 };
 
