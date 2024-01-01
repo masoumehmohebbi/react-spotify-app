@@ -5,11 +5,15 @@ import { useRef } from "react";
 import Loading from "../../ui/Loading";
 import useSongs from "./useSongs";
 import useOutsideClick from "../../hooks/useOutsideClick";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 export const PlayListData = () => {
   const songRef = useRef();
   const navigate = useNavigate();
+
   useOutsideClick(songRef, "playIcon", () => oneSongClickHandler);
+
   const oneSongClickHandler = (id) => {
     navigate(`/playlist-song-detail/${id}`);
   };
@@ -33,7 +37,11 @@ export const PlayListData = () => {
           className="group w-48 md:w-auto bg-primary-500 hover:bg-primary-700 shadow-md rounded-md p-5 cursor-pointer"
         >
           <div className="relative overflow-hidden">
-            <img className="rounded-md" src={song.cover_image} />
+            <LazyLoadImage
+              effect="blur"
+              src={song.cover_image}
+              className="rounded-md"
+            />
 
             <div
               onClick={(e) => {
