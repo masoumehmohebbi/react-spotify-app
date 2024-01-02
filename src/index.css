@@ -60,10 +60,13 @@ body {
     outline-none duration-300 transition ease-linear focus:ring-secondary-0 focus:ring-2;
   }
   .btn {
-    @apply px-3 font-bold transition duration-300 py-3 rounded-full;
+    @apply p-3 font-bold transition duration-300 rounded-full;
   }
   .btn--primary {
     @apply bg-success w-full text-center text-primary-900 py-2 mt-4 hover:scale-105;
+  }
+  .btn--secondary {
+    @apply border-success border px-3 py-2 rounded-xl font-bold  text-success text-xl text-center hover:scale-105;
   }
   .btn-playIcon {
     @apply flex cursor-pointer bg-success shadow-md rounded-full p-4 w-fit hover:scale-105 transition-all ease-linear duration-150 items-center justify-center;
@@ -73,6 +76,9 @@ body {
   }
   .title {
     @apply text-2xl font-bold text-secondary-0;
+  }
+  .icon {
+    @apply w-9 h-9 hover:scale-105 transition-all ease-linear duration-150;
   }
 }
 

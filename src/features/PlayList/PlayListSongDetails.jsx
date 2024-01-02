@@ -2,13 +2,21 @@ import { FaPlay } from "react-icons/fa";
 import Navbar from "../../ui/Navbar";
 import useSongs from "./useSongs";
 import { useParams } from "react-router-dom";
-import { HiClock, HiOutlineHeart } from "react-icons/hi";
+import { HiClock, HiHeart, HiOutlineHeart } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
 import { useGetSongUrl } from "./GetSongUrlContext";
 import { useOpenPlayModal } from "./OpenPlayModalContext";
 import CommentsContainer from "../comment/CommentsContainer";
+import { useState } from "react";
+import {
+  removetFavourite,
+  setFavourite,
+} from "../../services/favouriteService";
+import { useMutation } from "@tanstack/react-query";
+import { toast } from "react-hot-toast";
 
 const PlayListSongDetails = () => {
+  const [isFav, setIsFav] = useState(false);
   const { setSongUrl } = useGetSongUrl();
   const navigate = useNavigate();
   const { setIsOpen } = useOpenPlayModal();
@@ -17,6 +25,31 @@ const PlayListSongDetails = () => {
   const selectedSong = data?.data?.results[id - 1];
   const allSongs = data?.data?.results;
 
+  const { mutateAsync: mutateAsyncSetFavourite } = useMutation({
+    mutationFn: setFavourite,
+  });
+  const { mutateAsync: mutateAsyncRemoveFavourite } = useMutation({
+    mutationFn: removetFavourite,
+  });
+
+  const setFavouriteHandler = async (songSrc) => {
+    setIsFav((prev) => !prev);
+
+    try {
+      await mutateAsyncSetFavourite({ song: songSrc });
+    } catch (error) {
+      toast.error(error);
+    }
+  };
+  const removeFavouriteHandler = async (songSrc) => {
+    setIsFav((prev) => !prev);
+
+    try {
+      await mutateAsyncRemoveFavourite({ song: songSrc });
+    } catch (error) {
+      toast.error(error);
+    }
+  };
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -76,11 +109,21 @@ const PlayListSongDetails = () => {
             <FaPlay className="text-lg text-primary-900" />
           </div>
           <button>
-            <HiOutlineHeart className="text-secondary-50 w-9 h-9 hover:scale-105 transition-all ease-linear duration-150" />
+            {isFav ? (
+              <HiHeart
+                onClick={() => removeFavouriteHandler(selectedSong.id)}
+                className="icon text-success"
+              />
+            ) : (
+              <HiOutlineHeart
+                onClick={() => setFavouriteHandler(selectedSong.id)}
+                className="text-secondary-50 icon"
+              />
+            )}
           </button>
         </div>
 
-        <div className="text-secondary-0 pr-5 pt-11 h-96 overflow-y-scroll">
+        <div className="text-secondary-0 pr-5 pt-11 h-[22rem] overflow-y-scroll">
           <ul className="grid grid-cols-4 gap-x-16 justify-items-start">
             <li>#عنوان آهنگ</li>
             <li>خواننده</li>

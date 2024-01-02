@@ -10,13 +10,7 @@ import Loading from "../../ui/Loading";
 
 const RESEND_TIME = 90;
 
-const CheckOtpForm = ({
-  phoneNumber,
-  onBack,
-  onReSendOtp,
-  otpResponse,
-  // password,
-}) => {
+const CheckOtpForm = ({ phoneNumber, onBack, onReSendOtp, otpResponse }) => {
   const [otp, setOtp] = useState("");
   const navigate = useNavigate();
   const [time, setTime] = useState(RESEND_TIME);
@@ -25,18 +19,10 @@ const CheckOtpForm = ({
     mutationFn: checkOtp,
   });
 
-  // const { mutateAsync: mutateAsyncTokens } = useMutation({
-  //   mutationFn: getTokens,
-  // });
-
   const checkOtpHandler = async (e) => {
     e.preventDefault();
     try {
       await mutateAsync({ phone: phoneNumber, otp_code: otp });
-      // const { data } = await mutateAsyncTokens({
-      //   verified_phone: phoneNumber,
-      //   password,
-      // });
 
       toast.success("ثبت نام شما با موفقیت انجام شد. وارد شوید", {
         icon: "👏",
