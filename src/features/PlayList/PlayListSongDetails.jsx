@@ -6,6 +6,7 @@ import { HiClock, HiOutlineHeart } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
 import { useGetSongUrl } from "./GetSongUrlContext";
 import { useOpenPlayModal } from "./OpenPlayModalContext";
+import CommentsContainer from "../comment/CommentsContainer";
 
 const PlayListSongDetails = () => {
   const { setSongUrl } = useGetSongUrl();
@@ -15,7 +16,6 @@ const PlayListSongDetails = () => {
   const { data } = useSongs();
   const selectedSong = data?.data?.results[id - 1];
   const allSongs = data?.data?.results;
-  console.log(selectedSong);
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -80,7 +80,7 @@ const PlayListSongDetails = () => {
           </button>
         </div>
 
-        <div className="text-secondary-0 pr-5 pt-11">
+        <div className="text-secondary-0 pr-5 pt-11 h-96 overflow-y-scroll">
           <ul className="grid grid-cols-4 gap-x-16 justify-items-start">
             <li>#عنوان آهنگ</li>
             <li>خواننده</li>
@@ -115,6 +115,8 @@ const PlayListSongDetails = () => {
             </ul>
           ))}
         </div>
+
+        <CommentsContainer />
       </div>
     </>
   );

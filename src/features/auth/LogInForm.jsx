@@ -32,7 +32,7 @@ export const LogInForm = () => {
       document.cookie = `refreshToken=${data.refresh}`;
       document.cookie = `accessToken=${data.access}`;
 
-      toast.success("شما با موفقیت لاگین شدید", {
+      toast.success("اطلاعات شما تایید شد‍‍‍، به اسپاتیفای خوش آمدید", {
         icon: "👏",
       });
       navigate("/");

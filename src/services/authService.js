@@ -9,7 +9,6 @@ export function getOtp(data) {
 export function checkOtp(data) {
   return http.post("/auth/otp/check/", data);
 }
-
 export function getUser() {
   return http.get("/auth/profile/");
 }

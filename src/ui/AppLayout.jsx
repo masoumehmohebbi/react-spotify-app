@@ -39,14 +39,16 @@ const AppLayout = () => {
       {!token && <PlaySongModal />}
       {token && (
         <div className="fixed bottom-0 w-full z-50 bg-primary-900 grid grid-cols-8">
-          <span className="col-span-1 flex items-center justify-center gap-x-2">
-            <img className="w-16 h-16 rounded-md" src={songCover} alt="" />
-            <div className="flex flex-col">
-              <span className="text-secondary-0 font-bold">{songTitle}</span>
-              <span className="text-secondary-50">{songArtist}</span>
-            </div>
-          </span>
-          <div className="col-span-7">
+          {songCover && (
+            <span className="col-span-1 flex items-center justify-center gap-x-2">
+              <img className="w-16 h-16 rounded-md" src={songCover} alt="" />
+              <div className="flex flex-col">
+                <span className="text-secondary-0 font-bold">{songTitle}</span>
+                <span className="text-secondary-50">{songArtist}</span>
+              </div>
+            </span>
+          )}
+          <div className={` ${songCover ? "col-span-7" : "col-span-8"}`}>
             <AudioPlayer
               autoPlay={false}
               src={songUrl}

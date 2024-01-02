@@ -71,6 +71,9 @@ body {
   .list-item {
     @apply border-b-[1px] py-3 border-primary-700 flex gap-x-2 items-center;
   }
+  .title {
+    @apply text-2xl font-bold text-secondary-0;
+  }
 }
 
 @layer utilities {
