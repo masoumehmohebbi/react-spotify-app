@@ -36,7 +36,7 @@ export const LogInForm = () => {
         icon: "👏",
       });
       navigate("/");
-      console.log(data);
+      window.scrollTo(0, 0);
     } catch (error) {
       if (error?.response.status === 401) {
         toast.error("کاربری با این مشخصات وجود ندارد");

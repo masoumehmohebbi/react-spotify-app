@@ -12,8 +12,13 @@ import "tippy.js/dist/tippy.css";
 import "tippy.js/animations/shift-toward.css";
 import useFavourites from "../features/favourites/useFavourites";
 import { useNavigate } from "react-router-dom";
+import useUser from "../features/PlayList/useUser";
 
 export const SideBar = () => {
+  const userData = useUser();
+  const userProfile = userData?.data?.data;
+  console.log(userProfile);
+
   const navigate = useNavigate();
   const { data } = useFavourites();
   const allFavSongs = data?.data?.results;
@@ -133,7 +138,7 @@ export const SideBar = () => {
           </li>
 
           <ul className="list flex static flex-col  gap-8 overflow-y-scroll overflow-x-hidden  p-2 h-[172px] text-secondary-50 ">
-            {!allFavSongs ? (
+            {!userProfile ? (
               <>
                 <li className="bg-primary-600 rounded px-4 py-6 flex w-full flex-col gap-6">
                   <h3 className="text-md font-bold">{t("first_playlist")}</h3>
@@ -192,30 +197,34 @@ export const SideBar = () => {
               </>
             ) : (
               <>
-                {allFavSongs?.map((item) => (
-                  <li
-                    onClick={() => {
-                      navigate(`/playlist-song-detail/${item.id}`),
-                        scrollToTop();
-                    }}
-                    key={item.id}
-                    className="bg-primary-600 cursor-pointer shadow-md rounded p-3 flex gap-6 "
-                  >
-                    <img
-                      className="w-16 h-16 rounded-md"
-                      src={item.cover_image}
-                      alt=""
-                    />
-                    <div className="flex flex-col">
-                      <span className="text-secondary-0 font-bold">
-                        {item.name}
-                      </span>
-                      <span className="text-secondary-50">
-                        {item.artist.fullname}
-                      </span>
-                    </div>
-                  </li>
-                ))}
+                {!allFavSongs ? (
+                  <span>هنوز هیچ آهنگی لایک نکرده اید</span>
+                ) : (
+                  allFavSongs?.map((item) => (
+                    <li
+                      onClick={() => {
+                        navigate(`/playlist-song-detail/${item.id}`),
+                          scrollToTop();
+                      }}
+                      key={item.id}
+                      className="bg-primary-600 cursor-pointer shadow-md rounded p-3 flex gap-6 "
+                    >
+                      <img
+                        className="w-16 h-16 rounded-md"
+                        src={item.cover_image}
+                        alt=""
+                      />
+                      <div className="flex flex-col">
+                        <span className="text-secondary-0 font-bold">
+                          {item.name}
+                        </span>
+                        <span className="text-secondary-50">
+                          {item.artist.fullname}
+                        </span>
+                      </div>
+                    </li>
+                  ))
+                )}
               </>
             )}
           </ul>
