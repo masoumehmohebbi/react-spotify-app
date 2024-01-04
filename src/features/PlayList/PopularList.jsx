@@ -5,13 +5,11 @@ import { useRef } from "react";
 import useOutsideClick from "../../hooks/useOutsideClick";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import { useTranslation } from "react-i18next";
 import { useSelectedSongFavourite } from "../favourites/FavouritesContext";
 import { useSongDetails } from "./SongDetailsContext";
 
 export const PopularList = ({ allSongs, children }) => {
   const { setSelectedId } = useSelectedSongFavourite();
-  const { t } = useTranslation();
   const songRef = useRef();
   const navigate = useNavigate();
   const { setSongUrl, setSongCover, setSongTitle, setSongArtist } =
@@ -35,12 +33,7 @@ export const PopularList = ({ allSongs, children }) => {
 
   return (
     <>
-      <div className="flex w-full justify-between col-span-5 mt-11">
-        <h1 className="text-2xl font-bold text-secondary-0">
-          {t("popular-songs")}
-        </h1>
-        {children}
-      </div>
+      {children}
       {allSongs?.map((song) => (
         <div
           ref={songRef}

@@ -13,14 +13,16 @@ export const PlayListPopularData = () => {
 
   return (
     <PopularList allSongs={allSongs}>
-      {" "}
-      <a
-        onClick={() => navigate("/spotify-popular-playList/")}
-        href="#"
-        className="text-primary-100"
-      >
-        {t("show-all")}
-      </a>
+      <div className="flex w-full justify-between col-span-5 mt-11 px-5">
+        <h1 className="title">{t("popular-songs")}</h1>
+        <a
+          onClick={() => navigate("/spotify-popular-playList/")}
+          href="#"
+          className="text-primary-100"
+        >
+          {t("show-all")}
+        </a>
+      </div>
     </PopularList>
   );
 };

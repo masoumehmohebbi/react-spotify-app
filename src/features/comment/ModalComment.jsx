@@ -21,7 +21,6 @@ export const ModalComment = () => {
       setUserComment("");
       console.log(data);
       window.location.reload();
-      // toast.success()
     } catch (error) {
       console.log(error);
     }
