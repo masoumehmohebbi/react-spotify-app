@@ -3,7 +3,7 @@ import { BiMenu, BiSearch, BiX } from "react-icons/bi";
 import { useTranslation } from "react-i18next";
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
 import { Link } from "react-router-dom";
-import { FaSpotify } from "react-icons/fa";
+// import { FaSpotify } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
 import Tippy from "@tippyjs/react";
@@ -12,8 +12,10 @@ import { RiUserLine } from "react-icons/ri";
 import "tippy.js/themes/light.css";
 import useUser from "../features/PlayList/useUser";
 import { IoExitOutline } from "react-icons/io5";
+import { FaSpotify } from "react-icons/fa";
 
 const cookies = new Cookies();
+const token = cookies.get("accessToken");
 
 const logOutHandler = () => {
   cookies.remove("accessToken");
@@ -26,20 +28,22 @@ export default function Navbar({ children }) {
 
   return (
     <div className="bg-primary-900 z-10 sticky top-0 right-0 left-0 bg-opacity-50 px-5 h-20 md:h-[4.5rem] items-center w-full flex justify-between text-primary-100">
-      <HamburgerMenu setOpen={setOpen} open={open} size="md">
-        <div className="px-4 block md:hidden rounded-[500px] max-w-md  w-full">
+      {!token && (
+        <HamburgerMenu HamburgerMenu setOpen={setOpen} open={open} size="md">
+          {/* <div className="px-4 block md:hidden rounded-[500px] max-w-md  w-full">
           <div className="justify-between px-3 flex bg-primary-600 items-center rounded-[500px] focus-within:border-secondary-0 border-primary-600 border-2 duration-300">
             <SearchBox />
           </div>
-        </div>
+        </div> */}
 
-        <Link to={"/"}>
-          <FaSpotify className="text-4xl text-secondary-0" />
-        </Link>
-      </HamburgerMenu>
+          <Link to={"/"}>
+            <FaSpotify className="text-4xl text-secondary-0" />
+          </Link>
+        </HamburgerMenu>
+      )}
       <NextPrevButtons />
       {children}
-      <SigninSignUpButtons open={open} />
+      <SigninSignUpButtons open={open} token={token} />
     </div>
   );
 }
@@ -73,15 +77,14 @@ function NextPrevButtons() {
   );
 }
 
-function SigninSignUpButtons({ open }) {
+function SigninSignUpButtons({ open, token }) {
   const { data } = useUser();
   const userProfile = data?.data;
   const { t } = useTranslation();
-  const token = cookies.get("accessToken");
 
   if (token)
     return (
-      <div className="flex items-center gap-x-2">
+      <div className="flex items-center justify-end gap-x-2 w-full md:w-auto">
         <h2>خوش آمدید</h2>
         <Tippy
           theme="light"
@@ -129,6 +132,7 @@ function SigninSignUpButtons({ open }) {
       <button className="hover:scale-110 hover:text-secondary-0 md:text-secondary-100">
         <Link to={"/signup"}> {t("sign_up")}</Link>
       </button>
+
       <Link
         to={"/login"}
         className="hover:scale-110 rounded-[500px] border-none md:bg-secondary-0 py-2 md:px-6  md:font-bold text-secondary-0 md:text-primary-900"
@@ -139,7 +143,8 @@ function SigninSignUpButtons({ open }) {
   );
 }
 
-function SearchBox() {
+//  :)
+export function SearchBox() {
   const { t } = useTranslation();
   const navigate = useNavigate();
   return (
