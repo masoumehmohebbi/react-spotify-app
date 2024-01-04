@@ -1,5 +1,5 @@
 import useSongs from "./useSongs";
-import { PlayList } from "./PlayLists";
+import { PlayLists } from "./PlayLists";
 import { useTranslation } from "react-i18next";
 
 export const SpotifyPlayList = () => {
@@ -12,7 +12,7 @@ export const SpotifyPlayList = () => {
         <h1 className="title">{t("spotify-playLists")}</h1>
       </div>
       <div className="items-grid-container--showAll">
-        <PlayList allSongs={allSongs} />
+        <PlayLists allSongs={allSongs} />
       </div>
     </>
   );

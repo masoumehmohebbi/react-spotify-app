@@ -9,7 +9,7 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 import { useSongDetails } from "./SongDetailsContext";
 import { useSelectedSongFavourite } from "../favourites/FavouritesContext";
 
-export const PlayList = ({ allSongs }) => {
+export const PlayLists = ({ allSongs }) => {
   const { setSongUrl, setSongCover, setSongTitle, setSongArtist } =
     useSongDetails();
   const songRef = useRef();
