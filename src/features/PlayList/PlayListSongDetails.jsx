@@ -73,7 +73,7 @@ const PlayListSongDetails = () => {
       <div className="pb-14 p-2">
         <div className="flex gap-x-7">
           <img
-            className="max-h-96 object-contain rounded-md shadow-md"
+            className="md:max-h-96 max-h-40 sm:h-64 object-contain rounded-md shadow-md"
             src={selectedSong?.cover_image}
             alt=""
           />
