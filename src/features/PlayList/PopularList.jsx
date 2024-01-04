@@ -8,7 +8,7 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 import { useSelectedSongFavourite } from "../favourites/FavouritesContext";
 import { useSongDetails } from "./SongDetailsContext";
 
-export const PopularList = ({ allSongs, children }) => {
+export const PopularList = ({ allSongs }) => {
   const { setSelectedId } = useSelectedSongFavourite();
   const songRef = useRef();
   const navigate = useNavigate();
@@ -33,7 +33,7 @@ export const PopularList = ({ allSongs, children }) => {
 
   return (
     <>
-      {children}
+      {/* {children} */}
       {allSongs?.map((song) => (
         <div
           ref={songRef}

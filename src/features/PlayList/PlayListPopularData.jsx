@@ -12,7 +12,7 @@ export const PlayListPopularData = () => {
   const allSongs = data?.data?.results.slice(0, 3);
 
   return (
-    <PopularList allSongs={allSongs}>
+    <>
       <div className="flex w-full justify-between col-span-5 mt-11 px-5">
         <h1 className="title">{t("popular-songs")}</h1>
         <a
@@ -23,6 +23,8 @@ export const PlayListPopularData = () => {
           {t("show-all")}
         </a>
       </div>
-    </PopularList>
+
+      <PopularList allSongs={allSongs} />
+    </>
   );
 };

@@ -54,11 +54,15 @@ const PlayListSongDetails = () => {
       toast.error(error);
     }
   };
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    return `${year}-${month.toString().padStart(2, "0")}-${day
+      .toString()
+      .padStart(2, "0")}`;
   };
   const isAddToFavourite = allFavSongs
     ?.map((fav) => fav.id)
@@ -95,7 +99,7 @@ const PlayListSongDetails = () => {
 
             <li className="list-item">
               <span className="text-lg font-bold">تاریخ افزودن: </span>
-              {selectedSong?.artist.created_at}
+              {formatDate(selectedSong?.artist.created_at)}
             </li>
             <li className="list-item">
               <span className="text-lg font-bold">تعداد بازدید: </span>
@@ -129,41 +133,11 @@ const PlayListSongDetails = () => {
           </button>
         </div>
 
-        <div className="text-secondary-0 pr-5 pt-11 h-[22rem] overflow-y-scroll">
-          <ul className="grid grid-cols-4 gap-x-16 justify-items-start">
-            <li>#عنوان آهنگ</li>
-            <li>خواننده</li>
-            <li>آلبوم</li>
-            <li>
-              <HiClock />
-            </li>
-          </ul>
-          <hr className="border-primary-700 bg-opacity-10 border-spacing-y-11 my-3" />
-          {allSongs?.map((song) => (
-            <ul
-              key={song.id}
-              onClick={() => {
-                navigate(`/playlist-song-detail/${song.id}`), scrollToTop();
-              }}
-              className="cursor-pointer grid grid-cols-4 items-center justify-center gap-x-16 p-3 justify-items-start hover:bg-primary-600"
-            >
-              <li className="flex items-center justify-center gap-x-1">
-                <span>{song.id}</span> -
-                <div className="flex items-center justify-center gap-x-2">
-                  <img
-                    className="w-11 h-11 rounded-md object-cover"
-                    src={song.cover_image}
-                    alt={song.name}
-                  />
-                  <span>{song.name}</span>
-                </div>
-              </li>
-              <li>{song.artist.fullname}</li>
-              <li>{song.artist.bio}</li>
-              <li>2.45</li>
-            </ul>
-          ))}
-        </div>
+        <MusicsBox
+          allSongs={allSongs}
+          navigate={navigate}
+          formatDate={formatDate}
+        />
 
         <CommentsContainer />
       </div>
@@ -172,3 +146,51 @@ const PlayListSongDetails = () => {
 };
 
 export default PlayListSongDetails;
+
+function MusicsBox({ allSongs, navigate, formatDate }) {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+  return (
+    <div className="text-secondary-0 pr-5 pt-11 h-[22rem] overflow-y-scroll">
+      <ul className="grid grid-cols-4 gap-x-16 justify-items-start">
+        <li>#عنوان آهنگ</li>
+        <li>خواننده</li>
+        <li>آلبوم</li>
+        <li className="hidden md:block">
+          <HiClock />
+        </li>
+      </ul>
+      <hr className="border-primary-700 bg-opacity-10 border-spacing-y-11 my-3" />
+      {allSongs?.map((song) => (
+        <ul
+          key={song.id}
+          onClick={() => {
+            navigate(`/playlist-song-detail/${song.id}`), scrollToTop();
+          }}
+          className="cursor-pointer grid grid-cols-4 items-center justify-center gap-x-16 p-3 justify-items-start hover:bg-primary-600"
+        >
+          <li className="flex items-center justify-center gap-x-1">
+            <span>{song.id}</span> -
+            <div className="flex items-center justify-center gap-x-2">
+              <img
+                className="w-11 h-11 rounded-md object-cover"
+                src={song.cover_image}
+                alt={song.name}
+              />
+              <span>{song.name}</span>
+            </div>
+          </li>
+          <li>{song.artist.fullname}</li>
+          <li>{song.artist.bio}</li>
+          <li className="hidden md:block">
+            {formatDate(song?.artist.created_at)}
+          </li>
+        </ul>
+      ))}
+    </div>
+  );
+}
