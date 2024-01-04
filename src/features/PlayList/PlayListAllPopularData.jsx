@@ -3,6 +3,7 @@ import usePopularSongs from "./usePopularSongs";
 
 import { PopularList } from "./PopularList";
 import { useTranslation } from "react-i18next";
+import Navbar from "../../ui/Navbar";
 
 export const PlayListAllPopularData = () => {
   const { t } = useTranslation();
@@ -11,6 +12,7 @@ export const PlayListAllPopularData = () => {
 
   return (
     <>
+      <Navbar />
       <div className="flex w-full justify-between col-span-5 mt-11 px-5">
         <h1 className="title">{t("popular-songs")}</h1>
       </div>
