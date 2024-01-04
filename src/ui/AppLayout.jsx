@@ -21,12 +21,14 @@ const AppLayout = () => {
   const { isOpen: isOpenCmt } = useOpenCommentModal();
 
   useEffect(() => {
-    if (isOpen || isOpenCmt) {
-      document.body.style.overflow = "hidden";
-      document.body.style.paddingRight = "10px";
-    } else {
-      document.body.style.overflow = "unset";
-      document.body.style.paddingRight = "0px";
+    if (document.documentElement.style.width >= "786px") {
+      if (isOpen || isOpenCmt) {
+        document.body.style.overflow = "hidden";
+        document.body.style.paddingRight = "10px";
+      } else {
+        document.body.style.overflow = "unset";
+        document.body.style.paddingRight = "0px";
+      }
     }
   }, [isOpen, isOpenCmt]);
 
