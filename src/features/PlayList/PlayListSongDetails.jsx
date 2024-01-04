@@ -73,37 +73,44 @@ const PlayListSongDetails = () => {
       <div className="pb-14 p-2">
         <div className="flex gap-x-7">
           <img
-            className="md:max-h-96 max-h-40 sm:h-64 object-contain rounded-md shadow-md"
+            className="md:max-h-96 max-h-48 sm:h-64 object-contain rounded-md shadow-md"
             src={selectedSong?.cover_image}
             alt=""
           />
 
-          <ul className="text-secondary-50 w-full">
+          <ul className="text-secondary-50 w-full text-sm sm:text-base">
             <li className="list-item">
-              <span className="text-lg font-bold">خواننده: </span>
+              <span className="text-base md:text-lg font-bold">اسم آهنگ:</span>
+              &nbsp;
+              {selectedSong?.name}
+            </li>
+
+            <li className="list-item">
+              <span className="text-base md:text-lg font-bold">خواننده:</span>
+              &nbsp;
               {selectedSong?.artist?.fullname}
             </li>
 
             <li className="list-item">
-              <span className="text-lg font-bold"> اسم آهنگ: </span>
-              {selectedSong?.name}
-            </li>
-            <li className="list-item">
-              <span className="text-lg font-bold"> آلبوم : </span>
+              <span className="text-base md:text-lg font-bold"> آلبوم:</span>
+              &nbsp;
               {selectedSong?.artist.bio}
             </li>
+
             <li className="list-item">
-              <span className="text-lg font-bold"> سبک آهنگ: </span>
+              <span className="text-base md:text-lg font-bold">سبک آهنگ:</span>
+              &nbsp;
               {selectedSong?.genre.name}
             </li>
 
             <li className="list-item">
-              <span className="text-lg font-bold">تاریخ افزودن: </span>
-              {formatDate(selectedSong?.artist.created_at)}
-            </li>
-            <li className="list-item">
-              <span className="text-lg font-bold">تعداد بازدید: </span>
-              {selectedSong?.views}
+              <span className="text-base md:text-lg font-bold">
+                تاریخ افزودن:
+              </span>
+              &nbsp;
+              <span className="text-xs sm:text-sm">
+                {formatDate(selectedSong?.artist.created_at)}
+              </span>
             </li>
           </ul>
         </div>
@@ -156,10 +163,10 @@ function MusicsBox({ allSongs, navigate, formatDate }) {
   };
   return (
     <div className="text-secondary-0 pr-5 pt-11 h-[22rem] overflow-y-scroll">
-      <ul className="grid grid-cols-4 gap-x-16 justify-items-start">
-        <li>#عنوان آهنگ</li>
+      <ul className="grid grid-cols-3 md:grid-cols-4 gap-x-5 sm:gap-x-16 justify-items-start">
+        <li className="col-span-2 sm:col-span-1">#عنوان آهنگ</li>
         <li>خواننده</li>
-        <li>آلبوم</li>
+        <li className="hidden sm:block">آلبوم</li>
         <li className="hidden md:block">
           <HiClock />
         </li>
@@ -171,9 +178,9 @@ function MusicsBox({ allSongs, navigate, formatDate }) {
           onClick={() => {
             navigate(`/playlist-song-detail/${song.id}`), scrollToTop();
           }}
-          className="cursor-pointer grid grid-cols-4 items-center justify-center gap-x-16 p-3 justify-items-start hover:bg-primary-600"
+          className="cursor-pointer text-sm sm:text-base grid grid-cols-3 md:grid-cols-4 items-center justify-center gap-x-5 sm:gap-x-16 p-3 justify-items-start hover:bg-primary-600"
         >
-          <li className="flex items-center justify-center gap-x-1">
+          <li className="flex items-center justify-center gap-x-1 col-span-2 sm:col-span-1">
             <span>{song.id}</span> -
             <div className="flex items-center justify-center gap-x-2">
               <img
@@ -185,7 +192,7 @@ function MusicsBox({ allSongs, navigate, formatDate }) {
             </div>
           </li>
           <li>{song.artist.fullname}</li>
-          <li>{song.artist.bio}</li>
+          <li className="hidden sm:block">{song.artist.bio}</li>
           <li className="hidden md:block">
             {formatDate(song?.artist.created_at)}
           </li>
