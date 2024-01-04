@@ -45,7 +45,16 @@ const Search = () => {
         </div>
       </Navbar>
 
-      <div className="grid grid-cols-4 pb-16 gap-5">
+      {/* Mobile-searchBox */}
+      <nav className="block md:hidden pt-3 p-5">
+        <div className="rounded-[500px] md:max-w-[12rem] lg:max-w-md xl:max-w-xl focus-within:border-secondary-0 border-primary-600 border-2 duration-300 w-full">
+          <div className="justify-between px-3 flex bg-primary-600 items-center rounded-[500px]">
+            <SearchField onChange={handleSearch} serchInput={serchInput} />
+          </div>
+        </div>
+      </nav>
+
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 pb-16 gap-5">
         {filterAllSongs?.map((song) => (
           <div
             onClick={() => navigate(`/playlist-song-detail/${song.id}`)}

@@ -3,7 +3,6 @@ import { BiMenu, BiSearch, BiX } from "react-icons/bi";
 import { useTranslation } from "react-i18next";
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
 import { Link } from "react-router-dom";
-// import { FaSpotify } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
 import Tippy from "@tippyjs/react";

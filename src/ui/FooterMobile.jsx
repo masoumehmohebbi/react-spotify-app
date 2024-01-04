@@ -17,7 +17,7 @@ const footerItems = [
   },
   {
     id: 3,
-    to: "/",
+    to: "/ibrary",
     icon: <BiLibrary className="text-xl sm:text-2xl" />,
     title: "کتابخانه‌شما",
   },

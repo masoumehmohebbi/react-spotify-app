@@ -51,9 +51,11 @@ const AppLayout = () => {
       <ModalComment />
       {!token && <PlaySongModal />}
       {token && <MusicPlayer />}
-      <div className="sticky mt-auto bottom-0 w-full z-40 bg-primary-900">
-        <FooterMobile />
-      </div>
+      {!token && (
+        <div className="sticky mt-auto bottom-0 w-full z-40 bg-primary-900">
+          <FooterMobile />
+        </div>
+      )}
     </>
   );
 };
