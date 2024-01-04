@@ -1,5 +1,5 @@
 import useSongs from "./useSongs";
-import { PlayList } from "./PlayList";
+import { PlayList } from "./../PlayList/PlayList";
 import { useTranslation } from "react-i18next";
 
 export const SpotifyPlayList = () => {
