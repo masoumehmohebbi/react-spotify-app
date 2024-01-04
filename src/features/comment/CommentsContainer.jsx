@@ -15,7 +15,6 @@ const CommentsContainer = () => {
           ثبت نظر
         </button>
       </div>
-      {/* <Commens />; */}
       <CommentSwiper />
     </div>
   );

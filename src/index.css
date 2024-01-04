@@ -80,6 +80,9 @@ body {
   .icon {
     @apply w-9 h-9 hover:scale-105 transition-all ease-linear duration-150;
   }
+  .items-grid-container {
+    @apply grid-flow-col md:grid-flow-row overflow-x-scroll no-scrollbar grid md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-5 my-9;
+  }
 }
 
 @layer utilities {
@@ -154,4 +157,10 @@ body {
   transition-property: all;
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.swiper-button-next,
+.swiper-button-prev {
+  z-index: 999;
+  /* background-color: blue;
+  border-radius: 100%; */
 }

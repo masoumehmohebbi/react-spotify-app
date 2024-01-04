@@ -13,23 +13,27 @@ import "tippy.js/animations/shift-toward.css";
 import useFavourites from "../features/favourites/useFavourites";
 import { useNavigate } from "react-router-dom";
 import useUser from "../features/PlayList/useUser";
+import { useSelectedSongFavourite } from "../features/favourites/FavouritesContext";
 
 export const SideBar = () => {
+  const { setSelectedId } = useSelectedSongFavourite();
+  const navigate = useNavigate();
   const userData = useUser();
   const userProfile = userData?.data?.data;
-  console.log(userProfile);
 
-  const navigate = useNavigate();
-  const { data } = useFavourites();
-  const allFavSongs = data?.data?.results;
   const { t } = useTranslation();
   const [activeLink, setActiveLink] = useState(1);
+
+  const { data } = useFavourites();
+  const allFavSongs = data?.data?.results;
 
   useEffect(() => {
     setActiveLink(JSON.parse(localStorage.getItem("active-Link")));
   }, [activeLink]);
 
-  const scrollToTop = () => {
+  const favouriteSongHandler = (id) => {
+    navigate(`/playlist-song-detail/${id}`);
+    setSelectedId((prevId) => (prevId === id ? null : id));
     window.scrollTo({
       top: 0,
       behavior: "smooth",
@@ -117,11 +121,11 @@ export const SideBar = () => {
                     className="flex items-center justify-center gap-x-2 cursor-pointer"
                   >
                     <PiMusicNotesPlusDuotone className="text-xl" />
-                    <p>{t("create_New_playList")}</p>
+                    <p>{t("see_your_playList")}</p>
                   </div>
                 }
               >
-                <Tippy arrow="" content={t("create_paylist_folder")}>
+                <Tippy arrow="" content={t("your-plalist")}>
                   <button
                     onClick={
                       isCreateNewPlaylist
@@ -138,7 +142,7 @@ export const SideBar = () => {
           </li>
 
           <ul className="list flex static flex-col  gap-8 overflow-y-scroll overflow-x-hidden  p-2 h-[172px] text-secondary-50 ">
-            {!userProfile ? (
+            {userProfile?.length < 0 ? (
               <>
                 <li className="bg-primary-600 rounded px-4 py-6 flex w-full flex-col gap-6">
                   <h3 className="text-md font-bold">{t("first_playlist")}</h3>
@@ -197,15 +201,14 @@ export const SideBar = () => {
               </>
             ) : (
               <>
-                {!allFavSongs ? (
-                  <span>هنوز هیچ آهنگی لایک نکرده اید</span>
+                {allFavSongs?.length === 0 ? (
+                  <li className="bg-primary-600 font-semibold shadow-md rounded p-3 flex gap-6 ">
+                    هنوز هیچ آهنگی لایک نکرده اید
+                  </li>
                 ) : (
                   allFavSongs?.map((item) => (
                     <li
-                      onClick={() => {
-                        navigate(`/playlist-song-detail/${item.id}`),
-                          scrollToTop();
-                      }}
+                      onClick={() => favouriteSongHandler(item.id)}
                       key={item.id}
                       className="bg-primary-600 cursor-pointer shadow-md rounded p-3 flex gap-6 "
                     >

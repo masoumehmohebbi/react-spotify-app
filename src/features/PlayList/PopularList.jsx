@@ -2,27 +2,26 @@ import { FaPlay } from "react-icons/fa";
 import { useOpenPlayModal } from "./OpenPlayModalContext";
 import { useNavigate } from "react-router-dom";
 import { useRef } from "react";
-import Loading from "../../ui/Loading";
 import useOutsideClick from "../../hooks/useOutsideClick";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import { useSongDetails } from "./SongDetailsContext";
+import { useTranslation } from "react-i18next";
 import { useSelectedSongFavourite } from "../favourites/FavouritesContext";
+import { useSongDetails } from "./SongDetailsContext";
 
-export const PlayList = ({ allSongs }) => {
-  const { setSongUrl, setSongCover, setSongTitle, setSongArtist } =
-    useSongDetails();
+export const PopularList = ({ allSongs, children }) => {
+  const { setSelectedId } = useSelectedSongFavourite();
+  const { t } = useTranslation();
   const songRef = useRef();
   const navigate = useNavigate();
-  const { setSelectedId } = useSelectedSongFavourite();
-
+  const { setSongUrl, setSongCover, setSongTitle, setSongArtist } =
+    useSongDetails();
   useOutsideClick(songRef, "playIcon", () => oneSongClickHandler);
 
   const oneSongClickHandler = (id) => {
     navigate(`/playlist-song-detail/${id}`);
     setSelectedId((prevId) => (prevId === id ? null : id));
   };
-
   const { setIsOpen } = useOpenPlayModal();
 
   const playSongHandler = (e, songSrc, songCover, songName, songArtist) => {
@@ -34,15 +33,14 @@ export const PlayList = ({ allSongs }) => {
     setSongArtist(songArtist);
   };
 
-  if (!allSongs?.length)
-    return (
-      <div className="col-span-5">
-        <Loading />
-      </div>
-    );
-
   return (
     <>
+      <div className="flex w-full justify-between col-span-5 mt-11">
+        <h1 className="text-2xl font-bold text-secondary-0">
+          {t("popular-songs")}
+        </h1>
+        {children}
+      </div>
       {allSongs?.map((song) => (
         <div
           ref={songRef}
@@ -73,7 +71,7 @@ export const PlayList = ({ allSongs }) => {
             </div>
           </div>
           <h1 className="text-secondary-0">{song.artist.fullname}</h1>
-          <p className="text-secondary-50 text-sm ">
+          <p className="text-secondary-50 text-sm">
             {song.name} - {song.genre.name}
           </p>
         </div>

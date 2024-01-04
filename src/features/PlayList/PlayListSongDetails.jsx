@@ -4,26 +4,30 @@ import useSongs from "./useSongs";
 import { useParams } from "react-router-dom";
 import { HiClock, HiHeart, HiOutlineHeart } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
-import { useGetSongUrl } from "./GetSongUrlContext";
 import { useOpenPlayModal } from "./OpenPlayModalContext";
 import CommentsContainer from "../comment/CommentsContainer";
-import { useState } from "react";
 import {
   removetFavourite,
   setFavourite,
 } from "../../services/favouriteService";
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
+import useFavourites from "../favourites/useFavourites";
+import { useSelectedSongFavourite } from "../favourites/FavouritesContext";
+import { useSongDetails } from "./SongDetailsContext";
 
 const PlayListSongDetails = () => {
-  const [isFav, setIsFav] = useState(false);
-  const { setSongUrl } = useGetSongUrl();
+  const { setSongUrl } = useSongDetails();
   const navigate = useNavigate();
   const { setIsOpen } = useOpenPlayModal();
   const { id } = useParams();
   const { data } = useSongs();
   const selectedSong = data?.data?.results[id - 1];
   const allSongs = data?.data?.results;
+  const { selectedId } = useSelectedSongFavourite();
+
+  const { data: favSongsData } = useFavourites();
+  const allFavSongs = favSongsData?.data?.results;
 
   const { mutateAsync: mutateAsyncSetFavourite } = useMutation({
     mutationFn: setFavourite,
@@ -32,20 +36,20 @@ const PlayListSongDetails = () => {
     mutationFn: removetFavourite,
   });
 
-  const setFavouriteHandler = async (songSrc) => {
-    setIsFav((prev) => !prev);
-
+  const setFavouriteHandler = async (id) => {
     try {
-      await mutateAsyncSetFavourite({ song: songSrc });
+      await mutateAsyncSetFavourite({ song: id });
+      navigate("/");
+      window.location.reload();
     } catch (error) {
       toast.error(error);
     }
   };
-  const removeFavouriteHandler = async (songSrc) => {
-    setIsFav((prev) => !prev);
-
+  const removeFavouriteHandler = async (id) => {
     try {
-      await mutateAsyncRemoveFavourite({ song: songSrc });
+      await mutateAsyncRemoveFavourite({ song: id });
+      navigate("/");
+      window.location.reload();
     } catch (error) {
       toast.error(error);
     }
@@ -56,7 +60,9 @@ const PlayListSongDetails = () => {
       behavior: "smooth",
     });
   };
-
+  const isAddToFavourite = allFavSongs
+    ?.map((fav) => fav.id)
+    .includes(selectedId);
   return (
     <>
       <Navbar />
@@ -64,36 +70,36 @@ const PlayListSongDetails = () => {
         <div className="flex gap-x-7">
           <img
             className="max-h-96 object-contain rounded-md shadow-md"
-            src={selectedSong.cover_image}
+            src={selectedSong?.cover_image}
             alt=""
           />
 
           <ul className="text-secondary-50 w-full">
             <li className="list-item">
               <span className="text-lg font-bold">خواننده: </span>
-              {selectedSong.artist.fullname}
+              {selectedSong?.artist?.fullname}
             </li>
 
             <li className="list-item">
               <span className="text-lg font-bold"> اسم آهنگ: </span>
-              {selectedSong.name}
+              {selectedSong?.name}
             </li>
             <li className="list-item">
               <span className="text-lg font-bold"> آلبوم : </span>
-              {selectedSong.artist.bio}
+              {selectedSong?.artist.bio}
             </li>
             <li className="list-item">
               <span className="text-lg font-bold"> سبک آهنگ: </span>
-              {selectedSong.genre.name}
+              {selectedSong?.genre.name}
             </li>
 
             <li className="list-item">
               <span className="text-lg font-bold">تاریخ افزودن: </span>
-              {selectedSong.artist.created_at}
+              {selectedSong?.artist.created_at}
             </li>
             <li className="list-item">
               <span className="text-lg font-bold">تعداد بازدید: </span>
-              {selectedSong.views}
+              {selectedSong?.views}
             </li>
           </ul>
         </div>
@@ -102,21 +108,21 @@ const PlayListSongDetails = () => {
           <div
             onClick={() => {
               setIsOpen((prev) => !prev);
-              setSongUrl(selectedSong.file);
+              setSongUrl(selectedSong?.file);
             }}
             className="btn-playIcon"
           >
             <FaPlay className="text-lg text-primary-900" />
           </div>
           <button>
-            {isFav ? (
+            {isAddToFavourite ? (
               <HiHeart
-                onClick={() => removeFavouriteHandler(selectedSong.id)}
+                onClick={() => removeFavouriteHandler(selectedSong?.id)}
                 className="icon text-success"
               />
             ) : (
               <HiOutlineHeart
-                onClick={() => setFavouriteHandler(selectedSong.id)}
+                onClick={() => setFavouriteHandler(selectedSong?.id)}
                 className="text-secondary-50 icon"
               />
             )}

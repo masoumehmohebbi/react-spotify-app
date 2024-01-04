@@ -1,17 +1,20 @@
 import { OpenModalProvider } from "../context/OpenModalContext";
-import { GetSongUrlProvider } from "./PlayList/GetSongUrlContext";
 import { OpenPlaySongModalProvider } from "./PlayList/OpenPlayModalContext";
+import { SongDetailsProvider } from "./PlayList/SongDetailsContext";
 import { OpenCommentModalProvider } from "./comment/OpenCommentModalContext";
+import { AddFavouriteProvider } from "./favourites/FavouritesContext";
 
 const Providers = ({ children }) => {
   return (
-    <OpenCommentModalProvider>
-      <GetSongUrlProvider>
-        <OpenPlaySongModalProvider>
-          <OpenModalProvider>{children}</OpenModalProvider>
-        </OpenPlaySongModalProvider>
-      </GetSongUrlProvider>
-    </OpenCommentModalProvider>
+    <AddFavouriteProvider>
+      <OpenCommentModalProvider>
+        <SongDetailsProvider>
+          <OpenPlaySongModalProvider>
+            <OpenModalProvider>{children}</OpenModalProvider>
+          </OpenPlaySongModalProvider>
+        </SongDetailsProvider>
+      </OpenCommentModalProvider>
+    </AddFavouriteProvider>
   );
 };
 

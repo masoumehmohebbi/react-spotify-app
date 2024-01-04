@@ -7,7 +7,6 @@ import Providers from "./features/Providers";
 import { AboutUs } from "./pages/AboutUs";
 import Search from "./pages/Search";
 import AppLayout from "./ui/AppLayout";
-import Playlist from "./features/PlayList/Playlist";
 import NotFound from "./pages/NotFound";
 import DashboardLayout from "./features/admin/DashboardLayout";
 import AdminDashboard from "./pages/AdminDashboard";
@@ -19,7 +18,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import PlayListSongDetails from "./features/PlayList/PlayListSongDetails";
-// import axios from "axios";
+import { SpotifyPlayList } from "./features/PlayList/SpotifyPlaylist";
+import { PlayListAllPopularData } from "./features/PlayList/PlayListAllPopularData";
 
 const queryClient = new QueryClient();
 
@@ -38,7 +38,11 @@ function App() {
           <Route element={<AppLayout />}>
             <Route path="/" element={<Home />} />
             <Route path="/search" element={<Search />} />
-            <Route path="/playlist/" element={<Playlist />} />
+            <Route path="/spotify-playlists/" element={<SpotifyPlayList />} />
+            <Route
+              path="/spotify-popular-playList/"
+              element={<PlayListAllPopularData />}
+            />
             <Route
               path="/playlist-song-detail/:id"
               element={<PlayListSongDetails />}

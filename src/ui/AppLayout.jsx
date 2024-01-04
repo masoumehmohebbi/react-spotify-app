@@ -6,7 +6,7 @@ import { SideBar } from "./SideBar";
 import ModalButton from "./ModalButton";
 import PlaySongModal from "../features/PlayList/PlaySongModal";
 import AudioPlayer from "react-h5-audio-player";
-import { useGetSongUrl } from "../features/PlayList/GetSongUrlContext";
+import { useSongDetails } from "../features/PlayList/SongDetailsContext";
 import Cookies from "universal-cookie";
 import { toast } from "react-hot-toast";
 import { ModalComment } from "../features/comment/ModalComment";
@@ -16,7 +16,6 @@ import { useEffect } from "react";
 const AppLayout = () => {
   const cookies = new Cookies();
   const token = cookies.get("accessToken");
-
   const { isOpen } = useOpenModal();
   const { isOpen: isOpenCmt } = useOpenCommentModal();
 
@@ -29,6 +28,7 @@ const AppLayout = () => {
       document.body.style.paddingRight = "0px";
     }
   }, [isOpen, isOpenCmt]);
+
   return (
     <>
       <div
@@ -57,7 +57,7 @@ const AppLayout = () => {
 export default AppLayout;
 
 export function MusicPlayer() {
-  const { songUrl, songCover, songTitle, songArtist } = useGetSongUrl();
+  const { songUrl, songCover, songTitle, songArtist } = useSongDetails();
   return (
     <div className="sticky mt-auto bottom-0 w-full z-40 bg-primary-900 grid grid-cols-8">
       {songCover && (

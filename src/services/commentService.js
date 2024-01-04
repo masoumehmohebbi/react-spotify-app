@@ -1,7 +1,7 @@
 import http from "./httpService";
 
-export function sendComments({ data }) {
-  return http.post("/review/", data);
+export function sendComments(data) {
+  return http.post("/review/create/", data);
 }
 
 export function getComments() {

@@ -1,15 +1,15 @@
 import { createContext, useContext, useState } from "react";
 
-const GetSongUrlContext = createContext();
+const SongDetailsContext = createContext();
 
-export function GetSongUrlProvider({ children }) {
+export function SongDetailsProvider({ children }) {
   const [songUrl, setSongUrl] = useState("");
   const [songCover, setSongCover] = useState("");
   const [songTitle, setSongTitle] = useState("");
   const [songArtist, setSongArtist] = useState("");
 
   return (
-    <GetSongUrlContext.Provider
+    <SongDetailsContext.Provider
       value={{
         songUrl,
         setSongUrl,
@@ -22,12 +22,12 @@ export function GetSongUrlProvider({ children }) {
       }}
     >
       {children}
-    </GetSongUrlContext.Provider>
+    </SongDetailsContext.Provider>
   );
 }
 
-export function useGetSongUrl() {
-  const context = useContext(GetSongUrlContext);
+export function useSongDetails() {
+  const context = useContext(SongDetailsContext);
 
   if (context === undefined) {
     throw new Error("OpenModalContext was used outSide of the QueryProvider.");
