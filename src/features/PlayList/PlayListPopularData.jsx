@@ -24,7 +24,9 @@ export const PlayListPopularData = () => {
         </a>
       </div>
 
-      <PopularList allSongs={allSongs} />
+      <div className="items-grid-container">
+        <PopularList allSongs={allSongs} />
+      </div>
     </>
   );
 };

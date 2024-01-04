@@ -129,7 +129,7 @@ export const SideBar = () => {
           </li>
 
           <ul className="list flex static flex-col  gap-8 overflow-y-scroll overflow-x-hidden  p-2 h-[172px] text-secondary-50 ">
-            {userProfile?.length < 0 ? (
+            {/* {userProfile?.length < 0 ? (
               <>
                 <li className="bg-primary-600 rounded px-4 py-6 flex w-full flex-col gap-6">
                   <h3 className="text-md font-bold">{t("first_playlist")}</h3>
@@ -188,7 +188,67 @@ export const SideBar = () => {
               </>
             ) : (
               <Library />
+            )} */}
+            {!userProfile && (
+              <>
+                <li className="bg-primary-600 rounded px-4 py-6 flex w-full flex-col gap-6">
+                  <h3 className="text-md font-bold">{t("first_playlist")}</h3>
+                  <p className="text-sm">{t("help_you")}</p>
+
+                  <Tippy
+                    interactive={true}
+                    animation="shift-toward"
+                    placement="right-end"
+                    offset={[60, 120]}
+                    visible={isCreatePlaylist}
+                    onClickOutside={hideCreatePlaylist}
+                    content={
+                      <div className="min-w-[300px] max-w-[336px] p-2 text-secondary-0 relative top-1 rounded flex flex-col gap-2 ">
+                        <h4 className="font-semibold text-lg">
+                          {t("create_playList")}
+                        </h4>
+                        <p>{t("login_create_playlist")}</p>
+                        <div className="flex items-center justify-end gap-4 mt-2 text-base">
+                          <p
+                            onClick={() => setIsCreatePlaylist(false)}
+                            className="text-primary-300 cursor-pointer hover:scale-105 hover:text-secondary-0"
+                          >
+                            {t("not_now")}
+                          </p>
+                          <Link
+                            to={"/login"}
+                            className="exceptionId hover:scale-105 rounded-[500px] border-none md:bg-secondary-0 py-1 md:px-6 text-secondary-0 md:text-primary-900"
+                          >
+                            {t("log_in")}
+                          </Link>
+                        </div>
+                      </div>
+                    }
+                  >
+                    <button
+                      onClick={
+                        isCreatePlaylist
+                          ? hideCreatePlaylist
+                          : showCreatePlaylist
+                      }
+                      className="bg-secondary-0 rounded-[500px] border-none py-2 mt-4 px-6 w-max font-bold text-primary-900 hover:scale-105 transition"
+                    >
+                      {t("create_playList")}
+                    </button>
+                  </Tippy>
+                </li>
+
+                <li className="bg-primary-600 rounded px-4 py-6 flex flex-col gap-6 ">
+                  <h3 className="text-md font-bold">{t("find_padcast")}</h3>
+                  <p className="text-sm">{t("keep_updated")}</p>
+                  <button className="rounded-[500px] border-none bg-secondary-0 py-2 px-6 w-max font-bold text-primary-900 hover:scale-105 transition">
+                    {t("browse_podcasts")}
+                  </button>
+                </li>
+              </>
             )}
+
+            {userProfile?.length > 0 && <Library />}
           </ul>
 
           <ModalButton />

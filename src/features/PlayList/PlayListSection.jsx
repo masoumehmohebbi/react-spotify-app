@@ -21,9 +21,9 @@ export const PlayListSection = () => {
       <div className="items-grid-container">
         <PlayListData />
       </div>
-      <div className="items-grid-container">
-        <PlayListPopularData />
-      </div>
+      {/* <div className="items-grid-container"> */}
+      <PlayListPopularData />
+      {/* </div> */}
     </div>
   );
 };
