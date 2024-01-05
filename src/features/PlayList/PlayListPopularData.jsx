@@ -11,6 +11,8 @@ export const PlayListPopularData = () => {
   const { data } = usePopularSongs();
   const allSongs = data?.data?.results.slice(0, 3);
 
+  if (!allSongs?.length) return null;
+
   return (
     <>
       <div className="flex w-full justify-between col-span-5 mt-11 px-5">
