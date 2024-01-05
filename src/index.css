@@ -29,8 +29,7 @@
     --color-success: 0, 192, 115;
     --color-warning: 255, 153, 0;
     --color-error: 255, 71, 87;
-    --color-blue: 13, 114, 234;
-    /* 0d72ea */
+    --color-blue: 13, 114, 234; /* 0d72ea */
   }
 }
 
@@ -41,17 +40,6 @@ body {
   background-color: rgb(var(--color-primary-900));
   font-family: CircularSp, CircularSp-Arab, CircularSp-Hebr, CircularSp-Cyrl,
     CircularSp-Grek, CircularSp-Deva, Helvetica, Arial, sans-serif;
-}
-.list .tippy-box {
-  background-color: rgb(var(--color-blue));
-}
-
-.list .tippy-arrow {
-  color: rgb(var(--color-blue));
-}
-
-.bg-linear {
-  background: linear-gradient(rgba(255, 255, 255, 0.1) 0%, rgb(0, 0, 0) 100%);
 }
 
 @layer components {
@@ -119,12 +107,24 @@ body {
     background: #5555557f;
   }
 }
+
+/*? Tippy */
+.list .tippy-box {
+  background-color: rgb(var(--color-blue));
+}
+.list .tippy-arrow {
+  color: rgb(var(--color-blue));
+}
+.bg-linear {
+  background: linear-gradient(rgba(255, 255, 255, 0.1) 0%, rgb(0, 0, 0) 100%);
+}
+
+/*? Music-Player */
 .iconify {
   display: flex;
   font-size: 39px;
   margin: 0px 13px;
 }
-
 .progress-bar-wrapper {
   display: flex;
 }
@@ -145,10 +145,8 @@ body {
   flex-direction: column-reverse;
   background-color: rgb(var(--color-primary-900));
   color: rgb(var(--color-secondary-50));
-  /* position: fixed; */
   bottom: 0px;
   right: 0px;
-  /* z-index: 999; */
   width: 100%;
   padding: 10px;
 }
@@ -164,6 +162,4 @@ body {
 .swiper-button-next,
 .swiper-button-prev {
   z-index: 999;
-  /* background-color: blue;
-  border-radius: 100%; */
 }

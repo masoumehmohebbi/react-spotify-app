@@ -18,6 +18,7 @@ import { useSongDetails } from "./SongDetailsContext";
 import Cookies from "universal-cookie";
 import { useEffect } from "react";
 import { useState } from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const PlayListSongDetails = () => {
   const { setSongUrl } = useSongDetails();
@@ -34,7 +35,6 @@ const PlayListSongDetails = () => {
   const [isToken, setIsToken] = useState();
   useEffect(() => {
     setIsToken(token ? false : true);
-    console.log(token);
   }, [token]);
 
   const { data: favSongsData } = useFavourites();
@@ -75,18 +75,20 @@ const PlayListSongDetails = () => {
       .toString()
       .padStart(2, "0")}`;
   };
+
   const isAddToFavourite = allFavSongs
     ?.map((fav) => fav.id)
     .includes(selectedId);
+
   return (
     <>
       <Navbar />
       <div className="pb-14 p-2">
         <div className="flex gap-x-7">
-          <img
-            className="md:max-h-96 max-h-48 sm:h-64 object-contain rounded-md shadow-md"
+          <LazyLoadImage
+            effect="blur"
             src={selectedSong?.cover_image}
-            alt=""
+            className="md:max-h-96 max-h-48 sm:h-64 object-contain rounded-md shadow-md"
           />
 
           <ul className="text-secondary-50 w-full text-sm sm:text-base">
@@ -169,12 +171,6 @@ const PlayListSongDetails = () => {
 export default PlayListSongDetails;
 
 function MusicsBox({ allSongs, navigate, formatDate }) {
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
   return (
     <div className="text-secondary-0 pr-5 pt-11 h-[22rem] overflow-y-scroll">
       <ul className="grid grid-cols-3 md:grid-cols-4 gap-x-5 sm:gap-x-16 justify-items-start">
@@ -190,14 +186,15 @@ function MusicsBox({ allSongs, navigate, formatDate }) {
         <ul
           key={song.id}
           onClick={() => {
-            navigate(`/playlist-song-detail/${song.id}`), scrollToTop();
+            navigate(`/playlist-song-detail/${song.id}`);
           }}
           className="cursor-pointer text-sm sm:text-base grid grid-cols-3 md:grid-cols-4 items-center justify-center gap-x-5 sm:gap-x-16 p-3 justify-items-start hover:bg-primary-600"
         >
           <li className="flex items-center justify-center gap-x-1 col-span-2 sm:col-span-1">
             <span>{song.id}</span> -
             <div className="flex items-center justify-center gap-x-2">
-              <img
+              <LazyLoadImage
+                effect="blur"
                 className="w-11 h-11 rounded-md object-cover"
                 src={song.cover_image}
                 alt={song.name}

@@ -20,8 +20,8 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import PlayListSongDetails from "./features/PlayList/PlayListSongDetails";
 import { SpotifyPlayList } from "./features/PlayList/SpotifyPlaylist";
 import { PlayListAllPopularData } from "./features/PlayList/PlayListAllPopularData";
-import { Library } from "./ui/SideBar";
 import ScrollToTop from "./ui/ScrollToTop";
+import { Library } from "./ui/Library";
 
 const queryClient = new QueryClient();
 

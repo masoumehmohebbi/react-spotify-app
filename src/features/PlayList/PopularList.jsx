@@ -14,12 +14,14 @@ export const PopularList = ({ allSongs }) => {
   const navigate = useNavigate();
   const { setSongUrl, setSongCover, setSongTitle, setSongArtist } =
     useSongDetails();
+
   useOutsideClick(songRef, "playIcon", () => oneSongClickHandler);
 
   const oneSongClickHandler = (id) => {
     navigate(`/playlist-song-detail/${id}`);
     setSelectedId((prevId) => (prevId === id ? null : id));
   };
+
   const { setIsOpen } = useOpenPlayModal();
 
   const playSongHandler = (e, songSrc, songCover, songName, songArtist) => {
@@ -33,7 +35,6 @@ export const PopularList = ({ allSongs }) => {
 
   return (
     <>
-      {/* {children} */}
       {allSongs?.map((song) => (
         <div
           ref={songRef}

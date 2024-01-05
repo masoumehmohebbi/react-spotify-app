@@ -7,6 +7,7 @@ export const SpotifyPlayList = () => {
   const { t } = useTranslation();
   const { data } = useSongs();
   const allSongs = data?.data?.results;
+
   return (
     <>
       <Navbar />
