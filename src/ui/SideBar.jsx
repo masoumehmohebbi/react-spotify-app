@@ -12,8 +12,11 @@ import "tippy.js/dist/tippy.css";
 import "tippy.js/animations/shift-toward.css";
 import useUser from "../features/PlayList/useUser";
 import { Library } from "./Library";
+import { useNavigate } from "react-router-dom";
 
 export const SideBar = () => {
+  const navigate = useNavigate();
+
   const userData = useUser();
   const userProfile = userData?.data?.data;
 
@@ -180,7 +183,10 @@ export const SideBar = () => {
                     {t("find_popular_songs")}
                   </h3>
                   <p className="text-sm">{t("keep_updated")}</p>
-                  <button className="rounded-[500px] border-none bg-secondary-0 py-2 px-6 w-max font-bold text-primary-900 hover:scale-105 transition">
+                  <button
+                    onClick={() => navigate("/spotify-popular-playList/")}
+                    className="rounded-[500px] border-none bg-secondary-0 py-2 px-6 w-max font-bold text-primary-900 hover:scale-105 transition"
+                  >
                     {t("browse_popular")}
                   </button>
                 </li>

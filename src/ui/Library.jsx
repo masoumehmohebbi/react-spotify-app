@@ -39,7 +39,7 @@ export function Library() {
               <li
                 onClick={() => favouriteSongHandler(item.id)}
                 key={item.id}
-                className="bg-primary-600 cursor-pointer shadow-md rounded p-3 flex gap-6 "
+                className="bg-primary-600 mb-3 cursor-pointer shadow-md rounded p-3 flex gap-6 "
               >
                 <LazyLoadImage
                   effect="blur"
