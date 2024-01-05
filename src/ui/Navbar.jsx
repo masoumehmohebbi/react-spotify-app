@@ -62,7 +62,6 @@ function NextPrevButtons() {
   const [isPrevRoute, setIsPrevRoute] = useState(true);
   const [isNextRoute, setIsNextRoute] = useState(true);
 
-  console.log(navigate);
   useEffect(() => {
     if (window.history.state && window.history.state.idx > 0) {
       setIsPrevRoute(false);
@@ -72,10 +71,7 @@ function NextPrevButtons() {
   }, [isPrevRoute]);
 
   useEffect(() => {
-    if (
-      window.history.state &&
-      window.history.state.idx < window.history.length - 1
-    ) {
+    if (window.history.state && window.history.state.idx > 0) {
       setIsNextRoute(false);
     } else {
       setIsNextRoute(true);
@@ -87,10 +83,7 @@ function NextPrevButtons() {
       <button
         disabled={isNextRoute}
         onClick={() => {
-          if (
-            window.history.state &&
-            window.history.state.idx < window.history.length - 1
-          ) {
+          if (window.history.state && window.history.state.idx > 0) {
             navigate(1);
             setIsNextRoute(false);
           } else {
@@ -98,18 +91,23 @@ function NextPrevButtons() {
             setIsNextRoute(true);
           }
         }}
-        className={`${
+        className={` ${
           isNextRoute ? "cursor-not-allowed" : "cursor-pointer"
         } bg-primary-900 bg-opacity-70 h-8 w-8 rounded-full border-none flex justify-center items-center`}
       >
-        <HiOutlineChevronRight className="text-2xl text-secondary-50" />
+        <HiOutlineChevronRight
+          className={`${
+            isNextRoute ? "text-secondary-50" : "text-success"
+          } text-2xl `}
+        />
       </button>
+
+      {/* left */}
       <button
         disabled={isPrevRoute}
         onClick={() => {
           if (window.history.state && window.history.state.idx > 0) {
             navigate(-1);
-            // setIsPrevRoute(navigate ? false : true);
             setIsPrevRoute(false);
           } else {
             navigate("/", { replace: true });
@@ -120,7 +118,11 @@ function NextPrevButtons() {
           isPrevRoute ? "cursor-not-allowed" : "cursor-pointer"
         } bg-primary-900 bg-opacity-70 h-8 w-8 rounded-full border-none flex justify-center items-center`}
       >
-        <HiOutlineChevronLeft className="text-2xl text-secondary-50" />
+        <HiOutlineChevronLeft
+          className={`${
+            isPrevRoute ? "text-secondary-50" : "text-success"
+          } text-2xl `}
+        />
       </button>
     </div>
   );

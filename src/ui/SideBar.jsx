@@ -130,7 +130,7 @@ export const SideBar = () => {
               <>
                 <li className="bg-primary-600 rounded px-4 py-6 flex w-full flex-col gap-6">
                   <h3 className="text-md font-bold">{t("first_playlist")}</h3>
-                  <p className="text-sm">{t("help_you")}</p>
+                  <p className="text-sm">{t("it's_easy")}</p>
 
                   <Tippy
                     interactive={true}
@@ -170,16 +170,18 @@ export const SideBar = () => {
                       }
                       className="bg-secondary-0 rounded-[500px] border-none py-2 mt-4 px-6 w-max font-bold text-primary-900 hover:scale-105 transition"
                     >
-                      {t("create_playList")}
+                      {t("see_playList")}
                     </button>
                   </Tippy>
                 </li>
 
                 <li className="bg-primary-600 rounded px-4 py-6 flex flex-col gap-6 ">
-                  <h3 className="text-md font-bold">{t("find_padcast")}</h3>
+                  <h3 className="text-md font-bold">
+                    {t("find_popular_songs")}
+                  </h3>
                   <p className="text-sm">{t("keep_updated")}</p>
                   <button className="rounded-[500px] border-none bg-secondary-0 py-2 px-6 w-max font-bold text-primary-900 hover:scale-105 transition">
-                    {t("browse_podcasts")}
+                    {t("browse_popular")}
                   </button>
                 </li>
               </>
