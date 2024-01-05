@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BiMenu, BiX } from "react-icons/bi";
 import { useTranslation } from "react-i18next";
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
@@ -59,17 +59,66 @@ export function HamburgerMenu({ setOpen, open, children, size }) {
 
 function NextPrevButtons() {
   const navigate = useNavigate();
+  const [isPrevRoute, setIsPrevRoute] = useState(true);
+  const [isNextRoute, setIsNextRoute] = useState(true);
+
+  console.log(navigate);
+  useEffect(() => {
+    if (window.history.state && window.history.state.idx > 0) {
+      setIsPrevRoute(false);
+    } else {
+      setIsPrevRoute(true);
+    }
+  }, [isPrevRoute]);
+
+  useEffect(() => {
+    if (
+      window.history.state &&
+      window.history.state.idx < window.history.length - 1
+    ) {
+      setIsNextRoute(false);
+    } else {
+      setIsNextRoute(true);
+    }
+  }, [isNextRoute]);
+
   return (
     <div dir="rtl" className="hidden md:flex gap-x-2">
       <button
-        onClick={() => navigate(-1)}
-        className="bg-primary-900 bg-opacity-70 h-8 w-8 rounded-full border-none flex justify-center items-center"
+        disabled={isNextRoute}
+        onClick={() => {
+          if (
+            window.history.state &&
+            window.history.state.idx < window.history.length - 1
+          ) {
+            navigate(1);
+            setIsNextRoute(false);
+          } else {
+            navigate("/", { replace: true });
+            setIsNextRoute(true);
+          }
+        }}
+        className={`${
+          isNextRoute ? "cursor-not-allowed" : "cursor-pointer"
+        } bg-primary-900 bg-opacity-70 h-8 w-8 rounded-full border-none flex justify-center items-center`}
       >
         <HiOutlineChevronRight className="text-2xl text-secondary-50" />
       </button>
       <button
-        onClick={() => navigate((prev) => prev + 1)}
-        className="bg-primary-900 bg-opacity-70 h-8 w-8 rounded-full border-none flex justify-center items-center"
+        disabled={isPrevRoute}
+        onClick={() => {
+          if (window.history.state && window.history.state.idx > 0) {
+            navigate(-1);
+            // setIsPrevRoute(navigate ? false : true);
+            setIsPrevRoute(false);
+          } else {
+            navigate("/", { replace: true });
+            setIsPrevRoute(true);
+          }
+        }}
+        className={` ${
+          isPrevRoute ? "cursor-not-allowed" : "cursor-pointer"
+        } bg-primary-900 bg-opacity-70 h-8 w-8 rounded-full border-none flex justify-center items-center`}
       >
         <HiOutlineChevronLeft className="text-2xl text-secondary-50" />
       </button>

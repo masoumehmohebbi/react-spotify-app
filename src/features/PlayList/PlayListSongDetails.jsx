@@ -32,7 +32,7 @@ const PlayListSongDetails = () => {
 
   const cookies = new Cookies();
   const token = cookies.get("accessToken");
-  const [isToken, setIsToken] = useState();
+  const [isToken, setIsToken] = useState(null);
   useEffect(() => {
     setIsToken(token ? false : true);
   }, [token]);

@@ -109,7 +109,7 @@ export const SideBar = () => {
                   </div>
                 }
               >
-                <Tippy arrow="" content={t("your-plalist")}>
+                <Tippy arrow="" content={t("your-playlist")}>
                   <button
                     onClick={
                       isCreateNewPlaylist
