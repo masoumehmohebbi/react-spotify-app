@@ -88,7 +88,7 @@ const PlayListSongDetails = () => {
           <LazyLoadImage
             effect="blur"
             src={selectedSong?.cover_image}
-            className="md:max-h-96 max-h-48 sm:h-64 object-contain rounded-md shadow-md"
+            className="max-h-48 sm:max-h-64 md:max-h-96  object-contain rounded-md shadow-md"
           />
 
           <ul className="text-secondary-50 w-full text-sm sm:text-base">

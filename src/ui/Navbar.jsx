@@ -11,6 +11,7 @@ import "tippy.js/themes/light.css";
 import useUser from "../features/PlayList/useUser";
 import { IoExitOutline } from "react-icons/io5";
 import { FaSpotify } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const cookies = new Cookies();
 const token = cookies.get("accessToken");
@@ -57,12 +58,19 @@ export function HamburgerMenu({ setOpen, open, children, size }) {
 }
 
 function NextPrevButtons() {
+  const navigate = useNavigate();
   return (
     <div dir="rtl" className="hidden md:flex gap-x-2">
-      <button className="bg-primary-900 bg-opacity-70 h-8 w-8 rounded-full border-none flex justify-center items-center">
+      <button
+        onClick={() => navigate(-1)}
+        className="bg-primary-900 bg-opacity-70 h-8 w-8 rounded-full border-none flex justify-center items-center"
+      >
         <HiOutlineChevronRight className="text-2xl text-secondary-50" />
       </button>
-      <button className="bg-primary-900 bg-opacity-70 h-8 w-8 rounded-full border-none flex justify-center items-center">
+      <button
+        onClick={() => navigate((prev) => prev + 1)}
+        className="bg-primary-900 bg-opacity-70 h-8 w-8 rounded-full border-none flex justify-center items-center"
+      >
         <HiOutlineChevronLeft className="text-2xl text-secondary-50" />
       </button>
     </div>
