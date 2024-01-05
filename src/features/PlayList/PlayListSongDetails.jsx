@@ -85,10 +85,9 @@ const PlayListSongDetails = () => {
       <Navbar />
       <div className="pb-14 p-2">
         <div className="flex gap-x-7">
-          <LazyLoadImage
-            effect="blur"
+          <img
             src={selectedSong?.cover_image}
-            className="max-h-48 sm:max-h-64 md:max-h-96  object-contain rounded-md shadow-md"
+            className="max-h-48 sm:max-h-64 lg:max-h-96 object-contain rounded-md shadow-md"
           />
 
           <ul className="text-secondary-50 w-full text-sm sm:text-base">
