@@ -248,7 +248,7 @@ export const SideBar = () => {
               </>
             )}
 
-            {userProfile?.length > 0 && <Library />}
+            {userProfile && <Library />}
           </ul>
 
           <ModalButton />

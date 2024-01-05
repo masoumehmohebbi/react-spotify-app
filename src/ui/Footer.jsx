@@ -1,12 +1,14 @@
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import {
   BiLogoInstagram,
   BiLogoTwitter,
   BiLogoFacebookCircle,
 } from "react-icons/bi";
-import { Link } from "react-router-dom";
+
 export const Footer = ({ children }) => {
   const { t } = useTranslation();
+
   return (
     <footer className="px-9 pt-5">
       <div className="grid grid-cols-8 text-primary-100 gap-y-9 md:gap-y-0">
@@ -26,7 +28,6 @@ export const Footer = ({ children }) => {
               <Link to={"/signup"}>
                 <li>{t("sign_up")}</li>
               </Link>
-              <Link to={"/admin-dashboard"}>Admin Dashboard</Link>
             </ul>
             <ul className="space-y-2">
               <p className="font-bold text-secondary-0 text-xl md:text-lg">

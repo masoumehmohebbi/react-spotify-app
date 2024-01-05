@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { useOpenModal } from "../context/OpenModalContext";
@@ -33,14 +32,12 @@ export const Modal = () => {
   const { isOpen, setIsOpen } = useOpenModal();
 
   const navigate = useNavigate();
-  const [langCode, setLangCode] = useState(localStorage.getItem("i18nextLng"));
 
   const handleLanguageClick = (code) => {
-    setLangCode(code);
     navigate(`?lng=${code}`);
     window.location.reload();
-    console.log(langCode);
   };
+
   if (!isOpen) return null;
   return (
     <div>

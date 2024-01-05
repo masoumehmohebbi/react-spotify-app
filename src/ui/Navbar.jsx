@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { BiMenu, BiSearch, BiX } from "react-icons/bi";
+import { BiMenu, BiX } from "react-icons/bi";
 import { useTranslation } from "react-i18next";
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
 import Tippy from "@tippyjs/react";
 import { RiArrowDownSLine } from "react-icons/ri";
@@ -29,12 +28,6 @@ export default function Navbar({ children }) {
     <div className="bg-primary-900 z-10 sticky top-0 right-0 left-0 bg-opacity-50 px-5 h-20 md:h-[4.5rem] items-center w-full flex justify-between text-primary-100">
       {!token && (
         <HamburgerMenu HamburgerMenu setOpen={setOpen} open={open} size="md">
-          {/* <div className="px-4 block md:hidden rounded-[500px] max-w-md  w-full">
-          <div className="justify-between px-3 flex bg-primary-600 items-center rounded-[500px] focus-within:border-secondary-0 border-primary-600 border-2 duration-300">
-            <SearchBox />
-          </div>
-        </div> */}
-
           <Link to={"/"}>
             <FaSpotify className="text-4xl text-secondary-0" />
           </Link>
@@ -141,22 +134,5 @@ function SigninSignUpButtons({ open }) {
         {t("log_in")}
       </Link>
     </div>
-  );
-}
-
-//  :)
-export function SearchBox() {
-  const { t } = useTranslation();
-  const navigate = useNavigate();
-  return (
-    <>
-      <input
-        onFocus={() => navigate("/search")}
-        className="py-2 md:py-3 px-3 w-full bg-transparent outline-none "
-        type="text"
-        placeholder={t("what_to_listen")}
-      />
-      <BiSearch className="text-2xl text-primary-50 " />
-    </>
   );
 }

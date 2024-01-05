@@ -5,6 +5,7 @@ import { useOpenModal } from "../context/OpenModalContext";
 const ModalButton = () => {
   const { setIsOpen } = useOpenModal();
   const { t } = useTranslation();
+
   return (
     <button
       onClick={() => setIsOpen((prev) => !prev)}
