@@ -15,6 +15,9 @@ import { toast } from "react-hot-toast";
 import useFavourites from "../favourites/useFavourites";
 import { useSelectedSongFavourite } from "../favourites/FavouritesContext";
 import { useSongDetails } from "./SongDetailsContext";
+import Cookies from "universal-cookie";
+import { useEffect } from "react";
+import { useState } from "react";
 
 const PlayListSongDetails = () => {
   const { setSongUrl } = useSongDetails();
@@ -25,6 +28,14 @@ const PlayListSongDetails = () => {
   const selectedSong = data?.data?.results[id - 1];
   const allSongs = data?.data?.results;
   const { selectedId } = useSelectedSongFavourite();
+
+  const cookies = new Cookies();
+  const token = cookies.get("accessToken");
+  const [isToken, setIsToken] = useState();
+  useEffect(() => {
+    setIsToken(token ? false : true);
+    console.log(token);
+  }, [token]);
 
   const { data: favSongsData } = useFavourites();
   const allFavSongs = favSongsData?.data?.results;
@@ -125,7 +136,10 @@ const PlayListSongDetails = () => {
           >
             <FaPlay className="text-lg text-primary-900" />
           </div>
-          <button>
+          <button
+            disabled={isToken}
+            className={` ${isToken && "cursor-not-allowed"}`}
+          >
             {isAddToFavourite ? (
               <HiHeart
                 onClick={() => removeFavouriteHandler(selectedSong?.id)}

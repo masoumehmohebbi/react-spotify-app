@@ -42,7 +42,7 @@ export default function Navbar({ children }) {
       )}
       <NextPrevButtons />
       {children}
-      <SigninSignUpButtons open={open} token={token} />
+      <SigninSignUpButtons open={open} />
     </div>
   );
 }
@@ -76,7 +76,9 @@ function NextPrevButtons() {
   );
 }
 
-function SigninSignUpButtons({ open, token }) {
+function SigninSignUpButtons({ open }) {
+  const cookies = new Cookies();
+  const token = cookies.get("accessToken");
   const { data } = useUser();
   const userProfile = data?.data;
   const { t } = useTranslation();

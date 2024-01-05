@@ -21,6 +21,7 @@ import PlayListSongDetails from "./features/PlayList/PlayListSongDetails";
 import { SpotifyPlayList } from "./features/PlayList/SpotifyPlaylist";
 import { PlayListAllPopularData } from "./features/PlayList/PlayListAllPopularData";
 import { Library } from "./ui/SideBar";
+import ScrollToTop from "./ui/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +36,7 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <ReactQueryDevtools initialIsOpen={false} />
         <Toaster />
+        <ScrollToTop />
         <Routes>
           <Route element={<AppLayout />}>
             <Route path="/" element={<Home />} />

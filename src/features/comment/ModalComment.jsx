@@ -8,10 +8,11 @@ import { useState } from "react";
 export const ModalComment = () => {
   const { isOpen, setIsOpen } = useOpenCommentModal();
   const [userComment, setUserComment] = useState("");
-  console.log(userComment);
+
   const { isPending, mutateAsync } = useMutation({
     mutationFn: sendComments,
   });
+
   const sendCommentHandler = async (e) => {
     e.preventDefault();
     try {
@@ -52,7 +53,7 @@ export const ModalComment = () => {
               name="text"
               id="text"
               dir="rtl"
-              className="input__field text-secondary-0 !w-3/4 mt-2 min-h-[150px] leading-8 text-right"
+              className="input__field text-secondary-0 w-11/12 sm:!w-3/4 mt-6 md:mt-2 min-h-[150px] leading-8 text-right"
             ></textarea>
 
             {isPending ? (
