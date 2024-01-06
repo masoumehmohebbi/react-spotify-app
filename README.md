@@ -12,7 +12,7 @@
       <li>JavaScript Library? ┈➤ ReactJs</i>
       <li>Styling ┈➤ TailwindCss</li>
       <li>State Managment ┈➤ Tanstck Query</li>
-      <li>Form vilidation ┈➤ React-Hook-Form</li>
+      <li>Form validation ┈➤ React-Hook-Form</li>
       <li>BackEnd ┈➤ Python - django</i>
       
    </ul>
