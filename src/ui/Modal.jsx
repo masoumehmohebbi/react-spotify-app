@@ -41,8 +41,11 @@ export const Modal = () => {
   if (!isOpen) return null;
   return (
     <div>
-      <div className="w-full h-screen fixed top-0 z-50 opacity-70 bg-primary-900 modal-open"></div>
-      <div className="flex items-center justify-center w-full h-screen absolute top-0 z-50 ">
+      <div className="w-full h-screen fixed inset-0 z-50 opacity-70 bg-primary-900 modal-open"></div>
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="flex items-center justify-center w-full h-screen absolute top-0 z-50 "
+      >
         <div className="z-50 w-full md:w-1/2 inset-0 md:inset-auto  bg-primary-700 fixed rounded ">
           <div className="w-full flex-col flex justify-between p-4 text-secondary-50 border-b border-b-secondary-200">
             <div className="flex justify-between w-full">
