@@ -24,6 +24,7 @@ export const ModalComment = () => {
       toast.success("با تشکر، نظر شما پس از تأیید نمایش داده خواهد شد");
       setIsOpen((prev) => !prev);
     } catch (error) {
+      toast.error(error?.request?.response);
       console.log(error);
     }
   };
