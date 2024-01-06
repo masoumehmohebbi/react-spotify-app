@@ -14,7 +14,6 @@ import { FaSpotify } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 const cookies = new Cookies();
-const token = cookies.get("accessToken");
 
 const logOutHandler = () => {
   cookies.remove("accessToken");
