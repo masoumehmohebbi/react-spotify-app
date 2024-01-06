@@ -2,17 +2,17 @@
 
    Spotify is a web music player. Styling is with Tailwind-css. The state managment is tanstack-query. And the form validation is with react-hook-form. Backend is django and mongoDB.
 
-<h2>Built with</h2>
+<h2>✨Built with</h2>
    <ul>
-      <li>Programming Language ⤳ JavaScript</li>
-      <li>JavaScript Library? ⪼ ReactJs</i>
+      <li>Programming Language ┈➤ JavaScript</li>
+      <li>JavaScript Library? ┈➤ ReactJs</i>
       <li>Styling ┈➤ TailwindCss</li>
-      <li>State Managment: Tanstck Query</li>
-      <li>Form vilidation: React-Hook-Form</li>
-      <li>BackEnd: Python - django</i>
+      <li>State Managment ┈➤ Tanstck Query</li>
+      <li>Form vilidation ┈➤ React-Hook-Form</li>
+      <li>BackEnd ┈➤ Python - django</i>
       
    </ul>
-<h2>Links </h2>
+<h2>✨ Links </h2>
 <ul>
    <li>
       <a href="https://react-spotify-app-red.vercel.app/">See Deployed Project</a>
@@ -25,7 +25,9 @@
    </li>
 </ul>
 
-<h2>Development setup</h2>
+<h2>✨ Contribution </h2>
+
+<h2>✨ Development setup</h2>
 <p>1. First, you need to clone the project:</p>
 
 ```
