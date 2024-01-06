@@ -5,7 +5,7 @@
 <h2>Links </h2>
 <ul>
    <li>
-      <a href="https://react-spotify-app-red.vercel.app/">Project homepage</a>
+      <a href="https://react-spotify-app-red.vercel.app/">See Deployed Project</a>
    </li>
    <li>
       <a href="https://github.com/masoumehmohebbi/react-spotify-app">GitHub repository</a>
