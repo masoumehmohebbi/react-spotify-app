@@ -58,7 +58,11 @@ export const SendOtpForm = ({ onSubmit, isSendingOtp, register, errors }) => {
               required: "شماره موبایل ضروری است",
               minLength: {
                 value: 11,
-                message: "شماره موبایل باید 11 رقم باشد",
+                message: "شماره موبایل نباید کمتر از 11 رقم باشد",
+              },
+              maxLength: {
+                value: 11,
+                message: "شماره موبایل نباید بیشتر از 11 رقم باشد",
               },
             }}
           />
