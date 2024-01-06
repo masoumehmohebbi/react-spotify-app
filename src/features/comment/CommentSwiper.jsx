@@ -5,6 +5,7 @@ import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import useComments from "./useComments";
 import { BiUserCircle } from "react-icons/bi";
+import * as shamsi from "shamsi-date-converter";
 
 export default function CommentSwiper() {
   const { data } = useComments();
@@ -66,7 +67,9 @@ export default function CommentSwiper() {
               </span>
             </div>
             <span className="flex justify-end w-full text-secondary-200">
-              {formatDate(comment.created_at)}
+              {shamsi
+                .gregorianToJalali(formatDate(comment.created_at))
+                .join(" / ")}
             </span>
           </SwiperSlide>
         ))}
