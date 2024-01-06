@@ -21,7 +21,8 @@ import { useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const PlayListSongDetails = () => {
-  const { setSongUrl } = useSongDetails();
+  const { setSongUrl, setSongCover, setSongTitle, setSongArtist } =
+    useSongDetails();
   const navigate = useNavigate();
   const { setIsOpen } = useOpenPlayModal();
   const { id } = useParams();
@@ -33,6 +34,7 @@ const PlayListSongDetails = () => {
   const cookies = new Cookies();
   const token = cookies.get("accessToken");
   const [isToken, setIsToken] = useState(null);
+
   useEffect(() => {
     setIsToken(token ? false : true);
   }, [token]);
@@ -74,6 +76,15 @@ const PlayListSongDetails = () => {
     return `${year}-${month.toString().padStart(2, "0")}-${day
       .toString()
       .padStart(2, "0")}`;
+  };
+
+  const playSongHandler = (e, songSrc, songCover, songName, songArtist) => {
+    e.stopPropagation();
+    setIsOpen((prev) => !prev);
+    setSongUrl(songSrc);
+    setSongCover(songCover);
+    setSongTitle(songName);
+    setSongArtist(songArtist);
   };
 
   const isAddToFavourite = allFavSongs
@@ -129,10 +140,15 @@ const PlayListSongDetails = () => {
 
         <div className="flex gap-3 p-5">
           <div
-            onClick={() => {
-              setIsOpen((prev) => !prev);
-              setSongUrl(selectedSong?.file);
-            }}
+            onClick={(e) =>
+              playSongHandler(
+                e,
+                selectedSong.file,
+                selectedSong.cover_image,
+                selectedSong.name,
+                selectedSong.artist.fullname
+              )
+            }
             className="btn-playIcon"
           >
             <FaPlay className="text-lg text-primary-900" />

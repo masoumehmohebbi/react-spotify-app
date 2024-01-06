@@ -4,6 +4,7 @@ import { sendComments } from "../../services/commentService";
 import { useMutation } from "@tanstack/react-query";
 import Loading from "../../ui/Loading";
 import { useState } from "react";
+import { toast } from "react-hot-toast";
 
 export const ModalComment = () => {
   const { isOpen, setIsOpen } = useOpenCommentModal();
@@ -16,12 +17,12 @@ export const ModalComment = () => {
   const sendCommentHandler = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await mutateAsync({
+      await mutateAsync({
         comment: userComment,
       });
       setUserComment("");
-      console.log(data);
-      window.location.reload();
+      toast.success("با تشکر، نظر شما پس از تأیید نمایش داده خواهد شد");
+      setIsOpen((prev) => !prev);
     } catch (error) {
       console.log(error);
     }
