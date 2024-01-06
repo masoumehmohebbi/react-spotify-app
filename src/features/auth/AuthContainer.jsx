@@ -35,6 +35,10 @@ const AuthContainer = () => {
       toast(data.code, {
         duration: 9000,
         position: "top-center",
+        style: {
+          position: "sticky",
+          top: "0",
+        },
       });
     } catch (error) {
       console.log(error);
