@@ -38,7 +38,7 @@ const FooterMobile = () => {
           key={item.id}
           to={item.to}
           style={({ isActive }) => ({
-            color: isActive ? "#fff" : "#545e6f",
+            color: isActive ? "#fff" : "#B3B3B3",
           })}
         >
           <li

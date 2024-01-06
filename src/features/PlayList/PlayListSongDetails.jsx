@@ -19,6 +19,7 @@ import Cookies from "universal-cookie";
 import { useEffect } from "react";
 import { useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import * as shamsi from "shamsi-date-converter";
 
 const PlayListSongDetails = () => {
   const { setSongUrl, setSongCover, setSongTitle, setSongArtist } =
@@ -131,8 +132,12 @@ const PlayListSongDetails = () => {
                 تاریخ افزودن:
               </span>
               &nbsp;
-              <span className="text-xs sm:text-sm">
-                {formatDate(selectedSong?.artist.created_at)}
+              <span dir="ltr" className="text-xs sm:text-sm">
+                {shamsi
+                  .gregorianToJalali(
+                    formatDate(selectedSong?.artist.created_at)
+                  )
+                  .join(" / ")}
               </span>
             </li>
           </ul>
@@ -219,8 +224,10 @@ function MusicsBox({ allSongs, navigate, formatDate }) {
           </li>
           <li>{song.artist.fullname}</li>
           <li className="hidden sm:block">{song.artist.bio}</li>
-          <li className="hidden md:block">
-            {formatDate(song?.artist.created_at)}
+          <li dir="ltr" className="hidden md:block text-sm">
+            {shamsi
+              .gregorianToJalali(formatDate(song?.artist.created_at))
+              .join(" / ")}
           </li>
         </ul>
       ))}
