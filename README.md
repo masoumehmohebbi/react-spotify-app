@@ -2,6 +2,16 @@
 
    Spotify is a web music player. Styling is with Tailwind-css. The state managment is tanstack-query. And the form validation is with react-hook-form. Backend is django and mongoDB.
 
+<h2>Built with<h2>
+   <ul>
+      <i>Programming Language: JavaScript</i>
+      <i>JavaScript Library? ReactJs</i>
+      <li>Styling: TailwindCss</li>
+      <li>State Managment: Tanstck Query</li>
+      <li>Form vilidation: React-Hook-Form</li>
+      <i>BackEnd: Python - django</i>
+      
+   </ul>
 <h2>Links </h2>
 <ul>
    <li>
