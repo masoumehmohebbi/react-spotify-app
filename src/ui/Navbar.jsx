@@ -164,7 +164,7 @@ function SigninSignUpButtons({ open }) {
                 className="flex items-center gap-1 justify-center"
               >
                 <IoExitOutline className="text-primary-900 w-4 h-4" />
-                <span>خروج</span>
+                <span>{t("exit")}</span>
               </button>
             </div>
           }
