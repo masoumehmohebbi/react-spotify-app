@@ -138,7 +138,7 @@ function SigninSignUpButtons({ open }) {
   if (token)
     return (
       <div className="flex items-center justify-end gap-x-2 w-full md:w-auto">
-        <h2>خوش آمدید</h2>
+        <h2>{t("welcome")}</h2>
         <Tippy
           theme="light"
           interactive={true}
