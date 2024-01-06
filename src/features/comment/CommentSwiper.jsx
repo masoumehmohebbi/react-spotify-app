@@ -6,20 +6,12 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import useComments from "./useComments";
 import { BiUserCircle } from "react-icons/bi";
 import * as shamsi from "shamsi-date-converter";
+import formatDate from "../../utils/formatDate";
 
 export default function CommentSwiper() {
   const { data } = useComments();
   const allComments = data?.data?.results;
 
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1;
-    const day = date.getDate();
-    return `${year}-${month.toString().padStart(2, "0")}-${day
-      .toString()
-      .padStart(2, "0")}`;
-  };
   return (
     <>
       <Swiper

@@ -20,6 +20,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import * as shamsi from "shamsi-date-converter";
+import formatDate from "../../utils/formatDate";
 
 const PlayListSongDetails = () => {
   const { setSongUrl, setSongCover, setSongTitle, setSongArtist } =
@@ -67,16 +68,6 @@ const PlayListSongDetails = () => {
     } catch (error) {
       toast.error(error);
     }
-  };
-
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1;
-    const day = date.getDate();
-    return `${year}-${month.toString().padStart(2, "0")}-${day
-      .toString()
-      .padStart(2, "0")}`;
   };
 
   const playSongHandler = (e, songSrc, songCover, songName, songArtist) => {
@@ -176,11 +167,7 @@ const PlayListSongDetails = () => {
           </button>
         </div>
 
-        <MusicsBox
-          allSongs={allSongs}
-          navigate={navigate}
-          formatDate={formatDate}
-        />
+        <MusicsBox allSongs={allSongs} navigate={navigate} />
 
         <CommentsContainer />
       </div>
@@ -190,7 +177,7 @@ const PlayListSongDetails = () => {
 
 export default PlayListSongDetails;
 
-function MusicsBox({ allSongs, navigate, formatDate }) {
+function MusicsBox({ allSongs, navigate }) {
   return (
     <div className="text-secondary-0 pr-5 pt-11 h-[22rem] overflow-y-scroll">
       <ul className="grid grid-cols-3 md:grid-cols-4 gap-x-5 sm:gap-x-16 justify-items-start">
