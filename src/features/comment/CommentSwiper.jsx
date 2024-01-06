@@ -66,7 +66,10 @@ export default function CommentSwiper() {
                 {comment.user.last_name}
               </span>
             </div>
-            <span className="flex justify-end w-full text-secondary-200">
+            <span
+              dir="ltr"
+              className="flex justify-start text-sm w-full text-secondary-200"
+            >
               {shamsi
                 .gregorianToJalali(formatDate(comment.created_at))
                 .join(" / ")}
