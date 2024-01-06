@@ -25,9 +25,12 @@ const logOutHandler = () => {
 export default function Navbar({ children }) {
   const [open, setOpen] = useState(false);
 
+  const { data } = useUser();
+  const userProfile = data?.data;
+
   return (
     <div className="bg-primary-900 z-10 sticky top-0 right-0 left-0 bg-opacity-50 px-5 h-20 md:h-[4.5rem] items-center w-full flex justify-between text-primary-100">
-      {!token && (
+      {!userProfile && (
         <HamburgerMenu HamburgerMenu setOpen={setOpen} open={open} size="md">
           <Link to={"/"}>
             <FaSpotify className="text-4xl text-secondary-0" />
