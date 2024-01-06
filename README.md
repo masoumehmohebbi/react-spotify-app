@@ -4,12 +4,12 @@
 
 <h2>Built with<h2>
    <ul>
-      <i>Programming Language: JavaScript</i>
-      <i>JavaScript Library? ReactJs</i>
+      <li>Programming Language: JavaScript</li>
+      <li>JavaScript Library? ReactJs</i>
       <li>Styling: TailwindCss</li>
       <li>State Managment: Tanstck Query</li>
       <li>Form vilidation: React-Hook-Form</li>
-      <i>BackEnd: Python - django</i>
+      <li>BackEnd: Python - django</i>
       
    </ul>
 <h2>Links </h2>
