@@ -28,7 +28,13 @@ const AuthContainer = () => {
         phone: phoneNumber,
       });
       console.log(data.code);
+
       toast.success(data.detail);
+
+      toast(data.code, {
+        duration: 9000,
+        position: "top-center",
+      });
     } catch (error) {
       console.log(error);
     }
