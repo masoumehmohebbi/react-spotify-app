@@ -57,12 +57,14 @@ export const AboutUs = () => {
         <div className="pt-8 pb-24 w-full md:w-11/12">
           <div className="text-center">
             <h1 className="text-2xl font-bold">About Project</h1>
-            <p className="pt-9 text-primary-500 w-full lg:max-w-4xl mx-auto">
-              Spotify is a web music player. This website has (feauture).Styling
-              is with Tailwind-css. The state managment is tanstack-query. And
-              the form validation is with react-hook-form. Backend is django and
-              mongoDB. Well, This website is developed by the following
-              developers.
+            <p
+              dir="ltr"
+              className="pt-9 text-primary-500 w-full lg:max-w-4xl mx-auto"
+            >
+              Spotify is a web music player. Styling is with Tailwind-css. The
+              state managment is tanstack-query. And the form validation is with
+              react-hook-form. Backend is django and mongoDB. Well, This website
+              is developed by the following developers.
             </p>
           </div>
           <div className="text-center mt-24">
