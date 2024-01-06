@@ -1,6 +1,6 @@
 # React Spotify App 🟢⏯
 
-   🖊 Spotify is a web music player. Styling is with Tailwind-css. The state managment is tanstack-query. And the form validation is with react-hook-form. Backend is django and mongoDB.
+   Spotify is a web music player. Styling is with Tailwind-css. The state managment is tanstack-query. And the form validation is with react-hook-form. Backend is django and mongoDB.
 
 <h2>✨Built with</h2>
    <ul>
@@ -43,6 +43,7 @@
 </ul>
 
 <h2>✨ Contribution </h2>
+<a href="https://github.com/afsharsharifi/SpotifyAPIClone" >BackEnd 🐍</a>
 
 <h2>✨ Development setup</h2>
 <p>1. First, you need to clone the project:</p>
