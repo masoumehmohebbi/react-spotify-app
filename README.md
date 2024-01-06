@@ -4,9 +4,9 @@
 
 <h2>Built with</h2>
    <ul>
-      <li>Programming Language: JavaScript</li>
-      <li>JavaScript Library? ReactJs</i>
-      <li>Styling: TailwindCss</li>
+      <li>Programming Language ⤳ JavaScript</li>
+      <li>JavaScript Library? ⪼ ReactJs</i>
+      <li>Styling ┈➤ TailwindCss</li>
       <li>State Managment: Tanstck Query</li>
       <li>Form vilidation: React-Hook-Form</li>
       <li>BackEnd: Python - django</i>
