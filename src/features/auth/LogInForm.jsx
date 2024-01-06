@@ -3,18 +3,17 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import TextField from "../../ui/TextField";
 import PasswordField from "../../ui/PasswordField";
-import useUser from "./useUser";
 import { getTokens } from "../../services/authService";
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import Loading from "../../ui/Loading";
+import { useForm } from "react-hook-form";
 
 export const LogInForm = () => {
+  const { register, getValues } = useForm();
   const { t } = useTranslation();
   const [isShowPassword, setIsShowPassword] = useState(false);
-  const [logInPhoneNumber, setLogInPhoneNumber] = useState("");
-  const [logInPassword, setLogInPassword] = useState("");
   const navigate = useNavigate();
 
   const { isPending, mutateAsync: mutateAsyncTokens } = useMutation({
@@ -23,10 +22,11 @@ export const LogInForm = () => {
 
   const logInHandler = async (e) => {
     e.preventDefault();
+    console.log(getValues("phoneNumber"));
     try {
       const { data } = await mutateAsyncTokens({
-        verified_phone: logInPhoneNumber,
-        password: logInPassword,
+        verified_phone: getValues("phoneNumber"),
+        password: getValues("password"),
       });
 
       document.cookie = `refreshToken=${data.refresh}`;
@@ -36,16 +36,15 @@ export const LogInForm = () => {
         icon: "👏",
       });
       navigate("/");
-      window.scrollTo(0, 0);
     } catch (error) {
       if (error?.response.status === 401) {
         toast.error("کاربری با این مشخصات وجود ندارد");
-      } else toast.error(error?.request?.response);
+      } else if (!getValues("phoneNumber") || !getValues("password")) {
+        toast.error("پر کردن تمامی فیلدها الزامیست");
+      } else toast.error("شماره موبایل یا رمز اشتباه است");
       // toast.error(error?.response?.data?.detail);
     }
   };
-  const { data } = useUser();
-  console.log(data?.data);
 
   return (
     <div className="w-full md:max-w-3xl mx-auto flex items-center justify-center md:mt-8">
@@ -59,19 +58,35 @@ export const LogInForm = () => {
           className="w-3/4 flex flex-col gap-y-7 mt-8"
         >
           <TextField
+            name="phoneNumber"
             label={t("phone_number")}
             id="phonenumber"
             type="number"
             placeholder={t("phone_number")}
-            value={logInPhoneNumber}
-            onChange={(e) => setLogInPhoneNumber(e.target.value)}
+            register={register}
+            required
+            validationSchema={{
+              required: "شماره موبایل ضروری است",
+              minLength: {
+                value: 11,
+                message: "شماره موبایل باید 11 رقم باشد",
+              },
+            }}
           />
 
           <PasswordField
-            onChange={(e) => setLogInPassword(e.target.value)}
             onClick={() => setIsShowPassword((prev) => !prev)}
             isShowPass={isShowPassword}
-            value={logInPassword}
+            name="password"
+            register={register}
+            required
+            validationSchema={{
+              required: "رمز ضروری است",
+              minLength: {
+                value: 8,
+                message: "رمز باید بیشتر از 8 رقم باشد",
+              },
+            }}
           />
 
           <div className="flex justify-end w-full mt-4">

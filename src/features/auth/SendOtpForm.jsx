@@ -1,40 +1,13 @@
 import { Link } from "react-router-dom";
-// import { CgDanger } from "react-icons/cg";
 import { useTranslation } from "react-i18next";
 import TextField from "../../ui/TextField";
 import Loading from "../../ui/Loading";
 import PasswordField from "../../ui/PasswordField";
 import { useState } from "react";
 
-export const SendOtpForm = ({
-  phoneNumber,
-  onChange,
-  firstName,
-  setFirstName,
-  lastName,
-  setLastName,
-  password,
-  setPassword,
-  onSubmit,
-  isSendingOtp,
-}) => {
+export const SendOtpForm = ({ onSubmit, isSendingOtp, register, errors }) => {
   const { t } = useTranslation();
   const [isShowPassword, setIsShowPassword] = useState(false);
-
-  //   toast.success(data.message)
-  //   toast.error(error?.response?.data?.message)
-
-  //   const [err, setErrr] = useState(false);
-
-  //   const validate = (event) => {
-  //     event.preventDefault();
-  //     if (!validEmail.test("userEmail")) {
-  //       setErrr(true);
-  //     }
-  //     if (!validPassword.test(userPass)) {
-  //       setErrr(true);
-  //     }
-  //   };
 
   return (
     <div className="w-full mx-auto md:max-w-3xl flex items-center justify-center md:mt-8">
@@ -42,44 +15,68 @@ export const SendOtpForm = ({
         <h1 className="text-4xl xl:text-5xl px-5 md:px-0 text-center font-bold tracking-wide">
           {t("sign_up_to_start_listening")}
         </h1>
-        {/* {err && (
-          <div className="bg-error w-full flex items-center justify-end gap-4 px-4 py-2 rounded">
-            <p className="text-md">{err && <p>ایمیل معتبر نمیباشد</p>}</p>
-            <CgDanger className="text-2xl" />
-          </div>
-        )} */}
+
         <form className="w-3/4 flex flex-col gap-y-7 mt-8" onSubmit={onSubmit}>
           <TextField
             label={t("first_name")}
             id="firstname"
+            name="firstName"
             type="text"
             placeholder={t("first_name")}
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
+            register={register}
+            required
+            validationSchema={{
+              required: "نام ضروری است",
+            }}
+            errors={errors}
           />
 
           <TextField
             label={t("last_name")}
             id="lastname"
+            name="lastName"
             type="text"
             placeholder={t("last_name")}
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
+            register={register}
+            required
+            errors={errors}
+            validationSchema={{
+              required: "فامیلی ضروری است",
+            }}
           />
 
           <TextField
             label={t("phone_number")}
             id="number"
             type="number"
+            name="phoneNumber"
             placeholder={t("phone_number")}
-            value={phoneNumber}
-            onChange={onChange}
+            register={register}
+            required
+            errors={errors}
+            validationSchema={{
+              required: "شماره موبایل ضروری است",
+              minLength: {
+                value: 11,
+                message: "شماره موبایل باید 11 رقم باشد",
+              },
+            }}
           />
+
           <PasswordField
-            onChange={(e) => setPassword(e.target.value)}
             onClick={() => setIsShowPassword((prev) => !prev)}
             isShowPass={isShowPassword}
-            value={password}
+            name="password"
+            register={register}
+            required
+            errors={errors}
+            validationSchema={{
+              required: "رمز ضروری است",
+              minLength: {
+                value: 8,
+                message: "رمز باید بیشتر از 8 رقم باشد",
+              },
+            }}
           />
 
           {isSendingOtp ? (

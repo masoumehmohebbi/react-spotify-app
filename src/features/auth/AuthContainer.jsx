@@ -4,14 +4,17 @@ import CheckOtpForm from "./CheckOtpForm";
 import { useMutation } from "@tanstack/react-query";
 import { getOtp, registerUser } from "../../services/authService";
 import { toast } from "react-hot-toast";
+import { useForm } from "react-hook-form";
 
 const AuthContainer = () => {
-  const [step, setStep] = useState(1);
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const {
+    handleSubmit,
+    register,
+    getValues,
+    formState: { errors },
+  } = useForm();
 
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [password, setPassword] = useState("");
+  const [step, setStep] = useState(1);
 
   const { isPending: isSendingOtp, mutateAsync: mutateAsyncRegister } =
     useMutation({
@@ -25,10 +28,8 @@ const AuthContainer = () => {
   const getOtpHandler = async () => {
     try {
       const { data } = await mutateAsyncGetOtp({
-        phone: phoneNumber,
+        phone: getValues("phoneNumber"),
       });
-      console.log(data.code);
-
       toast.success(data.detail);
 
       toast(data.code, {
@@ -40,17 +41,15 @@ const AuthContainer = () => {
     }
   };
 
-  const sendOtpHandler = async (e) => {
-    e.preventDefault();
+  const sendOtpHandler = async (data) => {
     try {
-      const res = await mutateAsyncRegister({
-        first_name: firstName,
-        last_name: lastName,
-        requested_phone: phoneNumber,
-        password: password,
+      await mutateAsyncRegister({
+        first_name: data.firstName,
+        last_name: data.lastName,
+        requested_phone: data.phoneNumber,
+        password: data.password,
       });
       getOtpHandler();
-      console.log(res);
       setStep(2);
     } catch (error) {
       console.log(error);
@@ -64,26 +63,24 @@ const AuthContainer = () => {
         return (
           <SendOtpForm
             setStep={setStep}
-            phoneNumber={phoneNumber}
-            onChange={(e) => setPhoneNumber(e.target.value)}
-            onSubmit={sendOtpHandler}
-            firstName={firstName}
-            setFirstName={setFirstName}
-            lastName={lastName}
-            setLastName={setLastName}
-            password={password}
-            setPassword={setPassword}
+            onSubmit={handleSubmit(sendOtpHandler)}
             isSendingOtp={isSendingOtp}
+            register={register}
+            phoneNumber={getValues("phoneNumber")}
+            firstName={getValues("firstName")}
+            lastName={getValues("lastName")}
+            password={getValues("password")}
+            errors={errors}
           />
         );
       case 2:
         return (
           <CheckOtpForm
-            onReSendOtp={getOtpHandler}
-            phoneNumber={phoneNumber}
             onBack={() => setStep((s) => s - 1)}
+            onReSendOtp={getOtpHandler}
+            phoneNumber={getValues("phoneNumber")}
             otpResponse={otpResponse}
-            password={password}
+            password={getValues("password")}
           />
         );
 
