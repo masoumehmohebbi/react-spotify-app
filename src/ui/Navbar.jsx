@@ -137,7 +137,7 @@ function SigninSignUpButtons({ open }) {
   const userProfile = data?.data;
   const { t } = useTranslation();
 
-  if (token)
+  if (token || userProfile)
     return (
       <div className="flex items-center justify-end gap-x-2 w-full md:w-auto">
         <h2>{t("welcome")}</h2>
