@@ -145,7 +145,7 @@ export const SideBar = () => {
                     content={
                       <div className="min-w-[300px] max-w-[336px] p-2 text-secondary-0 relative top-1 rounded flex flex-col gap-2 ">
                         <h4 className="font-semibold text-lg">
-                          {t("create_playList")}
+                          {t("see_playList")}
                         </h4>
                         <p>{t("login_create_playlist")}</p>
                         <div className="flex items-center justify-end gap-4 mt-2 text-base">
