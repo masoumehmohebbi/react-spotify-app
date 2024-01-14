@@ -44,7 +44,7 @@ const developers = [
         src: "https://www.linkedin.com/in/masoumemohebbi/",
       },
       { id: 2, icon: FaGithub, src: "https://github.com/masoumehmohebbi" },
-      { id: 3, icon: FaTelegram, src: "" },
+      { id: 3, icon: FaTelegram, src: "https://t.me/frontend_source" },
     ],
   },
 ];

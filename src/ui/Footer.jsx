@@ -41,7 +41,7 @@ export const Footer = ({ children }) => {
           <ul className="flex gap-x-5">
             <li>
               <a
-                href="#"
+                href="https://www.instagram.com/masoume.frontend.js?utm_source=qr&igsh=MTNxdzBpN2k4OHhwMw=="
                 className="rounded-full bg-primary-700 duration-300 hover:bg-secondary-200 h-10 w-10 flex justify-center items-center border-none"
               >
                 <BiLogoInstagram className="text-2xl" />

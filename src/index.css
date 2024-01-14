@@ -42,6 +42,10 @@ body {
     CircularSp-Grek, CircularSp-Deva, Helvetica, Arial, sans-serif;
 }
 
+* {
+  scroll-behavior: smooth;
+}
+
 @layer components {
   .input__field {
     @apply bg-primary-800 rounded border px-4 py-2 w-full
