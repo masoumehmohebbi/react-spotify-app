@@ -6,9 +6,6 @@
   <img src="https://github.com/masoumehmohebbi/react-spotify-app/blob/main/App-IMG.PNG"/>
 </figure>
 
-<h2>See Deployed Project</h2>
-<video src='https://github.com/masoumehmohebbi/react-spotify-app/blob/main/react-spotify-app.mp4' width=180 />
-
 <h2>✨Built with</h2>
    <ul>
       <li>Programming Language ┈➤ JavaScript</li>
