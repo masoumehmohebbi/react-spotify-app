@@ -7,7 +7,7 @@
 </figure>
 
 <h2>See Deployed Project</h2>
-<video src='https://www.aparat.com/Aparat.video.com' width=180></video>
+<video src='https://github.com/masoumehmohebbi/react-spotify-app/blob/main/react-spotify-app.mp4'></video>
 
 <h2>✨Built with</h2>
    <ul>
