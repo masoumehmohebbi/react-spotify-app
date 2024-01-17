@@ -6,6 +6,12 @@
   <img src="https://github.com/masoumehmohebbi/react-spotify-app/blob/main/App-IMG.PNG"/>
 </figure>
 
+
+
+https://github.com/masoumehmohebbi/react-spotify-app/assets/88876100/00c6f79a-67e9-472a-81bb-22de607b9042
+
+
+
 <h2>✨Built with</h2>
    <ul>
       <li>Programming Language ┈➤ JavaScript</li>
